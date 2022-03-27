@@ -25,7 +25,7 @@ router.route('/add').post((req,res) => {
                 const address = req.body.address;
                 const phone = req.body.phone;
                 const email = req.body.email;
-                const new_buyer = new user.Buyer({name:name,address:address,phone:phone,email:email,});
+                const new_buyer = new user.Buyer({reference: new_user._id,name:name,address:address,phone:phone,email:email,});
                 new_buyer.save(function (err) {
                     if(err) {console.log(err)}
                     else {res.json("user added")};
