@@ -18,7 +18,7 @@ connection.once('open', () => {
     console.log("Database connection established");
 })
 
-const userRouter = require('./routes/user');
+const userRouter = require('./routes/User/user');
 
 app.use('/User',userRouter);
 
