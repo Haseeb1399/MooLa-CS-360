@@ -3,17 +3,27 @@ const bcrypt = require("bcryptjs")
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema( {
-    user_id : {
-        type: Number,
-        required: true,
-        unique: true,
-        minlength: 1
-    },
+    // user_id : {
+    //     type: Number,
+    //     required: true,
+    //     unique: true,
+    //     minlength: 1
+    // },
+    //_id: Schema.Types.ObjectId,
+    
     username: {type: String, required :true},
     password: {type: String, required : true},
     prev_pass: {type: String, required : true},
     permissions: {type: Number, required : true},
     ban_bool: {type: Boolean, required : true}
+})
+
+const BuyerSchema = new Schema( {
+    reference: { type: Schema.Types.ObjectId, ref: 'User' },
+    name: {type: String, required :true},
+    address: {type: String, required : true},
+    phone: {type: String, required : true},
+    email: {type: String, required : true},
 })
 
 UserSchema.pre("save", function (next) {
@@ -30,6 +40,7 @@ UserSchema.pre("save", function (next) {
             }
   
             user.password = hash
+            user.prev_pass = hash
             next()
           })
         }
@@ -40,5 +51,9 @@ UserSchema.pre("save", function (next) {
   })
 
 const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+const Buyer = mongoose.model('Buyer',BuyerSchema);
+// module.exports = mongoose.model('Buyer', BuyerSchema);
+// module.exports = User;
+module.exports = {
+    User, Buyer
+}
