@@ -14,7 +14,7 @@ router.route('/add').post((req,res) => {
     const permissions = req.body.permissions;
     const ban_bool = req.body.ban_bool;
 
-    const new_user = new user({user_id:id,username:name,current_pass:pass,prev_pass:pass,permissions:permissions,ban_bool:ban_bool,});
+    const new_user = new user({user_id:id,username:name,password:pass,prev_pass:pass,permissions:permissions,ban_bool:ban_bool,});
 
     new_user.save()
     .then(() => res.json('User Added!'))
