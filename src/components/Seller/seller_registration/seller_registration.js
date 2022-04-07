@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./seller_registration.css";
 import image from "./../../../assets/preview.jpeg"
 
 const SellerRegistration = () => {

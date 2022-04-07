@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./butcher_registration.css";
 import image from "./../../../assets/preview.jpeg"
 
 const ButcherRegistration = () => {
