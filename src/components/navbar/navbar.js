@@ -5,7 +5,7 @@ import {
   Bars,
   NavMenu,
 } from './NavbarElements';
-import "./App.css";
+import "./navbar.css";
 import logo from "../../assets/moolalogo.png"
 
 const Navbar = () => {
