@@ -1,8 +1,8 @@
-const router = require('express').Router();
+const router = require('express').Router(); 
 let user = require('../../models/user');
 
 router.route('/').get((req,res) => {
-    user.find()
+    user.User.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error '+err));
 })
@@ -19,15 +19,16 @@ router.route('/add').post((req,res) => {
     new_user.save(function (err) {
         if(err) {
             console.log(err);
+            res.send(err)
         }
         else {
             if (permissions == 1) {
                 const address = req.body.address;
                 const phone = req.body.phone;
-                const email = req.body.email;
+                const email = req.body.email;   
                 const new_buyer = new user.Buyer({reference: new_user._id,name:name,address:address,phone:phone,email:email,});
                 new_buyer.save(function (err) {
-                    if(err) {console.log(err)}
+                    if(err) {console.log(err);res.send(err)}
                     else {res.json("user added")};
                 })
             }
