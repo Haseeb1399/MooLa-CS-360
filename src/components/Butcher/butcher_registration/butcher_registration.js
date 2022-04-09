@@ -85,6 +85,7 @@ const ButcherRegistration = () => {
             <div>
               <label for="Location">Location</label>
               <select onChange={handleLocation} class="input select" name="Location" id="Location">
+                <option>Select Location</option>
                 <option value="Lahore">Lahore</option>
                 <option value="Karachi">Karachi</option>
                 <option value="Islamabad">Islamabad</option>
@@ -93,6 +94,7 @@ const ButcherRegistration = () => {
             <div>
               <label for="type">Type of Butcher</label>
               <select onChange={handleType} class="input select" name="type" id="typeSelect">
+                <option>Select Type</option>
                 <option value={1} >Small Animal (Goat)</option>
                 <option value={2}>Large Animal (Cow, Camel)</option>
                 <option value={3}>Both</option>
