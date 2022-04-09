@@ -16,28 +16,35 @@ function PostAd() {
     const [weight, setWeight]=useState("")
     const [Age, setAge]=useState("")
     const [breed, setBreed]=useState("")
-    const [injury, setInjury]=useState("")
+    const [injury, setInjury]=useState("None")
     const [color, setColor]=useState("")
     const [addImage,setAddImage]=useState()
+    const [price,setPrice]=useState("")
+    const [desc,setDesc]=useState("")
 
     const submitForm=(event)=>{
         event.preventDefault()
-        const newObj={
-          sex:sex,
-          teeth:teeth,
-          weight:weight,
-          Age:Age,
-          breed:breed,
-          injury:injury,
-          color:color,
-          image:addImage
-        }
-        console.log(newObj)
+        const newObj=new FormData()
+        newObj.append("photo",addImage)
+        newObj.append("sex",sex)
+        newObj.append("teeth",teeth)
+        newObj.append("weight",weight)
+        newObj.append("Age",Age)
+        newObj.append("breed",breed)
+        newObj.append("injury",injury)
+        newObj.append("color",color)
+        newObj.append("price",price)
+        newObj.append("desc",desc)
+        newObj.append("addType",localStorage.getItem("permission"))
+        newObj.append("sellerId",localStorage.getItem("id"))
+
+
         axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/animal",newObj).then((res)=>{
             if(res.data.error){
               console.log(res.data.error)
             }else{
-              res.send("AD Posted");
+              console.log(res)
+              //res.send("AD Posted");
             }
           })
     }
@@ -93,12 +100,23 @@ return (
           type="text" onChange={(event) => setBreed(event.target.value)}
         />
       </div> 
+
+      <div>
+        <label className="logintext">Price</label>
+      </div>
+      <div>
+        <input className='boxinput' placeholder="Required"
+          type="text" onChange={(event) => setPrice(event.target.value)}
+        />
+      </div> 
+
     </div>
 
     <div className='Second'>
       <div>
         <label className="logintext">Age</label>
       </div>
+      
       <div>
         <input className='boxinput' placeholder="Required (Years)"
           type="number" onChange={(event) => setAge(event.target.value)}
@@ -167,16 +185,23 @@ return (
           Other
         </label>
       </div>
-        
+      <div>
+      <label>Description</label>
+      <textarea onChange={(event)=>setDesc(event.target.value)} ></textarea>
+      </div>
     </div>
-      
+
     <div className='Third'>
       <div><img className='upload' src={uploadimage}/></div>
       <div><input className='custom-file-input' type="file" onChange={handlePictureChange}/></div>
     </div>
   </div>
+  <br></br>
+  <hr></hr>
   <div className='buttonpos'><button type="submit" className="loginbutton">Post Ad</button></div>
 </form>
+  
+
 );
 };
 

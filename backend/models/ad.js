@@ -7,7 +7,7 @@ let user = require('./user.js')
 
 
 const AnimalSchema = new Schema({
-    type: {type: Number, required:true},
+    type: {type: String, required:true},
     weight: {type: Number, required:true},
     sex: {type: String, required:true},
     price: {type: Number, required:true}
