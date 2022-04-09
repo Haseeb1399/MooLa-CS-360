@@ -24,7 +24,7 @@ label {
   padding-top: 10px;
 }
 
-input {
+.input {
   width: 280px;
   height: 30px;
   font-size: 15px;

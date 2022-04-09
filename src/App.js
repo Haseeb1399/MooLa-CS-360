@@ -8,9 +8,30 @@ import CustomerRegistration from './components/Customer/customer_resgistration/c
 import ButcherRegistration from './components/Butcher/butcher_registration/butcher_registration'
 import Navbar from './components/navbar/navbar'
 import {Router,Switch,Route,Routes} from "react-router-dom";
+import {authContext} from './Helpers/authContext'
+import {setPermissionContext} from './Helpers/setPermissions'
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  const [authState,setAuthState]=useState(false)
+  const [permissionState, setPermissionState]=useState(false); //Permission Set or Not
+  const [currentPermission, setCurrentPermission]=useState(-1);//Set Permission Type
+
+  useEffect(()=>{
+    if(localStorage.getItem('accessToken')){
+      setAuthState(true)
+    }if(localStorage.getItem('permission')){
+      setPermissionState(true)
+      setCurrentPermission(localStorage.getItem('permission'))
+    }
+  },[])
+  const logout=()=>{
+    localStorage.removeItem("accessToken")
+    localStorage.removeItem("permission")
+    setAuthState(false)
+    setPermissionState(false)
+  }
   return (
     <div>
       <nav>

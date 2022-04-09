@@ -13,6 +13,7 @@ const UserSchema = new Schema( {
     
     username: {type: String, required :true},
     password: {type: String, required : true},
+    email:{type:String,required:true},
     prev_pass: {type: String, required : true},
     permissions: {type: Number, required : true},
     ban_bool: {type: Boolean, required : true},
@@ -63,7 +64,6 @@ UserSchema.pre("save", function (next) {
             if (hashError) {
               return next(hashError)
             }
-  
             user.password = hash
             user.prev_pass = hash
             next()

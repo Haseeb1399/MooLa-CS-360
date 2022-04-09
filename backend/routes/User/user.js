@@ -1,6 +1,10 @@
 const router = require('express').Router(); 
 const { add } = require('nodemon/lib/rules');
+const jwt = require("jsonwebtoken")
+const bcrypt = require('bcryptjs')
 let user = require('../../models/user');
+const { json } = require('express');
+
 // let multer = require('multer');
 
 // const Storage = multer.diskStorage({
@@ -21,6 +25,24 @@ let user = require('../../models/user');
 //         }
 //     }
 // })
+function verifyJWT(req,res,next){
+    const token=req.headers["accesstoken"]
+    if(token){
+        jwt.verify(token,process.env.JWT_SECRET,(err,decoded)=>{
+            if(err) return res.json({
+                isLoggedIn:false,
+                message:"Failed to Authenticate"
+            })
+            req.user={},
+            req.user.id=decoded.id,
+            req.user.username=decoded.username
+            next()
+        })
+
+    }else{
+        res.json({message:"Incorrect Token Given",isLoggedIn:false})
+    }
+}
 
 router.route('/').get((req,res) => {
     user.User.find()
@@ -32,11 +54,13 @@ router.route('/add').post((req,res) => {
     //const id = req.body.id;
     const url = req.protocol + '://' + req.get('host')
     const name = req.body.username;
+    const email=req.body.email
     const pass = req.body.pass;
     const permissions = req.body.permissions;
     const ban_bool = req.body.ban_bool;
     const new_user = new user.User({
         username:name,
+        email:email,
         password:pass,
         prev_pass:pass,
         permissions:permissions,
@@ -96,6 +120,36 @@ router.route('/add').post((req,res) => {
     
 })
 
+router.route('/login').post((req,res)=>{
+    const userLogginIn = req.body
+    user.User.findOne({email:userLogginIn.email}).then(dbUser=>{
+        if(!dbUser){
+            return res.json({
+                error:"Invalid Email or Password"
+            })
+        }
+        bcrypt.compare(userLogginIn.password,dbUser.password).then(isCorrect =>{
+            if(isCorrect){
+                const payload={
+                    id:dbUser._id,
+                    username:dbUser.username
+                }
+                jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:86400},(err,token)=>{
+                    if(err) return res.json({message:err})
+                    return res.json({message:"success",token:token,id:dbUser._id,username:dbUser.username,permission:dbUser.permissions})
+                })
+            }else{
+                res.json({
+                    error:"Invalid Email or Password"
+                })
+            }
+        })
+    })
+})
 
+router.route('/getUsername').get(verifyJWT,(req,res)=>{
+
+    res.json({isLoggedIn:true,username:req.user.username})
+})
 
 module.exports = router;
