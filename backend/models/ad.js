@@ -6,8 +6,7 @@ let user = require('./user.js')
 
 const AdSchema = new Schema({
     description: {type: String, required: true},
-   // photo: {type: Blob},
-    //video: {type: Blob},
+    photo:{type:String},
     sold: {type: Boolean, required: true},
     seller_id: {type: Schema.Types.ObjectId, ref: user.Seller},
     animal_id: {type: Number, required: true},

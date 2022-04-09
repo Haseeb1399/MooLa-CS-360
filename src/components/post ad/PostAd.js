@@ -6,31 +6,11 @@ import newimages from "../.././images/cow1.jpg"
 import axios from "axios"
 import {useState} from "react";
 
-
+//Sex--> 1=Male, 2=Female
     
 
 
 function PostAd() {
-
-    // axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/animal",newObj).then((res)=>{
-    //     if(res.data.error){
-    //       console.log(res.data.error)
-    //     }else{
-    //     //   localStorage.setItem("accessToken",res.data.token)
-    //     //   localStorage.setItem("permission",res.data.permission)
-    //     //   localStorage.setItem("id",res.data.id)
-    //     //   localStorage.setItem("username",res.data.username)
-    //       if(res.data.permission == 1){
-    //         window.location="/buyer/main"
-    //       }else if(res.data.permission==2){
-    //         window.location="/butcher/main"
-    //       }else if(res.data.permission==3){
-    //         window.location="/seller/main"
-    //       }
-    //     }
-    //   })
-
-
     const [sex, setSex]=useState("")
     const [teeth, setTeeth]=useState("")
     const [weight, setWeight]=useState("")
@@ -38,6 +18,7 @@ function PostAd() {
     const [breed, setBreed]=useState("")
     const [injury, setInjury]=useState("")
     const [color, setColor]=useState("")
+    const [addImage,setAddImage]=useState()
 
     const submitForm=(event)=>{
         event.preventDefault()
@@ -48,8 +29,10 @@ function PostAd() {
           Age:Age,
           breed:breed,
           injury:injury,
-          color:color
+          color:color,
+          image:addImage
         }
+        console.log(newObj)
         axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/animal",newObj).then((res)=>{
             if(res.data.error){
               console.log(res.data.error)
@@ -59,6 +42,12 @@ function PostAd() {
           })
     }
 
+    const handleSexChange=(event)=>{
+      setSex(event.value)
+    }
+    const handlePictureChange=(event)=>{
+      setAddImage(event.target.files[0])
+    }
 
 
   const sexes = [
@@ -67,17 +56,17 @@ function PostAd() {
     { value: 3, label: "Other", color: "#498205" },
   ];
 
+
 return (
+  <form onSubmit={submitForm} method='post' encType='multipart/form-data'>
   <div className='App'>
     <div className='First'>
       <div>
         <label className="logintext">Sex</label>
       </div>
       <div>
-        <Select options={sexes}/>
-        <input onChange={(event)=>setSex(event.target.value)}/>
+        <Select onChange={handleSexChange} options={sexes}/>
       </div>
-
       <div>
         <label className="logintext">No. of Teeth</label>
       </div>
@@ -133,6 +122,7 @@ return (
           <input
             onChange={(event) => setColor(event.target.value)}
             type="checkbox"
+            value="black"
           />
           Black
         </label>
@@ -140,7 +130,9 @@ return (
       <div>
         <label >
           <input
+            onChange={(event) => setColor(event.target.value)}
             type="checkbox"
+            value="white"
           />
           White
         </label>
@@ -149,6 +141,8 @@ return (
         <label >
           <input
             type="checkbox"
+            onChange={(event) => setColor(event.target.value)}
+            value="brown"
           />
           Brown
         </label>
@@ -157,6 +151,8 @@ return (
         <label >
           <input
             type="checkbox"
+            onChange={(event) => setColor(event.target.value)}
+            value="red"
           />
           Red
         </label>
@@ -165,21 +161,22 @@ return (
         <label >
           <input
             type="checkbox"
+            onChange={(event) => setColor(event.target.value)}
+            value="other"
           />
           Other
         </label>
       </div>
-      <div className='buttonpos'><button onClick={submitForm} className="loginbutton">Post Ad</button></div>
         
     </div>
       
     <div className='Third'>
       <div><img className='upload' src={uploadimage}/></div>
-      <div><input className='custom-file-input' type="file" multiple accept="image/*"/></div>
+      <div><input className='custom-file-input' type="file" onChange={handlePictureChange}/></div>
     </div>
-    
   </div>
-
+  <div className='buttonpos'><button type="submit" className="loginbutton">Post Ad</button></div>
+</form>
 );
 };
 
