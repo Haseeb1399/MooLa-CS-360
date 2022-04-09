@@ -15,8 +15,13 @@ const UserSchema = new Schema( {
     password: {type: String, required : true},
     prev_pass: {type: String, required : true},
     permissions: {type: Number, required : true},
-    ban_bool: {type: Boolean, required : true}
+    ban_bool: {type: Boolean, required : true},
 })
+
+//Permissions:
+//Buyer:1
+//Butcher:2
+//Seller:3
 
 const BuyerSchema = new Schema( {
     reference: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -25,6 +30,26 @@ const BuyerSchema = new Schema( {
     phone: {type: String, required : true},
     email: {type: String, required : true},
 })
+const ButcherSchema = new Schema( {
+  reference: { type: Schema.Types.ObjectId, ref: 'User' },
+  name: {type: String, required :true},
+  phone: {type: String, required : true},
+  email:{type:String,required:true},
+  address:{type:String,required:true},
+  type:{type:Number,required:true},
+  rating:{type:Number,required:true}
+})
+
+const SellerSchema = new Schema( {
+  reference: { type: Schema.Types.ObjectId, ref: 'User' },
+  name: {type: String, required :true},
+  address: {type: String, required : true},
+  phone: {type: String, required : true},
+  email: {type: String, required : true},
+  rating:{type:Number,required:true},
+  numberOfAnimalsSold:{type:Number,required:true}
+})
+
 
 UserSchema.pre("save", function (next) {
     const user = this
@@ -52,8 +77,10 @@ UserSchema.pre("save", function (next) {
 
 const User = mongoose.model('User', UserSchema);
 const Buyer = mongoose.model('Buyer',BuyerSchema);
+const Butcher = mongoose.model('Butcher',ButcherSchema);
+const Seller = mongoose.model('Seller',SellerSchema)
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {
-    User, Buyer
+    User, Buyer,Butcher,Seller
 }
