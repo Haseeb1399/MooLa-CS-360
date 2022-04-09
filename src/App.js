@@ -9,7 +9,7 @@ import CustomerLanding from './components/Customer/customer_landingPage/customer
 import ButcherLanding from './components/Butcher/Butcher_landingPage/butcher_landing'
 import SellerLanding from './components/Seller/Seller_LandingPage/seller_landing'
 import PostAd from './components/post ad/PostAd'
-import Navbar from './components/navbar/navbar'
+import Navbar from './components/navbar/index'
 import AboutUs from './components/about us/about'
 import {Route,Routes} from "react-router-dom";
 // import {authContext} from './Helpers/authContext'
@@ -32,9 +32,7 @@ function App() {
   // },[])
   return (
     <div>
-      <nav>
-        <Navbar/>
-      </nav>
+    <Navbar/>
     <Routes>
       <Route path='/' element={<LandingPage />} />
       <Route path='/login' element={<LoginPage />} /> 

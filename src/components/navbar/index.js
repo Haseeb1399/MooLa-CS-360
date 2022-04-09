@@ -24,13 +24,13 @@ const Navbar = () => {
         <NavLink to='/contact-us' activeStyle>
           Active Listings
         </NavLink>
-        <NavLink to='/sign-up' activeStyle>
+        <NavLink to='/temp' activeStyle>
           Past Listings
         </NavLink>
-        <NavLink to='/sign-up' activeStyle>
+        <NavLink to='/temp2' activeStyle>
           Profile
         </NavLink>
-        <NavLink to='/sign-up' activeStyle>
+        <NavLink to='/temp3' activeStyle>
           Log Out
         </NavLink>
       </NavMenu>

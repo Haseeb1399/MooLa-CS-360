@@ -4,7 +4,7 @@
 
 .landingtitle {
   position: relative;
-  bottom: 50px;
+  bottom: 3.125rem;
   display: flex;
   color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -15,7 +15,7 @@
 
 .landinglogo {
   position: relative;
-  bottom: 200px;
+  bottom: 3.125rem;
   display: block;
   margin-left: auto;
   margin-right: auto;

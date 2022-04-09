@@ -3,11 +3,11 @@
   }
   
   .text {
-    padding-left: 10vh;
-    padding-right: 10vh;
-    padding-top: 25vh;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 2.188rem;
     position: relative;
-    bottom: 1vh;
+    bottom: 3.125rem;
     display: flex;
     color: black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
