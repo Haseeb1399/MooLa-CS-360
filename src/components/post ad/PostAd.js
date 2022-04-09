@@ -11,13 +11,6 @@ function PostAd() {
     { value: 3, label: "Other", color: "#498205" },
   ];
 
-  const Img = ({ success }) => (
-    <img
-      style={{ width: '48px', height: '48px', position: 'absolute' }}
-      src={success ? newimages  : uploadimage}
-    />
-  );
-
 return (
   <div className='App'>
     <div className='First'>
