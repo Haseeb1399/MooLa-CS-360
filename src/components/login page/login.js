@@ -1,33 +1,19 @@
 import React from "react";
 import "./login.css";
-import { useState, useContext } from "react";
-import { authContext } from "../../Helpers/authContext";
-import { setPermissionContext } from '../../Helpers/setPermissions';
+import { useState } from "react";
 import axios from "axios";
 
 const LoginPage = () => {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
-  const {setAuthState} = useContext(authContext)
-  const {setPermissionState} = useContext(setPermissionContext)
   
-  // const getUsername=(event)=>{
-  //   axios.get(process.env.REACT_APP_LOCAL_KEY+"/User/getUsername",{
-  //     headers:{
-  //       accessToken:localStorage.getItem("accessToken")
-  //     }
-  //   }).then(res=>{
-  //     console.log(res)
-  //   }).catch(err=>{
-  //     console.log(err)
-  //   })
-  // }
   const submitForm=(event)=>{
     event.preventDefault()
     const newObj={
       email:email,
       password:password
     }
+
     axios.post(process.env.REACT_APP_LOCAL_KEY+"/User/login",newObj).then((res)=>{
       if(res.data.error){
         console.log(res.data.error)
@@ -36,9 +22,13 @@ const LoginPage = () => {
         localStorage.setItem("permission",res.data.permission)
         localStorage.setItem("id",res.data.id)
         localStorage.setItem("username",res.data.username)
-        setAuthState(true)
-        setPermissionState(true)
-        window.location="/"
+        if(res.data.permission == 1){
+          window.location="/buyer/main"
+        }else if(res.data.permission==2){
+          window.location="/butcher/main"
+        }else if(res.data.permission==3){
+          window.location="/seller/main"
+        }
       }
     })
   }
