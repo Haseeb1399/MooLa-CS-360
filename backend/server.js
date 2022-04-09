@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/User/user');
+const adRouter = require('./routes/Ad/ad');
 require('dotenv').config();
 
 
@@ -21,6 +22,7 @@ connection.once('open', () => {
 })
 
 app.use('/User',userRouter);
+app.use('/Ad',adRouter);
 
 app.listen(port, () => {
     console.log(`server is running on port : ${port}`);

@@ -3,8 +3,64 @@ import Select from "react-select";
 import "./PostAd.css"
 import uploadimage from "../.././images/uploadimage.png"
 import newimages from "../.././images/cow1.jpg"
+import axios from "axios"
+import {useState} from "react";
+
+
+    
+
 
 function PostAd() {
+
+    // axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/animal",newObj).then((res)=>{
+    //     if(res.data.error){
+    //       console.log(res.data.error)
+    //     }else{
+    //     //   localStorage.setItem("accessToken",res.data.token)
+    //     //   localStorage.setItem("permission",res.data.permission)
+    //     //   localStorage.setItem("id",res.data.id)
+    //     //   localStorage.setItem("username",res.data.username)
+    //       if(res.data.permission == 1){
+    //         window.location="/buyer/main"
+    //       }else if(res.data.permission==2){
+    //         window.location="/butcher/main"
+    //       }else if(res.data.permission==3){
+    //         window.location="/seller/main"
+    //       }
+    //     }
+    //   })
+
+
+    const [sex, setSex]=useState("")
+    const [teeth, setTeeth]=useState("")
+    const [weight, setWeight]=useState("")
+    const [Age, setAge]=useState("")
+    const [breed, setBreed]=useState("")
+    const [injury, setInjury]=useState("")
+    const [color, setColor]=useState("")
+
+    const submitForm=(event)=>{
+        event.preventDefault()
+        const newObj={
+          sex:sex,
+          teeth:teeth,
+          weight:weight,
+          Age:Age,
+          breed:breed,
+          injury:injury,
+          color:color
+        }
+        axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/animal",newObj).then((res)=>{
+            if(res.data.error){
+              console.log(res.data.error)
+            }else{
+              res.send("AD Posted");
+            }
+          })
+    }
+
+
+
   const sexes = [
     { value: 1, label: "Male", color: "#498205" },
     { value: 2, label: "Female", color: "#498205" },
@@ -19,6 +75,7 @@ return (
       </div>
       <div>
         <Select options={sexes}/>
+        <input onChange={(event)=>setSex(event.target.value)}/>
       </div>
 
       <div>
@@ -26,7 +83,7 @@ return (
       </div>
       <div>
         <input className='boxinput' placeholder="Required"
-          type="number"
+          type="number" onChange={(event) => setTeeth(event.target.value)}
         />
       </div>  
 
@@ -35,7 +92,7 @@ return (
       </div>
       <div>
         <input className='boxinput' placeholder="Required (KG)"
-          type="number"
+          type="number" onChange={(event) => setWeight(event.target.value)}
         />
       </div> 
 
@@ -44,7 +101,7 @@ return (
       </div>
       <div>
         <input className='boxinput' placeholder="Required"
-          type="text"
+          type="text" onChange={(event) => setBreed(event.target.value)}
         />
       </div> 
     </div>
@@ -55,7 +112,7 @@ return (
       </div>
       <div>
         <input className='boxinput' placeholder="Required (Years)"
-          type="number"
+          type="number" onChange={(event) => setAge(event.target.value)}
         />
       </div>
 
@@ -64,7 +121,7 @@ return (
       </div>
       <div>
         <input className='boxinput' placeholder='Optional'
-          type="text"
+          type="text" onChange={(event) => setInjury(event.target.value)}
         />
       </div> 
 
@@ -74,6 +131,7 @@ return (
       <div>
         <label >
           <input
+            onChange={(event) => setColor(event.target.value)}
             type="checkbox"
           />
           Black
@@ -111,7 +169,7 @@ return (
           Other
         </label>
       </div>
-      <div className='buttonpos'><button className="loginbutton">Post Ad</button></div>
+      <div className='buttonpos'><button onClick={submitForm} className="loginbutton">Post Ad</button></div>
         
     </div>
       
@@ -119,7 +177,9 @@ return (
       <div><img className='upload' src={uploadimage}/></div>
       <div><input className='custom-file-input' type="file" multiple accept="image/*"/></div>
     </div>
+    
   </div>
+
 );
 };
 
