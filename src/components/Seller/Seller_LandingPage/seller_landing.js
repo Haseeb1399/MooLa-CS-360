@@ -1,6 +1,6 @@
 import React from "react";
-
-const SellerLanding=()=>{
+import {Link} from "react-router-dom";
+const CustomerLanding=()=>{
     
     return(
     <div>
@@ -9,4 +9,13 @@ const SellerLanding=()=>{
     )
 }
 
-export default SellerLanding;
+
+const PostAd = () => {
+    return (
+    <div>
+        <h1>WELCOME</h1><Link to = '/post/animal'>
+     <button>Post Ad</button></Link></div>
+    )
+}
+
+export default PostAd;
