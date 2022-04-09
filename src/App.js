@@ -8,7 +8,9 @@ import ButcherRegistration from './components/Butcher/butcher_registration/butch
 import CustomerLanding from './components/Customer/customer_landingPage/customer_landing'
 import ButcherLanding from './components/Butcher/Butcher_landingPage/butcher_landing'
 import SellerLanding from './components/Seller/Seller_LandingPage/seller_landing'
+import PostAd from './components/post ad/PostAd'
 import Navbar from './components/navbar/navbar'
+import AboutUs from './components/about us/about'
 import {Route,Routes} from "react-router-dom";
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -43,6 +45,8 @@ function App() {
       <Route path='/buyer/main' element={<CustomerLanding/>}/>
       <Route path='/butcher/main' element={<ButcherLanding/>}/>
       <Route path='/seller/main' element={<SellerLanding/>}/>
+      <Route path='/about' element={<AboutUs/>}/>
+      <Route path='/post/animal' element={<PostAd/>}/>
     </Routes>
     </div>
   )

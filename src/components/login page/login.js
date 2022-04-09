@@ -33,7 +33,7 @@ const LoginPage = () => {
     })
   }
 
-
+  
   return (
     <div class="App">
       <h1 className="logintitle">LOGIN</h1>
