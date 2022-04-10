@@ -195,6 +195,7 @@ return (
       <div><img className='upload' src={uploadimage}/></div>
       <div><input className='custom-file-input' type="file" onChange={handlePictureChange}/></div>
     </div>
+
   </div>
   <br></br>
   <hr></hr>
