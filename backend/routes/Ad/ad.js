@@ -21,6 +21,14 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
+router.route('/get/animal').get((req,res) => {
+    ad.Ad.find({}, function(err,ads) {
+        if (err) res.json({error:err})
+        else res.json({message:ads})
+    })
+    //console.log(result)
+})
+
 router.route('/post/animal').post(upload.single('photo'),(req,res) => {
     const type = req.body.breed;
     const weight = req.body.weight;
