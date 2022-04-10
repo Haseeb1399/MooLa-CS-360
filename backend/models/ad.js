@@ -23,6 +23,17 @@ const AdSchema = new Schema({
     ad_type: {type: Number, required: true}
 })
 
+const BidSchema = new Schema({
+    bid_value: {type:Number},
+    ad_id: {type: Schema.Types.ObjectId, ref: 'Ad',},
+    seller_id: {type: Schema.Types.ObjectId, ref: user.Seller},
+    buyer_id: {type: Schema.Types.ObjectId, ref: user.Buyer},
+    butcher_id: {type:Number}, //Not planning on using this since we have 2 actors in each bid
+    bid_type: {type: Boolean, required: true}
+
+})
+
 const Ad = mongoose.model('Ad', AdSchema);
 const animal = mongoose.model('Animal',AnimalSchema);
-module.exports = {Ad,animal};
+const bid = mongoose.model('Bid', BidSchema);
+module.exports = {Ad,animal,bid};

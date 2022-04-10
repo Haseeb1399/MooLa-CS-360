@@ -50,14 +50,29 @@ router.route('/post/animal').post(upload.single('photo'),(req,res) => {
                 sold:sold,
                 seller_id:seller,
                 animal_id: animal,
-                ad_type:type
+                ad_type:type //Type can either be 1 or 3 since only a buyer or seller can post ads.
             })
             new_ad.save(function (err) {
                 if(err) {
                     res.json({error:err})
                 }
                 else {
-                    res.json({message:"Add Posted"});
+                    const val = req.body.val;
+                    const butcher = 0;
+                    const bid_type = false;
+                    if (req.body.addType == 1) bid_type = true; //customer has a true bid_type and seller has false bid_type
+                    const new_bid = new ad.bid({
+                        bid_value:val,
+                        ad_id: new_ad._id,
+                        seller_id:seller,
+                        buyer_id:null,
+                        butcher_id:butcher,
+                        bid_type:bid_type
+                    })
+                    new_bid.save(function(err) {
+                        if(err) res.json({error:err})
+                        else res.json({message:"Ad Posted with Default Bid and Animal"})
+                    })
                 }
             })
         }
