@@ -24,10 +24,10 @@ const Bid = () => {
                 <img src={image}></img>
             </a>
         </div>
-        <div>images from database should come here</div>
+        <div>images from database should come</div>
       </div>
 
-      <div className="first">
+      <div className="second">
         <div>Bidding</div>
         <div>Starting Price: price here</div>
         <div>Start Time: time here</div>

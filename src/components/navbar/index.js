@@ -92,7 +92,7 @@ import {
             <NavLink to='/temp6' activeStyle>
               Transaction Log
             </NavLink>
-            <NavLink to='/temp7' activeStyle>
+            <NavLink to='/view/truck' activeStyle>
               View Truck
             </NavLink>
             <NavLink to='/temp2' activeStyle>
