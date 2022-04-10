@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import LandingPage from './components/landing page/land'
 import LoginPage from './components/login page/login';
 import Signup from './components/signup/signup';
@@ -12,6 +13,7 @@ import PostAd from './components/post ad/PostAd'
 import Navbar from './components/navbar/index'
 import AboutUs from './components/about us/about'
 import {Route,Routes} from "react-router-dom";
+import UserBan from './components/Admin/banAuser/admin';
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
 // import { useEffect, useState } from 'react';
@@ -45,6 +47,7 @@ function App() {
       <Route path='/seller/main' element={<SellerLanding/>}/>
       <Route path='/about' element={<AboutUs/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
+      <Route path='/admin' element={<UserBan/>}/>
     </Routes>
     </div>
   )
