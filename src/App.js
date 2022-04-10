@@ -15,6 +15,7 @@ import Bid from './components/Customer/bidding/bid'
 import ViewTruck from './components/Customer/viewtruck/viewtruck'
 import market from './components/Customer/marketplace/marketplace'
 import {Route,Routes} from "react-router-dom";
+import Marketplace from './components/Customer/marketplace/marketplace';
 
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -50,7 +51,9 @@ function App() {
       <Route path='/about' element={<AboutUs/>}/>
       <Route path='/market'element={<market/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
-      <Route path='/cattle/bid'element={<Bid/>}/>
+      <Route path='/cattle'element={<Marketplace/>}/>
+      <Route path='/view/truck'element={<ViewTruck/>}/>
+      <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
     </Routes>
     </div>

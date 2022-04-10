@@ -80,7 +80,7 @@ import {
             <NavLink to='/about' activeStyle>
               About Us
             </NavLink>
-            <NavLink to='/cattle/bid' activeStyle>
+            <NavLink to='/cattle' activeStyle>
               Cattle
             </NavLink>
             <NavLink to='/post/animal' activeStyle>
