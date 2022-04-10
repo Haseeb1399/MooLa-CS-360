@@ -12,7 +12,7 @@ import PostAd from './components/post ad/PostAd'
 import Navbar from './components/navbar/index'
 import AboutUs from './components/about us/about'
 import Bid from './components/Customer/bidding/bid'
-import market from './components/Customer/marketplace/marketplace'
+import Market from './components/Customer/marketplace/marketplace'
 import {Route,Routes} from "react-router-dom";
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -46,7 +46,7 @@ function App() {
       <Route path='/butcher/main' element={<ButcherLanding/>}/>
       <Route path='/seller/main' element={<SellerLanding/>}/>
       <Route path='/about' element={<AboutUs/>}/>
-      <Route path='/market'element={<market/>}/>
+      <Route path='/marketplace'element={<Market/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
       <Route path='/cattle/bid'element={<Bid/>}/>
       

@@ -21,7 +21,7 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
-router.route('/get/animal').get((req,res) => {
+router.route('/marketplace').get((req,res) => {
     ad.Ad.find({}, function(err,ads) {
         if (err) res.json({error:err})
         else res.json({message:ads})
