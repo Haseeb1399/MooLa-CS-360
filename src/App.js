@@ -11,6 +11,7 @@ import SellerLanding from './components/Seller/Seller_LandingPage/seller_landing
 import PostAd from './components/post ad/PostAd'
 import Navbar from './components/navbar/index'
 import AboutUs from './components/about us/about'
+import Bid from './components/Customer/bidding/bid'
 import {Route,Routes} from "react-router-dom";
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -45,6 +46,7 @@ function App() {
       <Route path='/seller/main' element={<SellerLanding/>}/>
       <Route path='/about' element={<AboutUs/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
+      <Route path='/cattle/bid'element={<Bid/>}/>
     </Routes>
     </div>
   )
