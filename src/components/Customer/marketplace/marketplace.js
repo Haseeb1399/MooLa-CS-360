@@ -1,17 +1,42 @@
 import React from "react";
 import "../../../App.css";
+//import './marketplace.css'
 import { FaFilter } from 'react-icons/fa'
 import img from "../../../images/profilepic.png";
 import goatpic from "../../../images/goatpic.jpeg";
 import "./marketplace.css"
+import { Link } from "react-router-dom";
+import axios from 'axios';
 
 
 const Marketplace = () => {
 
+  const feedDisplay = document.querySelector('#feed');
+
+  // fetch('http://localhost:3000/marketplace').then(res => {return res.json()}).then(data => {
+  //     data.array.forEach(wow => {
+  //       const result = <div><h3>wow</h3></div>
+  //       feedDisplay.insertAdjacentHTML("beforeend", result);
+  //     })
+  // })
+  // .catch(err => {console.log(err)})
+
+  axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{}).then(function (res) {
+    // console.log(res.data.message);
+    // feedDisplay.insertAdjacentHTML("beforeend",<div><h3>`${res.data.message}</h3></div>)
+    console.log(res) //Console me data arha he isse display karna he
+    //feedDisplay.insertAdjacentHTML("beforeend", res.data.data.message[0])
+  })
+  .catch(function(err) {
+    console.log(err)
+  })
+  
+
   return (
     <div class="App">
+      <button><Link to = '/marketplace'> </Link></button>
 {/* filter tab */}
-      <div class="filter">
+      {/* <div class="filter">
         
         <div class="title"> 
           <FaFilter class="icon"/>
@@ -68,10 +93,12 @@ const Marketplace = () => {
         </form>
         <input class="button" type="submit" form="myform" value="Filter"/>
       
-      </div>
+      </div> */}
+
+      <div id = "feed"></div>
 
 
-{/* posts */}
+{/* posts
     <div class="posts-container">
 
       <div class="posts">
@@ -99,7 +126,7 @@ const Marketplace = () => {
         </div>
 
         <div class="post-buttons">
-          <a href="#" class="button OpenAd">Open</a>
+          <a href="/cattle/bid" class="button OpenAd">Open</a>
           <a href="#" class="button Watchlist">Add to Watchlist</a>
         </div>
 
@@ -198,7 +225,7 @@ const Marketplace = () => {
 
       </div>
 
-      </div>
+      </div> */}
 
     </div>
   );

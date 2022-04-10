@@ -13,7 +13,7 @@ import Navbar from './components/navbar/index'
 import AboutUs from './components/about us/about'
 import Bid from './components/Customer/bidding/bid'
 import ViewTruck from './components/Customer/viewtruck/viewtruck'
-import market from './components/Customer/marketplace/marketplace'
+import Market from './components/Customer/marketplace/marketplace'
 import {Route,Routes} from "react-router-dom";
 import Marketplace from './components/Customer/marketplace/marketplace';
 
@@ -49,7 +49,7 @@ function App() {
       <Route path='/butcher/main' element={<ButcherLanding/>}/>
       <Route path='/seller/main' element={<SellerLanding/>}/>
       <Route path='/about' element={<AboutUs/>}/>
-      <Route path='/market'element={<market/>}/>
+      <Route path='/marketplace'element={<Market/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
       <Route path='/cattle'element={<Marketplace/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
