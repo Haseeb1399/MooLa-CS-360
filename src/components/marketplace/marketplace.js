@@ -71,6 +71,8 @@ const Marketplace = () => {
 
 
 {/* posts */}
+    <div class="posts-container">
+
       <div class="posts">
         
         <div class="header">
@@ -102,6 +104,100 @@ const Marketplace = () => {
 
       </div>
 
+      <div class="posts">
+        
+        <div class="header">
+          <img src={img} class="profilepic"/>
+          <div class="header-lines">
+            <div class="header-text">Mafzi </div>
+            <div class="header-text subtext">Posted 9 hours ago</div>
+          </div>
+        </div>
+
+        <img src={goatpic} class="post-picture" />
+        
+        <div class="post-body">
+          <div class="body-lines">
+            <div class="body-text">Sex: Male </div>
+            <div class="body-text">No. of teeth: 2</div>
+            <div class="body-text">Weight: 30KG</div>
+            <div class="body-text">Color: Brown, Black</div>
+            <div class="body-text">Breed: Kamori</div>
+            <div class="body-text">Age: 2 years</div>
+            <div class="body-text">Injuries: None</div>
+          </div>
+        </div>
+
+        <div class="post-buttons">
+          <a href="#" class="button OpenAd">Open</a>
+          <a href="#" class="button Watchlist">Add to Watchlist</a>
+        </div>
+
+      </div>
+
+      <div class="posts">
+        
+        <div class="header">
+          <img src={img} class="profilepic"/>
+          <div class="header-lines">
+            <div class="header-text">Mafzi </div>
+            <div class="header-text subtext">Posted 9 hours ago</div>
+          </div>
+        </div>
+
+        <img src={goatpic} class="post-picture" />
+        
+        <div class="post-body">
+          <div class="body-lines">
+            <div class="body-text">Sex: Male </div>
+            <div class="body-text">No. of teeth: 2</div>
+            <div class="body-text">Weight: 30KG</div>
+            <div class="body-text">Color: Brown, Black</div>
+            <div class="body-text">Breed: Kamori</div>
+            <div class="body-text">Age: 2 years</div>
+            <div class="body-text">Injuries: None</div>
+          </div>
+        </div>
+
+        <div class="post-buttons">
+          <a href="#" class="button OpenAd">Open</a>
+          <a href="#" class="button Watchlist">Add to Watchlist</a>
+        </div>
+
+      </div>
+
+      <div class="posts">
+        
+        <div class="header">
+          <img src={img} class="profilepic"/>
+          <div class="header-lines">
+            <div class="header-text">Mafzi </div>
+            <div class="header-text subtext">Posted 9 hours ago</div>
+          </div>
+        </div>
+
+        <img src={goatpic} class="post-picture" />
+        
+        <div class="post-body">
+          <div class="body-lines">
+            <div class="body-text">Sex: Male </div>
+            <div class="body-text">No. of teeth: 2</div>
+            <div class="body-text">Weight: 30KG</div>
+            <div class="body-text">Color: Brown, Black</div>
+            <div class="body-text">Breed: Kamori</div>
+            <div class="body-text">Age: 2 years</div>
+            <div class="body-text">Injuries: None</div>
+          </div>
+        </div>
+
+        <div class="post-buttons">
+          <a href="#" class="button OpenAd">Open</a>
+          <a href="#" class="button Watchlist">Add to Watchlist</a>
+        </div>
+
+      </div>
+
+      </div>
 
     </div>
   );
