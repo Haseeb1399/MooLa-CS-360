@@ -12,7 +12,9 @@ import PostAd from './components/post ad/PostAd'
 import Navbar from './components/navbar/index'
 import AboutUs from './components/about us/about'
 import Bid from './components/Customer/bidding/bid'
+import ViewTruck from './components/Customer/viewtruck/viewtruck'
 import {Route,Routes} from "react-router-dom";
+
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
 // import { useEffect, useState } from 'react';
@@ -47,6 +49,7 @@ function App() {
       <Route path='/about' element={<AboutUs/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
       <Route path='/cattle/bid'element={<Bid/>}/>
+      <Route path='/view-truck'element={<ViewTruck/>}/>
     </Routes>
     </div>
   )

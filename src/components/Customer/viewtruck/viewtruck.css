@@ -1,0 +1,15 @@
+.App {
+    text-align: center;
+  }
+
+.first {
+    position: relative;
+    float: left;
+    width: 66.6%;
+}
+
+.second {
+    position: relative;
+    float: right;
+    width: 33.3%;
+}
