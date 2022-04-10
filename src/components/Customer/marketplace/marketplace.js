@@ -1,8 +1,8 @@
 import React from "react";
-import "./App.css";
+import "../../../App.css";
 import { FaFilter } from 'react-icons/fa'
-import img from "./images/profilepic.png";
-import goatpic from "./images/goatpic.jpeg";
+import img from "../../../images/profilepic.png";
+import goatpic from "../../../images/goatpic.jpeg";
 
 
 const Marketplace = () => {
