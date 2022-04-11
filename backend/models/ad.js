@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs")
 const Schema = mongoose.Schema;
 //import {Blob} from 'buffer';
-let user = require('./user.js')
+let user = require('./user.js');
+const { stringify } = require('querystring');
 
 
 
@@ -20,6 +21,21 @@ const AdSchema = new Schema({
     sold: {type: Boolean, required: true},
     seller_id: {type: Schema.Types.ObjectId, ref: user.Seller},
     animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
+    ad_type: {type: Number, required: true}
+})
+
+const AdSchema1 = new Schema({
+    description: {type: String, required: true},
+    photo:{type:String},
+    sold: {type: Boolean, required: true},
+    seller_id: {type: Schema.Types.ObjectId, ref: user.Seller},
+    seller_name: {type:String, required:true},
+    animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
+    animal_breed: {type: String, required: true},
+    animal_weight: {type: Number, required: true},
+    animal_sex: {type: String, required: true},
+    animal_teeth: {type: Number, required: true},
+    animal_price: {type:Number, required: true},
     ad_type: {type: Number, required: true}
 })
 

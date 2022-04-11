@@ -17,7 +17,8 @@ import Market from './components/Customer/marketplace/marketplace'
 import TransactionLog from './components/Customer/transactionlog/transactionlog'
 import {Route,Routes} from "react-router-dom";
 import Marketplace from './components/Customer/marketplace/marketplace';
-
+import Admin from './components/Admin/admin'
+ 
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
 // import { useEffect, useState } from 'react';
@@ -57,6 +58,7 @@ function App() {
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/transactionlog'element={<TransactionLog/>}/>
+      <Route path='/admin'element={<Admin/>}/>
 
     </Routes>
     </div>

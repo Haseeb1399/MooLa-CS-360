@@ -22,9 +22,14 @@ const fileFilter = (req, file, cb) => {
 let upload = multer({ storage, fileFilter });
 
 router.route('/marketplace').get((req,res) => {
-    ad.Ad.find({}, function(err,ads) {
-        if (err) res.json({error:err})
-        else res.json({message:ads})
+    ad.Ad.find({})
+    .populate(['seller_id','animal_id'])
+    .exec((err,response)=>{
+        if (err == null)
+        {
+            console.log("here")
+            res.json(response);
+        }
     })
     //console.log(result)
 })
@@ -32,7 +37,15 @@ router.route('/marketplace').get((req,res) => {
 router.route('/post/animal').post(upload.single('photo'),(req,res) => {
     const type = req.body.breed;
     const weight = req.body.weight;
-    const sex = req.body.sex;
+    let sex = "";
+    if (req.body.sex == 1)
+    {
+        sex = "Male";
+    }
+    else
+    {
+        sex = "Female";
+    }
     const price = req.body.price;
     const photo= req.file.filename
     const new_animal = new ad.animal({

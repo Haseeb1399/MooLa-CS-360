@@ -120,9 +120,14 @@
   margin-left: 3.125rem;
   height: 25.625rem;
   width: 17.5rem;
+  align-self: center;
   background-color: #F4C690;
   box-shadow: 0.313rem 0.313rem 0.5rem #c1c0c0;
   border-radius: 0.5rem;
+  transform: translate(100%);
+  position: inherit;
+  text-align: center;
+  display: table;
 }
 
   .header-marketplace {
