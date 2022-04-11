@@ -34,198 +34,200 @@ const Marketplace = () => {
 
   return (
     <div class="App">
-      <button><Link to = '/marketplace'> </Link></button>
+      {/* <button><Link to = '/marketplace'> </Link></button> */}
 {/* filter tab */}
-      {/* <div class="filter">
+      <div class="filter-marketplace">
         
-        <div class="title"> 
-          <FaFilter class="icon"/>
-          <div class="text">Filters</div> 
+        <div class="title-marketplace"> 
+          <FaFilter class="icon-marketplace"/>
+          <div class="text-marketplace">Filters</div> 
         </div>
         <form id="myform">
 
-          <div class="animal">
-            <div class="text subtitle">Animal</div>
+          <div class="animal-marketplace">
+            <div class="text-marketplace subtitle-marketplace">Animal</div>
 
-            <div class="checkcontainer">
+            <div class="checkcontainer-marketplace">
               <label for="cow">
-                <input class="checkbox" type="checkbox" id="cow"/>
+                <input class="checkbox-marketplace" type="checkbox" id="cow"/>
                 Cow
               </label>
               <label for="goat">
-                <input class="checkbox" type="checkbox" id="goat"/>
+                <input class="checkbox-marketplace" type="checkbox" id="goat"/>
                 Goat
               </label>
               <label for="camel">
-                <input class="checkbox" type="checkbox" id="camel"/>
+                <input class="checkbox-marketplace" type="checkbox" id="camel"/>
                 Camel
               </label>
               <label for="buffalo">
-                <input class="checkbox" type="checkbox" id="buffalo"/>
+                <input class="checkbox-marketplace" type="checkbox" id="buffalo"/>
                 Buffalo
               </label>
             </div>
           </div>
           
-          <div class="sex">
-            <div class="text subtitle">Sex</div>
+          <div class="sex-marketplace">
+            <div class="text-marketplace subtitle-marketplace">Sex</div>
 
-            <div class="checkcontainer">
+            <div class="checkcontainer-marketplace">
               <label for="male">
-                <input class="checkbox" type="checkbox" id="male"/>
+                <input class="checkbox-marketplace" type="checkbox" id="male"/>
                 Male
               </label>
               <label for="female">
-                <input class="checkbox" type="checkbox" id="female"/>
+                <input class="checkbox-marketplace" type="checkbox" id="female"/>
                 Female
               </label>
             </div>
           </div>
 
-          <div class="weight"> 
-            <div class="text subtitle">Weight</div>
+          <div class="weight-marketplace"> 
+            <div class="text-marketplace subtitle-marketplace">Weight</div>
 
-            <input class="textboxes" type="text" placeholder="KG" id="lowest-weight" />
+            <input class="textboxes-marketplace" type="text" placeholder="KG" id="lowest-weight" />
              - 
-            <input class="textboxes" type="text" placeholder="KG" id="highest-weight" />
+            <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" />
           </div>
         
         </form>
-        <input class="button" type="submit" form="myform" value="Filter"/>
+        <input class="button-marketplace" type="submit" form="myform" value="Filter"/>
       
-      </div> */}
+      </div>
 
-      <div id = "feed"></div>
+      {/* <div id = "feed"></div> */}
 
 
-{/* posts
-    <div class="posts-container">
+{/* posts */
+    <div class="posts-container-marketplace">
 
-      <div class="posts">
+      <div class="posts-marketplace">
         
-        <div class="header">
-          <img src={img} class="profilepic"/>
-          <div class="header-lines">
-            <div class="header-text">Mafzi </div>
-            <div class="header-text subtext">Posted 9 hours ago</div>
+        <div class="header-marketplace">
+          <img src={img} class="profilepic-marketplace"/>
+          <div class="header-lines-marketplace">
+            <div class="header-text-marketplace">Mafzi </div>
+            <div class="header-text-marketplace subtex-marketplacet">Posted 9 hours ago</div>
           </div>
         </div>
 
-        <img src={goatpic} class="post-picture" />
+        <img src={goatpic} class="post-picture-marketplace" />
         
-        <div class="post-body">
-          <div class="body-lines">
-            <div class="body-text">Sex: Male </div>
-            <div class="body-text">No. of teeth: 2</div>
-            <div class="body-text">Weight: 30KG</div>
-            <div class="body-text">Color: Brown, Black</div>
-            <div class="body-text">Breed: Kamori</div>
-            <div class="body-text">Age: 2 years</div>
-            <div class="body-text">Injuries: None</div>
+        <div class="post-body-marketplace">
+          <div class="body-lines-marketplace">
+            <div class="body-text-marketplace">Sex: Male </div>
+            <div class="body-text-marketplace">No. of teeth: 2</div>
+            <div class="body-text-marketplace">Weight: 30KG</div>
+            <div class="body-text-marketplace">Color: Brown, Black</div>
+            <div class="body-text-marketplace">Breed: Kamori</div>
+            <div class="body-text-marketplace">Age: 2 years</div>
+            <div class="body-text-marketplace">Injuries: None</div>
           </div>
         </div>
 
-        <div class="post-buttons">
-          <a href="/cattle/bid" class="button OpenAd">Open</a>
-          <a href="#" class="button Watchlist">Add to Watchlist</a>
+        <div class="post-buttons-marketplace">
+          <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
+          <a href="#" class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
         </div>
 
       </div>
 
-      <div class="posts">
+      <div class="posts-marketplace">
         
-        <div class="header">
-          <img src={img} class="profilepic"/>
-          <div class="header-lines">
-            <div class="header-text">Mafzi </div>
-            <div class="header-text subtext">Posted 9 hours ago</div>
+        <div class="header-marketplace">
+          <img src={img} class="profilepic-marketplace"/>
+          <div class="header-lines-marketplace">
+            <div class="header-text-marketplace">Mafzi </div>
+            <div class="header-text-marketplace subtex-marketplacet">Posted 9 hours ago</div>
           </div>
         </div>
 
-        <img src={goatpic} class="post-picture" />
+        <img src={goatpic} class="post-picture-marketplace" />
         
-        <div class="post-body">
-          <div class="body-lines">
-            <div class="body-text">Sex: Male </div>
-            <div class="body-text">No. of teeth: 2</div>
-            <div class="body-text">Weight: 30KG</div>
-            <div class="body-text">Color: Brown, Black</div>
-            <div class="body-text">Breed: Kamori</div>
-            <div class="body-text">Age: 2 years</div>
-            <div class="body-text">Injuries: None</div>
+        <div class="post-body-marketplace">
+          <div class="body-lines-marketplace">
+            <div class="body-text-marketplace">Sex: Male </div>
+            <div class="body-text-marketplace">No. of teeth: 2</div>
+            <div class="body-text-marketplace">Weight: 30KG</div>
+            <div class="body-text-marketplace">Color: Brown, Black</div>
+            <div class="body-text-marketplace">Breed: Kamori</div>
+            <div class="body-text-marketplace">Age: 2 years</div>
+            <div class="body-text-marketplace">Injuries: None</div>
           </div>
         </div>
 
-        <div class="post-buttons">
-          <a href="#" class="button OpenAd">Open</a>
-          <a href="#" class="button Watchlist">Add to Watchlist</a>
+        <div class="post-buttons-marketplace">
+          <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
+          <a href="#" class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
         </div>
 
       </div>
 
-      <div class="posts">
+      <div class="posts-marketplace">
         
-        <div class="header">
-          <img src={img} class="profilepic"/>
-          <div class="header-lines">
-            <div class="header-text">Mafzi </div>
-            <div class="header-text subtext">Posted 9 hours ago</div>
+        <div class="header-marketplace">
+          <img src={img} class="profilepic-marketplace"/>
+          <div class="header-lines-marketplace">
+            <div class="header-text-marketplace">Mafzi </div>
+            <div class="header-text-marketplace subtex-marketplacet">Posted 9 hours ago</div>
           </div>
         </div>
 
-        <img src={goatpic} class="post-picture" />
+        <img src={goatpic} class="post-picture-marketplace" />
         
-        <div class="post-body">
-          <div class="body-lines">
-            <div class="body-text">Sex: Male </div>
-            <div class="body-text">No. of teeth: 2</div>
-            <div class="body-text">Weight: 30KG</div>
-            <div class="body-text">Color: Brown, Black</div>
-            <div class="body-text">Breed: Kamori</div>
-            <div class="body-text">Age: 2 years</div>
-            <div class="body-text">Injuries: None</div>
+        <div class="post-body-marketplace">
+          <div class="body-lines-marketplace">
+            <div class="body-text-marketplace">Sex: Male </div>
+            <div class="body-text-marketplace">No. of teeth: 2</div>
+            <div class="body-text-marketplace">Weight: 30KG</div>
+            <div class="body-text-marketplace">Color: Brown, Black</div>
+            <div class="body-text-marketplace">Breed: Kamori</div>
+            <div class="body-text-marketplace">Age: 2 years</div>
+            <div class="body-text-marketplace">Injuries: None</div>
           </div>
         </div>
 
-        <div class="post-buttons">
-          <a href="#" class="button OpenAd">Open</a>
-          <a href="#" class="button Watchlist">Add to Watchlist</a>
+        <div class="post-buttons-marketplace">
+          <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
+          <a href="#" class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
         </div>
 
       </div>
 
-      <div class="posts">
+      <div class="posts-marketplace">
         
-        <div class="header">
-          <img src={img} class="profilepic"/>
-          <div class="header-lines">
-            <div class="header-text">Mafzi </div>
-            <div class="header-text subtext">Posted 9 hours ago</div>
+        <div class="header-marketplace">
+          <img src={img} class="profilepic-marketplace"/>
+          <div class="header-lines-marketplace">
+            <div class="header-text-marketplace">Mafzi </div>
+            <div class="header-text-marketplace subtex-marketplacet">Posted 9 hours ago</div>
           </div>
         </div>
 
-        <img src={goatpic} class="post-picture" />
+        <img src={goatpic} class="post-picture-marketplace" />
         
-        <div class="post-body">
-          <div class="body-lines">
-            <div class="body-text">Sex: Male </div>
-            <div class="body-text">No. of teeth: 2</div>
-            <div class="body-text">Weight: 30KG</div>
-            <div class="body-text">Color: Brown, Black</div>
-            <div class="body-text">Breed: Kamori</div>
-            <div class="body-text">Age: 2 years</div>
-            <div class="body-text">Injuries: None</div>
+        <div class="post-body-marketplace">
+          <div class="body-lines-marketplace">
+            <div class="body-text-marketplace">Sex: Male </div>
+            <div class="body-text-marketplace">No. of teeth: 2</div>
+            <div class="body-text-marketplace">Weight: 30KG</div>
+            <div class="body-text-marketplace">Color: Brown, Black</div>
+            <div class="body-text-marketplace">Breed: Kamori</div>
+            <div class="body-text-marketplace">Age: 2 years</div>
+            <div class="body-text-marketplace">Injuries: None</div>
           </div>
         </div>
 
-        <div class="post-buttons">
-          <a href="#" class="button OpenAd">Open</a>
-          <a href="#" class="button Watchlist">Add to Watchlist</a>
+        <div class="post-buttons-marketplace">
+          <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
+          <a href="#" class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
         </div>
 
       </div>
 
-      </div> */}
+      </div> /**/}
+
+      
 
     </div>
   );

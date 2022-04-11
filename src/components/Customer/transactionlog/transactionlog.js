@@ -11,8 +11,8 @@ const TransactionLog = () => {
 
         <div class="container">
             <div class="button-container">
-                <input class="button" type="submit" value="Open Ad"/>
-                <input class="button" type="submit" value="Lodge Complaint"/>
+                <input class="button-tl" type="submit" value="Open Ad"/>
+                <input class="button-tl" type="submit" value="Lodge Complaint"/>
             </div>  
             
             <div class="container-text">
@@ -35,8 +35,8 @@ const TransactionLog = () => {
         {/* extra logs remove later */}
         <div class="container">
             <div class="button-container">
-                <input class="button" type="submit" value="Open Ad"/>
-                <input class="button" type="submit" value="Lodge Complaint"/>
+                <input class="button-tl" type="submit" value="Open Ad"/>
+                <input class="button-tl" type="submit" value="Lodge Complaint"/>
             </div>  
             
             <div class="container-text">
@@ -57,8 +57,8 @@ const TransactionLog = () => {
 
         <div class="container">
             <div class="button-container">
-                <input class="button" type="submit" value="Open Ad"/>
-                <input class="button" type="submit" value="Lodge Complaint"/>
+                <input class="button-tl" type="submit" value="Open Ad"/>
+                <input class="button-tl" type="submit" value="Lodge Complaint"/>
             </div>  
             
             <div class="container-text">

@@ -44,7 +44,7 @@
     object-fit: fill;
 }
 
-.button {
+.button-tl {
     margin-top: 15%;
     margin-left: 25%;
     margin-right: 25%;
@@ -64,9 +64,11 @@
     background-color: #de7002;
   }
   
-  .button:hover {
+  .button-tl:hover {
     cursor: pointer;
     border-color: #000;
     background-color: #000;
     color: #de7002;
   }
+
+  
