@@ -23,11 +23,11 @@ const LoginPage = () => {
         localStorage.setItem("id",res.data.id)
         localStorage.setItem("username",res.data.username)
         if(res.data.permission == 1){
-          window.location="/buyer/main"
+          window.location="/about"
         }else if(res.data.permission==2){
-          window.location="/butcher/main"
+          window.location="/about"
         }else if(res.data.permission==3){
-          window.location="/seller/main"
+          window.location="/about"
         }
       }
     })

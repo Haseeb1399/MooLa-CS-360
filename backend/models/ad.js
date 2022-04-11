@@ -7,7 +7,7 @@ let user = require('./user.js')
 
 
 const AnimalSchema = new Schema({
-    type: {type: Number, required:true},
+    type: {type: String, required:true},
     weight: {type: Number, required:true},
     sex: {type: String, required:true},
     price: {type: Number, required:true}
@@ -16,14 +16,24 @@ const AnimalSchema = new Schema({
 const AdSchema = new Schema({
     
     description: {type: String, required: true},
-   // photo: {type: Blob},
-    //video: {type: Blob},
+    photo:{type:String},
     sold: {type: Boolean, required: true},
     seller_id: {type: Schema.Types.ObjectId, ref: user.Seller},
     animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
     ad_type: {type: Number, required: true}
 })
 
+const BidSchema = new Schema({
+    bid_value: {type:Number},
+    ad_id: {type: Schema.Types.ObjectId, ref: 'Ad',},
+    seller_id: {type: Schema.Types.ObjectId, ref: user.Seller},
+    buyer_id: {type: Schema.Types.ObjectId, ref: user.Buyer},
+    butcher_id: {type:Number}, //Not planning on using this since we have 2 actors in each bid
+    bid_type: {type: Boolean, required: true}
+
+})
+
 const Ad = mongoose.model('Ad', AdSchema);
 const animal = mongoose.model('Animal',AnimalSchema);
-module.exports = {Ad,animal};
+const bid = mongoose.model('Bid', BidSchema);
+module.exports = {Ad,animal,bid};
