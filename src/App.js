@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import LandingPage from './components/landing page/land'
 import LoginPage from './components/login page/login';
 import Signup from './components/signup/signup';
@@ -16,6 +17,7 @@ import ViewTruck from './components/Customer/viewtruck/viewtruck'
 import Market from './components/Customer/marketplace/marketplace'
 import TransactionLog from './components/Customer/transactionlog/transactionlog'
 import {Route,Routes} from "react-router-dom";
+import UserBan from './components/Admin/banAuser/admin';
 import Marketplace from './components/Customer/marketplace/marketplace';
 
 // import {authContext} from './Helpers/authContext'
@@ -52,6 +54,7 @@ function App() {
       <Route path='/about' element={<AboutUs/>}/>
       <Route path='/marketplace'element={<Market/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
+      <Route path='/admin' element={<UserBan/>}/>
       <Route path='/cattle'element={<Marketplace/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>

@@ -152,4 +152,21 @@ router.route('/getUsername').get(verifyJWT,(req,res)=>{
     res.json({isLoggedIn:true,username:req.user.username})
 })
 
+router.route('/ban').post(async (req,res)=>{
+    // console.log(req.body);
+    const email = req.body
+    // console.log(email)
+    
+        
+    user.User.findOne(email).then((dbUser)=>{
+        dbUser.ban_bool = true;
+        dbUser.save()
+        res.json("User Banned");
+    }).catch((err)=>{
+        console.log(err);
+    })
+    
+    
+})
+
 module.exports = router;
