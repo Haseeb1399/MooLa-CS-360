@@ -11,13 +11,13 @@ const Profile = () => {
         <div class="details-container-profile">
             <form class="form-container" id="change-details-form">
                 <label for="type">User Type</label>
-                <input type="text" class="details-input" id="type"/>
+                <input type="text" class="details-input" id="type" value="hi"/* add the users old details in the value properties *//>
                 <label for="name">Name</label>
-                <input type="text" class="details-input" id="name"/>
+                <input type="text" class="details-input" id="name" value="hi"/>
                 <label for="username">Username</label>
-                <input type="text" class="details-input" id="username"/>
+                <input type="text" class="details-input" id="username" value="hi"/>
                 <label for="email">Email</label>
-                <input type="text" class="details-input" id="email"/>
+                <input type="text" class="details-input" id="email" value="hi"/>
                 <label for="location">Location</label>
                 <select type="select" class="details-input select-profile" id="location">
                    {/* add location options here */}
