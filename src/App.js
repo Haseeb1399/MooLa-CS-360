@@ -61,7 +61,7 @@ function App() {
       <Route path='/transactionlog'element={<TransactionLog/>}/>
       <Route path='/admin'element={<Admin/>}/>
       <Route path='/profile'element={<Profile/>}/>
-
+      <Route path='/bid'element={<Bid/>}/>
     </Routes>
     </div>
   )
