@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { add } = require('nodemon/lib/rules');
 const multer = require('multer');
 let ad = require('../../models/ad');
+const path = require('path');
 
 const storage =multer.diskStorage({
     destination:'uploads',
@@ -28,13 +29,17 @@ router.route('/marketplace').get((req,res) => {
         if (err == null)
         {
             console.log("here")
+            console.log(response)
             res.json(response);
+        }else{
+            res.json({error:err})
         }
     })
     //console.log(result)
 })
 
-router.route('/post/animal').post(upload.single('photo'),(req,res) => {
+router.route('/post/animal').post((req,res) => {
+    console.log(req.body)
     const type = req.body.breed;
     const weight = req.body.weight;
     let sex = "";
@@ -47,7 +52,7 @@ router.route('/post/animal').post(upload.single('photo'),(req,res) => {
         sex = "Female";
     }
     const price = req.body.price;
-    const photo= req.file.filename
+    const photo= req.body.photo
     const new_animal = new ad.animal({
         type:type,
         weight:weight,
@@ -82,7 +87,7 @@ router.route('/post/animal').post(upload.single('photo'),(req,res) => {
                     const butcher = 0;
                     const bid_type = false;
                     if (req.body.addType == 1) bid_type = true; //customer has a true bid_type and seller has false bid_type
-                    const new_bid = new ad.bid({
+                    let new_bid = new ad.bid({
                         bid_value:val,
                         ad_id: new_ad._id,
                         seller_id:seller,
@@ -99,6 +104,9 @@ router.route('/post/animal').post(upload.single('photo'),(req,res) => {
         }
     })
 })
+
+
+
 
 
 module.exports = router;
