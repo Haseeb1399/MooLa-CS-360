@@ -6,10 +6,12 @@ import "./marketplace.css"
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import { set } from "mongoose";
 
 const Marketplace = ()=>{
     const feedDisplay = document.querySelector('#feed');
     const [ads, setAds] = useState([]);
+
     useEffect(()=>{
         axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{}).then(function (res) {
           // console.log(res.data.message);
@@ -104,8 +106,8 @@ const Marketplace = ()=>{
                             </div>
                             </div>
 
-                            <img id="myimg" src={val.photo} class="post-picture-marketplace" />
-                            {console.log(val.photo)}
+                            <img src={val.photo} class="post-picture-marketplace" />
+                            
                             <div class="post-body-marketplace">
                             <div class="body-lines-marketplace">
                                 <div class="body-text-marketplace">Sex: {val.animal_id.sex} </div>

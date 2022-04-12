@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 
-//const uri = process.env.ATLAS_URI_HASEEB;
+//const uri = process.env.ATLAS_URI;
 const uri = 'mongodb://0.0.0.0:27017'
 mongoose.connect(uri, {useNewUrlParser: true});
 const connection = mongoose.connection;
