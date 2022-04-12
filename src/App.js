@@ -15,6 +15,7 @@ import Bid from './components/Customer/bidding/bid'
 import ViewTruck from './components/Customer/viewtruck/viewtruck'
 import Market from './components/Customer/marketplace/marketplace'
 import TransactionLog from './components/Customer/transactionlog/transactionlog'
+import Profile from './components/Profile/profile'
 import {Route,Routes} from "react-router-dom";
 import Marketplace from './components/Customer/marketplace/marketplace';
 import Admin from './components/Admin/admin'
@@ -58,7 +59,11 @@ function App() {
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/transactionlog'element={<TransactionLog/>}/>
+<<<<<<< HEAD
       <Route path='/admin'element={<Admin/>}/>
+=======
+      <Route path='/profile'element={<Profile/>}/>
+>>>>>>> e0f641c3501f51249f1b2d11fe4885963f0042db
 
     </Routes>
     </div>
