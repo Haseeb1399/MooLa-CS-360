@@ -59,11 +59,8 @@ function App() {
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/transactionlog'element={<TransactionLog/>}/>
-<<<<<<< HEAD
       <Route path='/admin'element={<Admin/>}/>
-=======
       <Route path='/profile'element={<Profile/>}/>
->>>>>>> e0f641c3501f51249f1b2d11fe4885963f0042db
 
     </Routes>
     </div>
