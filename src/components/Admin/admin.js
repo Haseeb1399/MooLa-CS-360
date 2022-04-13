@@ -2,6 +2,8 @@ import React,{useState} from "react";
 import axios from "axios";
 import "./admin.css"
 import Popup from "reactjs-popup";
+import image1 from "../../images/block.png"
+import image2 from "../../images/best-price.png"
 
 const Admin = () => {
     const [email, setEmail] = useState("");
@@ -42,25 +44,30 @@ const Admin = () => {
 
     return (
         <div class = "App">
-            <Popup trigger={<button class="button">Ban a User</button>} position="left center">
-                <form id = "myForm" action = "#" method="post">
-                    <div>
-                        <label for = "Username">Username</label>
-                        <input onChange={handleEmail} class="input User Id" placeholder="Enter User Id" type="email" name="Id" id="Id"/>
-
-                    </div>
-                </form>
-                <input onClick ={onSubmitId} class ="button" type="submit" form="myform"value="Ban User"/>
-            </Popup>
-            <Popup trigger={<button class = "button">Edit Minimum Price</button>} position="right center">
-                <form id = "myForm" action = "#" method="post">
-                    <div>
-                        <label for = "minimum Price">Minimum Price</label>
-                        <input onChange={handleMinPrice} class="input User Id" placeholder="Enter User Id" type="number" name="Id" id="Id"/>
-                    </div>
-                </form>
-                <input onClick ={onSubmitPrice} class ="button" type="submit" form="myform"value="Set Price"/>
-            </Popup>
+            <div className="left-admin">
+                <img src={image1} className="image-admin"/>
+                <Popup trigger={<button class="button">Ban a User</button>} position="left center">
+                    <form id = "myForm" action = "#" method="post">
+                        <div>
+                            <label for = "Username">Username</label>
+                            <input onChange={handleEmail} class="input User Id" placeholder="Enter User Id" type="email" name="Id" id="Id"/>
+                        </div>
+                    </form>
+                    <input onClick ={onSubmitId} class ="button" type="submit" form="myform"value="Ban User"/>
+                </Popup>
+            </div>
+            <div className="left-admin">
+                <img src={image2} className="image-admin"/>
+                <Popup trigger={<button class = "button">Edit Minimum Price</button>} position="right center">
+                    <form id = "myForm" action = "#" method="post">
+                        <div>
+                            <label for = "minimum Price">Minimum Price</label>
+                            <input onChange={handleMinPrice} class="input User Id" placeholder="Enter User Id" type="number" name="Id" id="Id"/>
+                        </div>
+                    </form>
+                    <input onClick ={onSubmitPrice} class ="button" type="submit" form="myform"value="Set Price"/>
+                </Popup>
+            </div>
         </div>
     )
 };
