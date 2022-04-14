@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { add } = require('nodemon/lib/rules');
 const multer = require('multer');
 let ad = require('../../models/ad');
+let user = require('../../models/user');
 const path = require('path');
 
 const storage =multer.diskStorage({
@@ -23,7 +24,7 @@ const fileFilter = (req, file, cb) => {
 let upload = multer({ storage, fileFilter });
 
 router.route('/marketplace').get((req,res) => {
-    ad.Ad.find({})
+    user.Ad.find({})
     .populate(['seller_id','animal_id'])
     .exec((err,response)=>{
         if (err == null)
@@ -53,7 +54,7 @@ router.route('/post/animal').post((req,res) => {
     }
     const price = req.body.price;
     const photo= req.body.photo
-    const new_animal = new ad.animal({
+    const new_animal = new user.animal({
         type:type,
         weight:weight,
         sex:sex,
@@ -70,7 +71,7 @@ router.route('/post/animal').post((req,res) => {
             const type = req.body.addType;
             const seller = req.body.sellerId;
             const animal = new_animal._id;
-            const new_ad = new ad.Ad({
+            const new_ad = new user.Ad({
                 description: desc,
                 photo:photo,
                 sold:sold,
@@ -87,7 +88,7 @@ router.route('/post/animal').post((req,res) => {
                     const butcher = 0;
                     const bid_type = false;
                     if (req.body.addType == 1) bid_type = true; //customer has a true bid_type and seller has false bid_type
-                    let new_bid = new ad.bid({
+                    let new_bid = new user.bid({
                         bid_value:val,
                         ad_id: new_ad._id,
                         seller_id:seller,
