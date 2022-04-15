@@ -1,5 +1,8 @@
 import React from 'react';
 import logo from '../../images/moolalogopng.png';
+import axios from "axios";
+//import {useHistory} from 'react-router-dom'
+//import { removeToken } from './useToken.js'
 import {
   Nav,
   NavLink,
@@ -9,7 +12,17 @@ import {
 
 
   const Navbar = () => {
+    function logOut() {
+      localStorage.clear()
+      //history.push('/')
+    }
     if (localStorage.getItem("permission") == 3) {
+
+      let user = localStorage.getItem("id")
+      //const history = useHistory()
+      
+
+
       return (
         <Nav>
           <NavLink to='/'>
@@ -32,7 +45,7 @@ import {
             <NavLink to='/temp2' activeStyle>
               Profile
             </NavLink>
-            <NavLink to='/temp3' activeStyle>
+            <NavLink onClick = {logOut} to='/' activeStyle>
               Log Out
             </NavLink>
           </NavMenu>
@@ -62,7 +75,7 @@ import {
             <NavLink to='/temp2' activeStyle>
               Profile
             </NavLink>
-            <NavLink to='/temp3' activeStyle>
+            <NavLink onClick = {logOut} to='/' activeStyle>
               Log Out
             </NavLink>
           </NavMenu>
@@ -98,7 +111,7 @@ import {
             <NavLink to='/temp2' activeStyle>
               Profile
             </NavLink>
-            <NavLink to='/temp3' activeStyle>
+            <NavLink onClick = {logOut} to='/' activeStyle>
               Log Out
             </NavLink>
           </NavMenu>

@@ -52,4 +52,3 @@ const BidSchema = new Schema({
 const Ad = mongoose.model('Ad', AdSchema);
 const animal = mongoose.model('Animal',AnimalSchema);
 const bid = mongoose.model('Bid', BidSchema);
-module.exports = {Ad,animal,bid};

@@ -44,7 +44,7 @@ function verifyJWT(req,res,next){
     }
 }
 
-router.route('/').get((req,res) => {
+router.route('/find').get((req,res) => {
     user.User.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error '+err));

@@ -1,7 +1,7 @@
 const router = require('express').Router(); 
 const { add } = require('nodemon/lib/rules');
 const multer = require('multer');
-let ad = require('../../models/ad');
+
 let user = require('../../models/user');
 const path = require('path');
 
