@@ -19,7 +19,7 @@ import {
     }
     if (localStorage.getItem("permission") == 3) {
 
-      let user = localStorage.getItem("id")
+      //let user = localStorage.getItem("id")
       //const history = useHistory()
       
 
@@ -76,7 +76,7 @@ import {
             <NavLink to='/temp2' activestyle>
               Profile
             </NavLink>
-            <NavLink onClick = {logOut} to='/' activestyle>
+            <NavLink onClick = {logOut} to = '/' activestyle>
               Log Out
             </NavLink>
           </NavMenu>
@@ -112,7 +112,7 @@ import {
             <NavLink to='/temp2' activestyle>
               Profile
             </NavLink>
-            <NavLink onClick = {logOut} activestyle>
+            <NavLink onClick = {logOut} to = '/' activestyle>
               Log Out
             </NavLink>
           </NavMenu>

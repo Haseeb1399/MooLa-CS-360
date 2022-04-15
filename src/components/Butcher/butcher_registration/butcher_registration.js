@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import "./butcher_registration.css";
 import image from "./../../../assets/preview.jpeg"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ButcherRegistration = () => {
   const [userName,setUserName]=useState("")
@@ -10,6 +11,7 @@ const ButcherRegistration = () => {
   const [phoneNumb,setPhoneNumb]=useState("")
   const [location,setLocation]=useState("")
   const [type,setType]=useState("")
+  const navigate = useNavigate();
 
   const onSubmit=(event)=>{
     event.preventDefault()
@@ -32,6 +34,7 @@ const ButcherRegistration = () => {
       headers:{ "Content-Type": "application/json; charset=UTF-8" }
     }).then((response)=>{
       console.log(response)
+      navigate('/')
     }).catch((err)=>{
       console.log(err)
     })
