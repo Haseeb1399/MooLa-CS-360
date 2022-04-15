@@ -26,6 +26,7 @@ import Admin from './components/Admin/admin'
 
 
 function App() {
+  
   // const [authState,setAuthState]=useState(false)
   // const [permissionState, setPermissionState]=useState(false); //Permission Set or Not
   // const [currentPermission, setCurrentPermission]=useState(-1);//Set Permission Type
@@ -40,7 +41,7 @@ function App() {
   // },[])
   return (
     <div>
-    <Navbar/>
+    <Navbar />
     <Routes>
       <Route path='/' element={<LandingPage />} />
       <Route path='/login' element={<LoginPage />} /> 
@@ -61,7 +62,7 @@ function App() {
       <Route path='/transactionlog'element={<TransactionLog/>}/>
       <Route path='/admin'element={<Admin/>}/>
       <Route path='/profile'element={<Profile/>}/>
-
+      
     </Routes>
     </div>
   )
