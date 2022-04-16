@@ -23,6 +23,13 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
+router.route('/delete/watchlist').post((req,res) => {
+    user.watch.deleteOne({ad_id:req.body._id}, function(err,obj){
+        if(err)console.log(err)
+        else console.log(obj)
+    })
+})
+
 router.route('/watchlist').get((req,res) => {
     user.watch.find({})
     .populate(['ad_id','seller_id','animal_id'])

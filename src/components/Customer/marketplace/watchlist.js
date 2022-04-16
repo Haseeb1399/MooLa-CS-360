@@ -3,12 +3,14 @@ import { FaFilter } from 'react-icons/fa'
 import img from "../../../images/profilepic.png";
 import goatpic from "../../../images/goatpic.jpeg";
 import "./marketplace.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import {useState, useEffect} from 'react';
 
 const WatchList = () => {
+    const navigate = useNavigate();
     const [watchList, setWatch] = useState([]);
+    let to_remove;
     useEffect(()=>{
         axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/watchlist',{}).then(function (res) {
         
@@ -21,6 +23,17 @@ const WatchList = () => {
         })
       },[])
 
+      function Remove() {
+          const newObj = {"_id":to_remove}
+          axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/delete/watchlist',newObj).then(function(res) {
+              if(res.data.err){
+                  console.log(res.data.err);
+                  
+              }
+              else console.log(res.data)
+          })
+          window.location.reload()
+      }
 
       return (
         <div class="App">
@@ -85,7 +98,12 @@ const WatchList = () => {
           <div>
               {
                   watchList.map((val)=>{
-                    console.log(val)
+                    //console.log(val)
+                    function Remove1() {
+                        to_remove = val.ad_id._id
+                        console.log(to_remove)
+                        Remove()
+                    }
                     return(
                         <div class="posts-marketplace">
         
@@ -114,6 +132,7 @@ const WatchList = () => {
 
                             <div class="post-buttons-marketplace">
                             <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
+                            <button onClick={Remove1}>Remove</button>
                             </div>
 
                     </div>
