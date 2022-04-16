@@ -53,12 +53,18 @@ router.route('/post/animal').post((req,res) => {
         sex = "Female";
     }
     const price = req.body.price;
-    const photo= req.body.photo
+    const photo= req.body.photo;
+    const age = req.body.age;
+    const injury = req.body.injury;
+    const color = req.body.color;
     const new_animal = new user.animal({
         type:type,
         weight:weight,
         sex:sex,
-        price:price
+        price:price,
+        age:age,
+        injury:injury,
+        color:color
     });
     new_animal.save(function(err) {
         if (err) {
