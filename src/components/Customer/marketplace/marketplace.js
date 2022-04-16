@@ -26,6 +26,7 @@ const Marketplace = ()=>{
             "animal_id":animals[animals.length - 1],
             "seller_id":sellers[sellers.length - 1]
         }
+        console.log(newObj)
 
         axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/watchlist",newObj).then((res)=>{
             if(res.data.error){
@@ -123,7 +124,7 @@ const Marketplace = ()=>{
             <div class="posts-container-marketplace">
             {
                 ads.map((val)=>{
-                   
+                    console.log(val) 
                     function Add() {
                         // const [ad_id, setAd] = useState("");
                         

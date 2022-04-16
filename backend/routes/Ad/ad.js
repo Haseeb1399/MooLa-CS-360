@@ -39,6 +39,7 @@ router.route('/watchlist').get((req,res) => {
 
 
 router.route('/post/watchlist').post((req,res) => {
+    console.log(req.body)
     const a_id = req.body.a_id;
     const b_id = req.body.b_id;
     const animal_id = req.body.animal_id;

@@ -85,7 +85,7 @@ const WatchList = () => {
           <div>
               {
                   watchList.map((val)=>{
-                   
+                    console.log(val)
                     return(
                         <div class="posts-marketplace">
         
@@ -97,7 +97,7 @@ const WatchList = () => {
                             </div>
                             </div>
 
-                            <img id="myimg" src={val.photo} class="post-picture-marketplace" />
+                            <img id="myimg" src={val.ad_id.photo} class="post-picture-marketplace" />
                             {console.log(val.photo)}
                             <div class="post-body-marketplace">
                             <div class="body-lines-marketplace">
