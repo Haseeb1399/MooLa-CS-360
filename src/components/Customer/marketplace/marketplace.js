@@ -115,6 +115,7 @@ const Marketplace = ()=>{
                                 <div class="body-text-marketplace">Breed: {val.animal_id.type}</div>
                                 <div class="body-text-marketplace">Age:{val.animal_id.age} </div>
                                 <div class="body-text-marketplace">Injuries: {val.animal_id.injury}</div>
+                                <div class="body-text-marketplace">Price: {val.animal_id.price}</div>
                             </div>
                             </div>
 
