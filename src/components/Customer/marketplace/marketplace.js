@@ -9,7 +9,11 @@ import {useState, useEffect} from 'react';
 
 const Marketplace = ()=>{
     const feedDisplay = document.querySelector('#feed');
+    let watch = [];
     const [ads, setAds] = useState([]);
+
+    
+
     useEffect(()=>{
         axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{}).then(function (res) {
           // console.log(res.data.message);
@@ -93,6 +97,9 @@ const Marketplace = ()=>{
             <div>
             {
                 ads.map((val)=>{
+                    function add() {
+                        watch.push(val.animal_id)
+                    }
                     return(
                         <div class="posts-marketplace">
         
@@ -121,7 +128,7 @@ const Marketplace = ()=>{
 
                             <div class="post-buttons-marketplace">
                             <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
-                            <a href="#" class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
+                            <button onClick={add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</button>
                             </div>
 
                     </div>

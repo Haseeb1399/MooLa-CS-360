@@ -43,7 +43,7 @@ import {
             <NavLink to='/temp' activestyle>
               Past Listings
             </NavLink>
-            <NavLink to='/temp2' activestyle>
+            <NavLink to='/profile' activestyle>
               Profile
             </NavLink>
             <NavLink onClick = {logOut} to='/' activestyle>
@@ -73,7 +73,7 @@ import {
             <NavLink to='/temp6' activestyle>
               Transaction Log
             </NavLink>
-            <NavLink to='/temp2' activestyle>
+            <NavLink to='/profile' activestyle>
               Profile
             </NavLink>
             <NavLink onClick = {logOut} to = '/' activestyle>
@@ -109,7 +109,7 @@ import {
             <NavLink to='/view/truck' activestyle>
               View Truck
             </NavLink>
-            <NavLink to='/temp2' activestyle>
+            <NavLink to='/profile' activestyle>
               Profile
             </NavLink>
             <NavLink onClick = {logOut} to = '/' activestyle>
