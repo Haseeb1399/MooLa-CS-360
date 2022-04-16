@@ -10,7 +10,32 @@ import {useState, useEffect} from 'react';
 const Marketplace = ()=>{
     const feedDisplay = document.querySelector('#feed');
     let watch = [];
+    let animals = [];
+    let sellers = [];
     const [ads, setAds] = useState([]);
+    
+
+    
+
+
+    const Submit = (event) => {
+        
+        const newObj = {
+            "a_id" : watch[watch.length - 1],
+            "b_id" : localStorage.getItem("id"),
+            "animal_id":animals[animals.length - 1],
+            "seller_id":sellers[sellers.length - 1]
+        }
+
+        axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/watchlist",newObj).then((res)=>{
+            if(res.data.error){
+                console.log(res.data.error);
+                }else{
+                    alert("Added to watchlist");
+
+                }
+            }) .catch(err => {console.log(err)})
+     }
 
     
 
@@ -26,6 +51,7 @@ const Marketplace = ()=>{
             console.log("here");
             console.log(res);
             setAds(res.data);
+            
           
           //feedDisplay.insertAdjacentHTML("beforeend", res.data.data.message[0])
         })
@@ -97,8 +123,16 @@ const Marketplace = ()=>{
             <div>
             {
                 ads.map((val)=>{
-                    function add() {
-                        watch.push(val.animal_id)
+                   
+                    function Add() {
+                        // const [ad_id, setAd] = useState("");
+                        
+                        
+                        watch.push(val._id);
+                        animals.push(val.animal_id._id);
+                        sellers.push(val.seller_id._id);
+                        console.log(watch)
+                        Submit()
                     }
                     return(
                         <div class="posts-marketplace">
@@ -128,7 +162,7 @@ const Marketplace = ()=>{
 
                             <div class="post-buttons-marketplace">
                             <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
-                            <button onClick={add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</button>
+                            <button onClick={Add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</button>
                             </div>
 
                     </div>
@@ -136,6 +170,45 @@ const Marketplace = ()=>{
                 })
             }
             </div>
+            {/* <div>
+                {
+                    watchList.map((val) => {
+                        return (
+                            <div class="posts-marketplace">
+        
+                            <div class="header-marketplace">
+                            <img src={img} class="profilepic-marketplace"/>
+                            <div class="header-lines-marketplace">
+                                <div class="header-text-marketplace">{val.seller_id.username}</div>
+                                <div class="header-text-marketplace subtex-marketplacet"></div>
+                            </div>
+                            </div>
+
+                            <img id="myimg" src={val.photo} class="post-picture-marketplace" />
+                            {console.log(val.photo)}
+                            <div class="post-body-marketplace">
+                            <div class="body-lines-marketplace">
+                                <div class="body-text-marketplace">Sex: {val.animal_id.sex} </div>
+                                <div class="body-text-marketplace">No. of teeth: {val.animal_id.teeth}</div>
+                                <div class="body-text-marketplace">Weight: {val.animal_id.weight}</div>
+                                <div class="body-text-marketplace">Color: {val.animal_id.color} </div>
+                                <div class="body-text-marketplace">Breed: {val.animal_id.type}</div>
+                                <div class="body-text-marketplace">Age:{val.animal_id.age} </div>
+                                <div class="body-text-marketplace">Injuries: {val.animal_id.injury}</div>
+                                <div class="body-text-marketplace">Price: {val.animal_id.price}</div>
+                            </div>
+                            </div>
+
+                            <div class="post-buttons-marketplace">
+                            <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
+                            <button class="button-marketplace Watchlist-marketplace">Add to Watchlist</button>
+                            </div>
+
+                    </div>
+                        )
+                    })
+                }
+            </div> */}
           </div>
       )
 }
