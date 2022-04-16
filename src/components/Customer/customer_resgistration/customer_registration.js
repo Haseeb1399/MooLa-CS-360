@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./customer_registration.css";
 import image from "./../../../assets/preview.jpeg"
 import axios from "axios";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 const CustomerRegistration = () => {
@@ -15,30 +15,35 @@ const CustomerRegistration = () => {
 
   const onSubmit=(event)=>{
     event.preventDefault()
-
-    const newObject={
-      username:userName,
-      pass:password,
-      email:email,
-      address:location,
-      phone:phoneNumb,
-      permissions:1,
-      ban_bool:0
+    if(userName == "" || password == "" || email == "" || email == "" || location == "" || phoneNumb == ""){
+      window.location.reload();
     }
-    if(!email.includes("@")){
-      alert("Please enter a correct email!")
-      return;
-    }
+    else {
 
-    axios.post(process.env.REACT_APP_LOCAL_KEY+"/User/add",newObject,{
-      headers:{ "Content-Type": "application/json; charset=UTF-8" }
-    }).then((response)=>{
-      console.log(response)
-      navigate('/')
-     // window.location('/')
-    }).catch((err)=>{
-      console.log(err)
-    })
+      const newObject={
+        username:userName,
+        pass:password,
+        email:email,
+        address:location,
+        phone:phoneNumb,
+        permissions:1,
+        ban_bool:0
+      }
+      if(!email.includes("@")){
+        alert("Please enter a correct email!")
+        return;
+      }
+
+      axios.post(process.env.REACT_APP_LOCAL_KEY+"/User/add",newObject,{
+        headers:{ "Content-Type": "application/json; charset=UTF-8" }
+      }).then((response)=>{
+        console.log(response)
+        navigate('/')
+      // window.location('/')
+      }).catch((err)=>{
+        console.log(err)
+      })
+    }
     
   }
   
@@ -106,6 +111,7 @@ const CustomerRegistration = () => {
         </div>
       </div>
       <input onClick={onSubmit} class="button" type="submit" form="myform" value="Register"/>
+      <Link to = '/signup'><button class = "buttons">Go Back</button></Link>
       
     </div>
   );
