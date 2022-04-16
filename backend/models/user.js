@@ -80,7 +80,12 @@ UserSchema.pre("save", function (next) {
     type: {type: String, required:true},
     weight: {type: Number, required:true},
     sex: {type: String, required:true},
-    price: {type: Number, required:true}
+    price: {type: Number, required:true}, //add teeth
+    teeth: {type: Number, required: true},
+    price: {type:Number, required: true},
+    age:{type:Number, required:true},
+    injury:{type:String},
+    color:{type:String, required:true}
 })
 
 const AdSchema = new Schema({
@@ -103,8 +108,8 @@ const AdSchema1 = new Schema({
     animal_breed: {type: String, required: true},
     animal_weight: {type: Number, required: true},
     animal_sex: {type: String, required: true},
-    animal_teeth: {type: Number, required: true},
-    animal_price: {type:Number, required: true},
+    animal_teeth: {type: Number, required: true, ref: "Animal"},
+    animal_price: {type:Number, required: true, ref: "Animal"},
     ad_type: {type: Number, required: true}
 })
 
