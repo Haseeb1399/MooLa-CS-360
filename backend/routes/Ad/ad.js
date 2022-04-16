@@ -52,9 +52,10 @@ router.route('/post/animal').post((req,res) => {
     }
     const price = req.body.price;
     const photo= req.body.photo;
-    const age = req.body.age;
+    const age = req.body.Age;
     const injury = req.body.injury;
     const color = req.body.color;
+    const teeth = req.body.teeth;
     const new_animal = new user.animal({
         type:type,
         weight:weight,
@@ -62,7 +63,8 @@ router.route('/post/animal').post((req,res) => {
         price:price,
         age:age,
         injury:injury,
-        color:color
+        color:color,
+        teeth:teeth
     });
     new_animal.save(function(err) {
         if (err) {
