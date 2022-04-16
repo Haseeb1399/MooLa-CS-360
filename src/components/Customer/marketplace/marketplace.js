@@ -120,7 +120,7 @@ const Marketplace = ()=>{
                 <input class="button-marketplace" type="submit" form="myform" value="Filter"/>
             
             </div>
-            <div>
+            <div class="posts-container-marketplace">
             {
                 ads.map((val)=>{
                    
@@ -161,8 +161,10 @@ const Marketplace = ()=>{
                             </div>
 
                             <div class="post-buttons-marketplace">
-                            <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
-                            <button onClick={Add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</button>
+                            <a class="button-marketplace OpenAd-marketplace">
+                                <Link to={"/view/animalAdd"} state={{data:val}}>Open</Link>
+                            </a>
+                            <a onClick={Add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
                             </div>
 
                     </div>

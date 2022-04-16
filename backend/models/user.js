@@ -119,8 +119,8 @@ const BidSchema = new Schema({
     seller_id: {type: Schema.Types.ObjectId, ref: "Seller"},
     buyer_id: {type: Schema.Types.ObjectId, ref: "Buyer"},
     butcher_id: {type:Number}, //Not planning on using this since we have 2 actors in each bid
-    bid_type: {type: Boolean, required: true}
-
+    bid_type: {type: Boolean, required: true},
+    bid_value_original:{type:Number}
 })
 
 const WatchListSchema = new Schema({

@@ -123,7 +123,7 @@ router.route('/post/animal').post((req,res) => {
                     res.json({error:err})
                 }
                 else {
-                    const val = req.body.val;
+                    const val = req.body.price;
                     const butcher = 0;
                     const bid_type = false;
                     if (req.body.addType == 1) bid_type = true; //customer has a true bid_type and seller has false bid_type
@@ -133,7 +133,8 @@ router.route('/post/animal').post((req,res) => {
                         seller_id:seller,
                         buyer_id:null,
                         butcher_id:butcher,
-                        bid_type:bid_type
+                        bid_type:bid_type,
+                        bid_value_original:val,
                     })
                     new_bid.save(function(err) {
                         if(err) res.json({error:err})
@@ -145,8 +146,34 @@ router.route('/post/animal').post((req,res) => {
     })
 })
 
+router.route('/getLatestBid/:id').get((req,res)=>{
+    const adId = req.params.id;
+    user.bid.find({},(err,data)=>{
+        if(err){
+            res.json({error:err})
+        }else{
+            res.json(data)
+        }
+    })
+})
 
 
-
+router.route('/postbid').post((req,res)=>{
+    console.log(req.body)
+    const bidValue = req.body.newBid;
+    const bidID=req.body.id;
+    const buyerId=req.body.buyer_id
+    user.bid.findByIdAndUpdate({_id:bidID},{
+        bid_value:bidValue,
+        buyer_id:buyerId
+    },(err,doc)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(doc);
+            res.json({msg:"Bid Updated",value:bidValue})
+        }
+    })
+})
 
 module.exports = router;
