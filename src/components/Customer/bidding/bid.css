@@ -1,51 +1,79 @@
 
-.App {
-    text-align: center;
-  }
 
-  .first {
-      position: relative;
+  .first-bid {
       float: left;
-      width: 50%;
+      width: 49%;
+      border-right: 2px solid #DE7002;
   }
 
-  .second {
-      position: relative;
+  .second-bid {
       float: right;
       width: 50%;
   }
   
-  .title {
-    position: relative;
+  .title-bid {
     bottom: 50px;
-    display: flex;
-    color: black;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-size: 72px;
-    justify-content: center;
-  }
-  
-  .subtitle {
-    position: relative;
-    bottom: 50px;
-    display: flex;
+    margin-top: 0rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #DE7002;
     color: black;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 36px;
-    justify-content: center;
+    text-align: center;
   }
-  
-  label {
-    display: block;
-    position: relative;
-    padding-right: 75%;
+
+  .subtitle-bid {
+    margin-top: 2rem;
+    font-size: 30px;
+    padding-bottom: 2rem;
   }
-  
-  .input {
+
+  .break {
     width: 85%;
-    display: inline-block;
+    margin-left: 7.5%;
+    height: 2px;
+    background-color: #DE7002;
+  }
+
+  .bid-details {
+    margin-left: 7.5%;
+    text-align: left;
+    display: flex;
+  }
+
+  .bid-details p {
+    font-size: 24px;
+  }
+
+  .bid-text {
+    margin-bottom: 1rem;
+    width: 20rem;
+  }
+
+  .maps {
+    margin-top: 2rem;
+  }
+
+  .bid-options {
+    margin-left: 7.5%;
+    text-align: left;
+  }
+
+  .bid-options p {
+    font-size: 24px;
+  }
+
+  .bidding {
+    margin-bottom: 1rem;
+  }
+
+  .bidding p {
+    font-size: 24px;
+  }
+
+  .input-bid {
+    width: 25%;
     height: 30px;
     font-size: 15px;
     padding-left: 10px;
@@ -54,69 +82,5 @@
     border-radius: 6px;
     color: #000;
     border: 2px solid #de7002;
+    background-color: #f7f1de;
   }
-  
-  .input:focus {
-    border: solid 2px #de7002;
-    border-radius: 6px;
-  }
-  
-  
-  .button {
-    width: 100px;
-    height: 30px;
-    margin-top: 15px;
-    align-items: center;
-    color: #000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    color: #f7f1de;
-    font-size: 15px;
-    font-weight: bold;
-    transition-duration: 0.4s;
-    border-radius: 0.625rem;
-    border-color: #de7002;
-    background-color: #de7002;
-  }
-  
-  .button:hover {
-    cursor: pointer;
-    border-color: #000;
-    background-color: #000;
-    color: #de7002;
-  }
-  
-  .upload {
-    height: 30px;
-    padding-top: 15px;
-    font-size: 15px;
-    color: #f7f1de;
-    font-weight: bold;
-    transition-duration: 0.4s;
-    border-radius: 0.625rem;
-    border-color: #de7002;
-    background-color: #de7002;
-    opacity: 0.8;
-    width: 33%;
-    margin-left: 33%;
-    padding-right: 0%;
-  }
-  
-  .upload:hover {
-    cursor: pointer;
-    border-color: #000;
-    background-color: #000;
-    color: #de7002;
-    opacity: 0.8;
-  }
-  
-  .picture {
-    margin-left: 25%;
-    width: 50%;
-    height: 60%;
-    overflow: hidden;
-    border-radius: 50%;
-    margin-bottom: 50px;
-    background-color: #e2a160;
-  }
-  

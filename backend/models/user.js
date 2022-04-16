@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs")
 const Schema = mongoose.Schema;
-
+//changed ad. to user. in ad.js routes and removed user.seller and user.buyer here
 const UserSchema = new Schema( {
     // user_id : {
     //     type: Number,
@@ -75,12 +75,65 @@ UserSchema.pre("save", function (next) {
     }
   })
 
+
+  const AnimalSchema = new Schema({
+    type: {type: String, required:true},
+    weight: {type: Number, required:true},
+    sex: {type: String, required:true},
+    price: {type: Number, required:true}, //add teeth
+    teeth: {type: Number, required: true},
+    price: {type:Number, required: true},
+    age:{type:Number, required:true},
+    injury:{type:String},
+    color:{type:String, required:true}
+})
+
+const AdSchema = new Schema({
+    
+    description: {type: String, required: true},
+    photo:{type:String},
+    sold: {type: Boolean, required: true},
+    seller_id: {type: Schema.Types.ObjectId, ref: 'User'},
+    animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
+    ad_type: {type: Number, required: true}
+})
+
+const AdSchema1 = new Schema({
+    description: {type: String, required: true},
+    photo:{type:String},
+    sold: {type: Boolean, required: true},
+    seller_id: {type: Schema.Types.ObjectId, ref: "Seller"},
+    seller_name: {type:String, required:true},
+    animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
+    animal_breed: {type: String, required: true},
+    animal_weight: {type: Number, required: true},
+    animal_sex: {type: String, required: true},
+    animal_teeth: {type: Number, required: true, ref: "Animal"},
+    animal_price: {type:Number, required: true, ref: "Animal"},
+    ad_type: {type: Number, required: true}
+})
+
+const BidSchema = new Schema({
+    bid_value: {type:Number},
+    ad_id: {type: Schema.Types.ObjectId, ref: 'Ad',},
+    seller_id: {type: Schema.Types.ObjectId, ref: "Seller"},
+    buyer_id: {type: Schema.Types.ObjectId, ref: "Buyer"},
+    butcher_id: {type:Number}, //Not planning on using this since we have 2 actors in each bid
+    bid_type: {type: Boolean, required: true}
+
+})
+
+
 const User = mongoose.model('User', UserSchema);
 const Buyer = mongoose.model('Buyer',BuyerSchema);
 const Butcher = mongoose.model('Butcher',ButcherSchema);
 const Seller = mongoose.model('Seller',SellerSchema)
+const Ad = mongoose.model('Ad', AdSchema);
+const Ad1 = mongoose.model('Ad1',AdSchema1)
+const animal = mongoose.model('Animal',AnimalSchema);
+const bid = mongoose.model('Bid', BidSchema);
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {
-    User, Buyer,Butcher,Seller
+    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1
 }

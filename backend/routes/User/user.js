@@ -44,7 +44,7 @@ function verifyJWT(req,res,next){
     }
 }
 
-router.route('/').get((req,res) => {
+router.route('/find').get((req,res) => {
     user.User.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error '+err));
@@ -150,6 +150,23 @@ router.route('/login').post((req,res)=>{
 router.route('/getUsername').get(verifyJWT,(req,res)=>{
 
     res.json({isLoggedIn:true,username:req.user.username})
+})
+
+router.route('/ban').post(async (req,res)=>{
+    // console.log(req.body);
+    const email = req.body
+    // console.log(email)
+    
+        
+    user.User.findOne(email).then((dbUser)=>{
+        dbUser.ban_bool = true;
+        dbUser.save()
+        res.json("User Banned");
+    }).catch((err)=>{
+        console.log(err);
+    })
+    
+    
 })
 
 module.exports = router;

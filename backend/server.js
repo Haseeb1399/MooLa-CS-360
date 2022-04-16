@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/User/user');
 const adRouter = require('./routes/Ad/ad');
+// const adminRouter = require('./routes/Admin/admin')
 require('dotenv').config();
 
 
@@ -13,8 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 
-//const uri = process.env.ATLAS_URI;
-const uri = "mongodb://localhost:27017"
+//const uri = process.env.ATLAS_URI_HASEEB;
+const uri = 'mongodb://0.0.0.0:27017'
 mongoose.connect(uri, {useNewUrlParser: true});
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -23,6 +24,7 @@ connection.once('open', () => {
 
 app.use('/User',userRouter);
 app.use('/Ad',adRouter);
+// app.use('/Admin',adminRouter);
 
 app.listen(port, () => {
     console.log(`server is running on port : ${port}`);

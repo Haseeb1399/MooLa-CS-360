@@ -1,5 +1,8 @@
 import React from 'react';
 import logo from '../../images/moolalogopng.png';
+import axios from "axios";
+//import {useHistory} from 'react-router-dom'
+//import { removeToken } from './useToken.js'
 import {
   Nav,
   NavLink,
@@ -9,7 +12,18 @@ import {
 
 
   const Navbar = () => {
+    function logOut() {
+      localStorage.clear()
+      window.location('/')
+      //history.push('/')
+    }
     if (localStorage.getItem("permission") == 3) {
+
+      //let user = localStorage.getItem("id")
+      //const history = useHistory()
+      
+
+
       return (
         <Nav>
           <NavLink to='/'>
@@ -17,22 +31,22 @@ import {
           </NavLink>
           <Bars />
           <NavMenu>
-            <NavLink to='/about' activeStyle>
+            <NavLink to='/about' activestyle>
               About Us
             </NavLink>
-            <NavLink to='/post/animal' activeStyle>
+            <NavLink to='/post/animal' activestyle>
               List New Animal
             </NavLink>
-            <NavLink to='/contact-us' activeStyle>
+            <NavLink to='/contact-us' activestyle>
               Active Listings
             </NavLink>
-            <NavLink to='/temp' activeStyle>
+            <NavLink to='/temp' activestyle>
               Past Listings
             </NavLink>
-            <NavLink to='/temp2' activeStyle>
+            <NavLink to='/temp2' activestyle>
               Profile
             </NavLink>
-            <NavLink to='/temp3' activeStyle>
+            <NavLink onClick = {logOut} to='/' activestyle>
               Log Out
             </NavLink>
           </NavMenu>
@@ -47,29 +61,29 @@ import {
           </NavLink>
           <Bars />
           <NavMenu>
-            <NavLink to='/about' activeStyle>
+            <NavLink to='/about' activestyle>
               About Us
             </NavLink>
-            <NavLink to='/temp4' activeStyle>
+            <NavLink to='/temp4' activestyle>
               Requests
             </NavLink>
-            <NavLink to='/temp5' activeStyle>
+            <NavLink to='/temp5' activestyle>
               WatchList
             </NavLink>
-            <NavLink to='/temp6' activeStyle>
+            <NavLink to='/temp6' activestyle>
               Transaction Log
             </NavLink>
-            <NavLink to='/temp2' activeStyle>
+            <NavLink to='/temp2' activestyle>
               Profile
             </NavLink>
-            <NavLink to='/temp3' activeStyle>
+            <NavLink onClick = {logOut} to = '/' activestyle>
               Log Out
             </NavLink>
           </NavMenu>
         </Nav>
       );
     }
-    else {
+    else if (localStorage.getItem("permission") == 1) {
       return (
         <Nav>
           <NavLink to='/'>
@@ -77,31 +91,41 @@ import {
           </NavLink>
           <Bars />
           <NavMenu>
-            <NavLink to='/about' activeStyle>
+            <NavLink to='/about' activestyle>
               About Us
             </NavLink>
-            <NavLink to='/cattle' activeStyle>
+            <NavLink to='/marketplace' activestyle>
               Cattle
             </NavLink>
-            <NavLink to='/post/animal' activeStyle>
+            <NavLink to='/post/animal' activestyle>
               Butchers
             </NavLink>
-            <NavLink to='/temp6' activeStyle>
+            <NavLink to='/temp6' activestyle>
               WatchList
             </NavLink>
-            <NavLink to='/temp6' activeStyle>
+            <NavLink to='/transactionlog' activestyle>
               Transaction Log
             </NavLink>
-            <NavLink to='/view/truck' activeStyle>
+            <NavLink to='/view/truck' activestyle>
               View Truck
             </NavLink>
-            <NavLink to='/temp2' activeStyle>
+            <NavLink to='/temp2' activestyle>
               Profile
             </NavLink>
-            <NavLink to='/temp3' activeStyle>
+            <NavLink onClick = {logOut} to = '/' activestyle>
               Log Out
             </NavLink>
           </NavMenu>
+        </Nav>
+      );
+    }
+    else if(!localStorage.getItem('permission')) {
+      return(
+        <Nav>
+          <NavLink to='/'>
+            <img src={logo} style={{height: "60px"}} />
+          </NavLink>
+          <Bars />
         </Nav>
       );
     }

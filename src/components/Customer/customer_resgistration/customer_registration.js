@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./customer_registration.css";
 import image from "./../../../assets/preview.jpeg"
 import axios from "axios";
+import { Link } from 'react-router';
+import { useNavigate } from "react-router-dom";
 
 const CustomerRegistration = () => {
   const [userName,setUserName]=useState("")
@@ -9,9 +11,11 @@ const CustomerRegistration = () => {
   const [email,setEmail]=useState("")
   const [phoneNumb,setPhoneNumb]=useState("")
   const [location,setLocation]=useState("")
+  const navigate = useNavigate();
 
   const onSubmit=(event)=>{
     event.preventDefault()
+
     const newObject={
       username:userName,
       pass:password,
@@ -30,9 +34,12 @@ const CustomerRegistration = () => {
       headers:{ "Content-Type": "application/json; charset=UTF-8" }
     }).then((response)=>{
       console.log(response)
+      navigate('/')
+     // window.location('/')
     }).catch((err)=>{
       console.log(err)
     })
+    
   }
   
   const handleName = (event)=>{
@@ -99,6 +106,7 @@ const CustomerRegistration = () => {
         </div>
       </div>
       <input onClick={onSubmit} class="button" type="submit" form="myform" value="Register"/>
+      
     </div>
   );
 };

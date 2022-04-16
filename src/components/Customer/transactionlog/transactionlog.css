@@ -1,0 +1,74 @@
+.App {
+    text-align: center;
+  }
+
+.title {
+    font-size: 2.25rem;
+}
+
+.container {
+    /* remove flex to unflip but then allignment issues when there are multiple posts */
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    height: 15.625rem;
+    width: 81.25rem;
+    background-color: #F4C690;
+}
+
+.container-text {
+    width: 15rem;
+    float: left;
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.container-text p {
+    font-size: 1rem;
+    margin-bottom: 0%;
+}
+
+.button-container {
+    width: 25rem;
+    height: 15.625rem;
+    background-color: #f7f1de;
+    float: right;
+}
+
+.picture {
+    height: 13.75rem;
+    width: 17.5rem;
+    border-radius: 0%;
+    float: right;
+    margin-top: 1rem;
+    object-fit: fill;
+}
+
+.button-tl {
+    margin-top: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
+
+    width: 150px;
+    height: 30px;
+    align-items: center;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #f7f1de;
+    font-size: 15px;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    border-radius: 0.625rem;
+    border-color: #de7002;
+    background-color: #de7002;
+  }
+  
+  .button-tl:hover {
+    cursor: pointer;
+    border-color: #000;
+    background-color: #000;
+    color: #de7002;
+  }
+
+  

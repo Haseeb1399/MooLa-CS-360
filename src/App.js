@@ -13,16 +13,20 @@ import Navbar from './components/navbar/index'
 import AboutUs from './components/about us/about'
 import Bid from './components/Customer/bidding/bid'
 import ViewTruck from './components/Customer/viewtruck/viewtruck'
-import market from './components/Customer/marketplace/marketplace'
+import Market from './components/Customer/marketplace/marketplace'
+import TransactionLog from './components/Customer/transactionlog/transactionlog'
+import Profile from './components/Profile/profile'
 import {Route,Routes} from "react-router-dom";
 import Marketplace from './components/Customer/marketplace/marketplace';
-
+import Admin from './components/Admin/admin'
+ 
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
 // import { useEffect, useState } from 'react';
 
 
 function App() {
+  
   // const [authState,setAuthState]=useState(false)
   // const [permissionState, setPermissionState]=useState(false); //Permission Set or Not
   // const [currentPermission, setCurrentPermission]=useState(-1);//Set Permission Type
@@ -37,7 +41,7 @@ function App() {
   // },[])
   return (
     <div>
-    <Navbar/>
+    <Navbar />
     <Routes>
       <Route path='/' element={<LandingPage />} />
       <Route path='/login' element={<LoginPage />} /> 
@@ -49,12 +53,16 @@ function App() {
       <Route path='/butcher/main' element={<ButcherLanding/>}/>
       <Route path='/seller/main' element={<SellerLanding/>}/>
       <Route path='/about' element={<AboutUs/>}/>
-      <Route path='/market'element={<market/>}/>
+      <Route path='/marketplace'element={<Market/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
       <Route path='/cattle'element={<Marketplace/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
+      <Route path='/transactionlog'element={<TransactionLog/>}/>
+      <Route path='/admin'element={<Admin/>}/>
+      <Route path='/profile'element={<Profile/>}/>
+      
     </Routes>
     </div>
   )

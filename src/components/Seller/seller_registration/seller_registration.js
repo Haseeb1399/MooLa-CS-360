@@ -2,12 +2,14 @@ import React,{useState} from "react";
 import "./seller_registration.css";
 import image from "./../../../assets/preview.jpeg"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const SellerRegistration = () => {
   const [userName,setUserName]=useState("")
   const [password,setPassword]=useState("")
   const [email,setEmail]=useState("")
   const [phoneNumb,setPhoneNumb]=useState("")
   const [location,setLocation]=useState("")
+  const navigate = useNavigate();
 
   const onSubmit=(event)=>{
     event.preventDefault()
@@ -31,6 +33,7 @@ const SellerRegistration = () => {
       headers:{ "Content-Type": "application/json; charset=UTF-8" }
     }).then((response)=>{
       console.log(response)
+      navigate('/')
     }).catch((err)=>{
       console.log(err)
     })

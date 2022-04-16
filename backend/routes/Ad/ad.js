@@ -1,7 +1,9 @@
 const router = require('express').Router(); 
 const { add } = require('nodemon/lib/rules');
 const multer = require('multer');
-let ad = require('../../models/ad');
+
+let user = require('../../models/user');
+const path = require('path');
 
 const storage =multer.diskStorage({
     destination:'uploads',
@@ -21,25 +23,48 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
-router.route('/get/animal').get((req,res) => {
-    ad.Ad.find({}, function(err,ads) {
-        if (err) res.json({error:err})
-        else res.json({message:ads})
+router.route('/marketplace').get((req,res) => {
+    user.Ad.find({})
+    .populate(['animal_id',"seller_id"])
+    .exec((err,response)=>{
+        if (err == null)
+        {
+            res.json(response);
+        }else{
+            res.json({error:err})
+        }
     })
     //console.log(result)
 })
 
-router.route('/post/animal').post(upload.single('photo'),(req,res) => {
+router.route('/post/animal').post((req,res) => {
+    console.log(req.body)
     const type = req.body.breed;
     const weight = req.body.weight;
-    const sex = req.body.sex;
+    let sex = "";
+    if (req.body.sex == 1)
+    {
+        sex = "Male";
+    }
+    else
+    {
+        sex = "Female";
+    }
     const price = req.body.price;
-    const photo= req.file.filename
-    const new_animal = new ad.animal({
+    const photo= req.body.photo;
+    const age = req.body.Age;
+    const injury = req.body.injury;
+    const color = req.body.color;
+    const teeth = req.body.teeth;
+    const new_animal = new user.animal({
         type:type,
         weight:weight,
         sex:sex,
-        price:price
+        price:price,
+        age:age,
+        injury:injury,
+        color:color,
+        teeth:teeth
     });
     new_animal.save(function(err) {
         if (err) {
@@ -52,7 +77,7 @@ router.route('/post/animal').post(upload.single('photo'),(req,res) => {
             const type = req.body.addType;
             const seller = req.body.sellerId;
             const animal = new_animal._id;
-            const new_ad = new ad.Ad({
+            const new_ad = new user.Ad({
                 description: desc,
                 photo:photo,
                 sold:sold,
@@ -69,7 +94,7 @@ router.route('/post/animal').post(upload.single('photo'),(req,res) => {
                     const butcher = 0;
                     const bid_type = false;
                     if (req.body.addType == 1) bid_type = true; //customer has a true bid_type and seller has false bid_type
-                    const new_bid = new ad.bid({
+                    let new_bid = new user.bid({
                         bid_value:val,
                         ad_id: new_ad._id,
                         seller_id:seller,
@@ -86,6 +111,9 @@ router.route('/post/animal').post(upload.single('photo'),(req,res) => {
         }
     })
 })
+
+
+
 
 
 module.exports = router;
