@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../App.css";
+import "./marketplace.css";
 import { FaFilter } from 'react-icons/fa'
 import img from "../../../images/profilepic.png";
 import goatpic from "../../../images/goatpic.jpeg";
