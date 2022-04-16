@@ -99,7 +99,7 @@ const Marketplace = ()=>{
                             <div class="header-marketplace">
                             <img src={img} class="profilepic-marketplace"/>
                             <div class="header-lines-marketplace">
-                                <div class="header-text-marketplace">Mafzi </div>
+                                <div class="header-text-marketplace">{val.seller_id.username}</div>
                                 <div class="header-text-marketplace subtex-marketplacet">Posted 9 hours ago</div>
                             </div>
                             </div>
@@ -113,7 +113,7 @@ const Marketplace = ()=>{
                                 <div class="body-text-marketplace">Weight: {val.animal_id.weight}</div>
                                 <div class="body-text-marketplace">Color: Brown, Black</div>
                                 <div class="body-text-marketplace">Breed: {val.animal_id.type}</div>
-                                <div class="body-text-marketplace">Age: 4</div>
+                                <div class="body-text-marketplace">Age: </div>
                                 <div class="body-text-marketplace">Injuries: None</div>
                             </div>
                             </div>

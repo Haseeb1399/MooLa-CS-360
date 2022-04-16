@@ -88,7 +88,7 @@ const AdSchema = new Schema({
     description: {type: String, required: true},
     photo:{type:String},
     sold: {type: Boolean, required: true},
-    seller_id: {type: Schema.Types.ObjectId, ref: "Seller"},
+    seller_id: {type: Schema.Types.ObjectId, ref: 'User'},
     animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
     ad_type: {type: Number, required: true}
 })
@@ -118,15 +118,15 @@ const BidSchema = new Schema({
 
 })
 
-const Ad = mongoose.model('Ad', AdSchema);
-const Ad1 = mongoose.model('Ad1',AdSchema1)
-const animal = mongoose.model('Animal',AnimalSchema);
-const bid = mongoose.model('Bid', BidSchema);
 
 const User = mongoose.model('User', UserSchema);
 const Buyer = mongoose.model('Buyer',BuyerSchema);
 const Butcher = mongoose.model('Butcher',ButcherSchema);
 const Seller = mongoose.model('Seller',SellerSchema)
+const Ad = mongoose.model('Ad', AdSchema);
+const Ad1 = mongoose.model('Ad1',AdSchema1)
+const animal = mongoose.model('Animal',AnimalSchema);
+const bid = mongoose.model('Bid', BidSchema);
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {

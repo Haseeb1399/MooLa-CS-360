@@ -25,12 +25,10 @@ let upload = multer({ storage, fileFilter });
 
 router.route('/marketplace').get((req,res) => {
     user.Ad.find({})
-    .populate(['seller_id','animal_id'])
+    .populate(['animal_id',"seller_id"])
     .exec((err,response)=>{
         if (err == null)
         {
-            console.log("here")
-            console.log(response)
             res.json(response);
         }else{
             res.json({error:err})
