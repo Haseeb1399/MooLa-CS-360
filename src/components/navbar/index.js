@@ -26,9 +26,7 @@ import {
 
       return (
         <Nav>
-          <NavLink to='/'>
             <img src={logo} style={{height: "60px"}} />
-          </NavLink>
           <Bars />
           <NavMenu>
             <NavLink to='/about' activestyle>
@@ -43,7 +41,7 @@ import {
             <NavLink to='/temp' activestyle>
               Past Listings
             </NavLink>
-            <NavLink to='/temp2' activestyle>
+            <NavLink to='/profile' activestyle>
               Profile
             </NavLink>
             <NavLink onClick = {logOut} to='/' activestyle>
@@ -56,9 +54,7 @@ import {
     else if (localStorage.getItem("permission") == 2){
       return (
         <Nav>
-          <NavLink to='/'>
-            <img src={logo} style={{height: "60px"}} />
-          </NavLink>
+          <img src={logo} style={{height: "60px"}} />
           <Bars />
           <NavMenu>
             <NavLink to='/about' activestyle>
@@ -73,7 +69,7 @@ import {
             <NavLink to='/temp6' activestyle>
               Transaction Log
             </NavLink>
-            <NavLink to='/temp2' activestyle>
+            <NavLink to='/profile' activestyle>
               Profile
             </NavLink>
             <NavLink onClick = {logOut} to = '/' activestyle>
@@ -86,9 +82,7 @@ import {
     else if (localStorage.getItem("permission") == 1) {
       return (
         <Nav>
-          <NavLink to='/'>
-            <img src={logo} style={{height: "60px"}} />
-          </NavLink>
+          <img src={logo} style={{height: "60px"}} />
           <Bars />
           <NavMenu>
             <NavLink to='/about' activestyle>
@@ -109,7 +103,7 @@ import {
             <NavLink to='/view/truck' activestyle>
               View Truck
             </NavLink>
-            <NavLink to='/temp2' activestyle>
+            <NavLink to='/profile' activestyle>
               Profile
             </NavLink>
             <NavLink onClick = {logOut} to = '/' activestyle>

@@ -9,7 +9,11 @@ import {useState, useEffect} from 'react';
 
 const Marketplace = ()=>{
     const feedDisplay = document.querySelector('#feed');
+    let watch = [];
     const [ads, setAds] = useState([]);
+
+    
+
     useEffect(()=>{
         axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{}).then(function (res) {
           // console.log(res.data.message);
@@ -93,6 +97,9 @@ const Marketplace = ()=>{
             <div class="posts-container-marketplace">
             {
                 ads.map((val)=>{
+                    function add() {
+                        watch.push(val.animal_id)
+                    }
                     return(
                         <div class="posts-marketplace">
         
@@ -115,6 +122,7 @@ const Marketplace = ()=>{
                                 <div class="body-text-marketplace">Breed: {val.animal_id.type}</div>
                                 <div class="body-text-marketplace">Age:{val.animal_id.age} </div>
                                 <div class="body-text-marketplace">Injuries: {val.animal_id.injury}</div>
+                                <div class="body-text-marketplace">Price: {val.animal_id.price}</div>
                             </div>
                             </div>
 
