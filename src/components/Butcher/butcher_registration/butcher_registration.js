@@ -110,16 +110,7 @@ const ButcherRegistration = () => {
             </div>
           </form>
         </div>
-        <div class="column" id="right">
-          <h1 class="subtitle">Please upload a profile photo</h1>
-          <div class="picture">
-            <img class="preview" src={image}></img>
-          </div>
-          <form action="#" method="post" enctype="multipart/form-data">
-            <input class="file" type="file" name="image" id="image"/>
-            <label for="image" class="upload" >Upload Image</label>
-          </form>
-        </div>
+        
       </div>
       <input onClick={onSubmit} class="button" type="submit" form="myform" value="Register"/>
       <Link to = '/signup'><button class = "buttons">Go Back</button></Link>
