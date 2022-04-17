@@ -38,9 +38,9 @@ import {
             <NavLink to='/contact-us' activestyle>
               Active Listings
             </NavLink>
-            <NavLink to='/temp' activestyle>
+            {/* <NavLink to='/temp' activestyle>
               Past Listings
-            </NavLink>
+            </NavLink> */}
             <NavLink to='/profile' activestyle>
               Profile
             </NavLink>

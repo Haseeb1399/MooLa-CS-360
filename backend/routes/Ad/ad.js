@@ -23,6 +23,20 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
+
+router.route('/active').get((req,res) => {
+    user.Ad.find({sold:req.body.sold})
+    .populate(['animal_id','seller_id'])
+    .exec((err,response) => {
+        if (err == null)
+        {
+            res.json({message:response});
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
 router.route('/delete/watchlist').post((req,res) => {
     user.watch.deleteOne({ad_id:req.body._id}, function(err,obj){
         if(err)console.log(err)
