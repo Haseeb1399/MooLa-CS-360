@@ -35,7 +35,7 @@ import {
             <NavLink to='/post/animal' activestyle>
               List New Animal
             </NavLink>
-            <NavLink to='/contact-us' activestyle>
+            <NavLink to='/seller/viewlistings' activestyle>
               Active Listings
             </NavLink>
             {/* <NavLink to='/temp' activestyle>
