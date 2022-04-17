@@ -47,6 +47,7 @@ const ViewTruck = () => {
           console.log(res)
         })
         alert("Order Recieved!")
+        window.location.reload()
       }
     })
   }

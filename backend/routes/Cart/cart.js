@@ -54,7 +54,7 @@ router.route("/placeOrder").post((req,res)=>{
 router.route("/addToLog/:id").post((req,res)=>{
     
     user.Buyer.findOneAndUpdate(
-        { reference: req.params.id }, 
+        { reference: req.params.id },{cart:null}, 
         { $push: { log: req.body.ad_id  } },
        function (error, success) {
              if (error) {
