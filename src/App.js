@@ -19,6 +19,7 @@ import Profile from './components/Profile/profile'
 import {Route,Routes} from "react-router-dom";
 import Admin from './components/Admin/admin'
 import WatchList from './components/Customer/marketplace/watchlist'
+import Password from './components/Customer/changepass/pass'
  
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -63,6 +64,7 @@ function App() {
       <Route path='/admin'element={<Admin/>}/>
       <Route path='/view/animalAdd' element={<Bid/>}/>
       <Route path='/profile'element={<Profile/>}/>
+      <Route path='/password'element={<Password/>}/>
       
     </Routes>
     </div>

@@ -26,7 +26,7 @@ const Profile = () => {
                     <option value="Islamabad">Islamabad</option>
 
                 </select>
-                <input type="submit" class="button-profile submit-profile" value="Change Password"/>
+                <a href = '/password' type="submit" class="button-profile submit-profile" >Change Password</a>
             </form>
         </div>
         <div class="picture-container-profile">
