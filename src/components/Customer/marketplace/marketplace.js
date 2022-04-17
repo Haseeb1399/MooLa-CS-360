@@ -10,7 +10,33 @@ import {useState, useEffect} from 'react';
 const Marketplace = ()=>{
     const feedDisplay = document.querySelector('#feed');
     let watch = [];
+    let animals = [];
+    let sellers = [];
     const [ads, setAds] = useState([]);
+    
+
+    
+
+
+    const Submit = (event) => {
+        
+        const newObj = {
+            "a_id" : watch[watch.length - 1],
+            "b_id" : localStorage.getItem("id"),
+            "animal_id":animals[animals.length - 1],
+            "seller_id":sellers[sellers.length - 1]
+        }
+        console.log(newObj)
+
+        axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/watchlist",newObj).then((res)=>{
+            if(res.data.error){
+                console.log(res.data.error);
+                }else{
+                    alert("Added to watchlist");
+
+                }
+            }) .catch(err => {console.log(err)})
+     }
 
     
 
@@ -26,6 +52,7 @@ const Marketplace = ()=>{
             console.log("here");
             console.log(res);
             setAds(res.data);
+            
           
           //feedDisplay.insertAdjacentHTML("beforeend", res.data.data.message[0])
         })
@@ -94,11 +121,19 @@ const Marketplace = ()=>{
                 <input class="button-marketplace" type="submit" form="myform" value="Filter"/>
             
             </div>
-            <div className="posts-container-marketplace">
+            <div class="posts-container-marketplace">
             {
                 ads.map((val)=>{
-                    function add() {
-                        watch.push(val.animal_id)
+                    console.log(val) 
+                    function Add() {
+                        // const [ad_id, setAd] = useState("");
+                        
+                        
+                        watch.push(val._id);
+                        animals.push(val.animal_id._id);
+                        sellers.push(val.seller_id._id);
+                        console.log(watch)
+                        Submit()
                     }
                     return(
                         <div class="posts-marketplace">
@@ -127,8 +162,10 @@ const Marketplace = ()=>{
                             </div>
 
                             <div class="post-buttons-marketplace">
-                            <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
-                            <button onClick={add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</button>
+                            <a class="button-marketplace OpenAd-marketplace">
+                                <Link to={"/view/animalAdd"} state={{data:val}}>Open</Link>
+                            </a>
+                            <a onClick={Add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
                             </div>
 
                     </div>

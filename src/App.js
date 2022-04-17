@@ -17,8 +17,8 @@ import Market from './components/Customer/marketplace/marketplace'
 import TransactionLog from './components/Customer/transactionlog/transactionlog'
 import Profile from './components/Profile/profile'
 import {Route,Routes} from "react-router-dom";
-import Marketplace from './components/Customer/marketplace/marketplace';
 import Admin from './components/Admin/admin'
+import WatchList from './components/Customer/marketplace/watchlist'
  
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -54,13 +54,14 @@ function App() {
       <Route path='/seller/main' element={<SellerLanding/>}/>
       <Route path='/about' element={<AboutUs/>}/>
       <Route path='/marketplace'element={<Market/>}/>
+      <Route path='/watchlist'element={<WatchList/>}/>
       <Route path='/post/animal' element={<PostAd/>}/>
-      <Route path='/cattle'element={<Marketplace/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/transactionlog'element={<TransactionLog/>}/>
       <Route path='/admin'element={<Admin/>}/>
+      <Route path='/view/animalAdd' element={<Bid/>}/>
       <Route path='/profile'element={<Profile/>}/>
       
     </Routes>
