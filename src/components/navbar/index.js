@@ -91,7 +91,7 @@ import {
             <NavLink to='/marketplace' activestyle>
               Cattle
             </NavLink>
-            <NavLink to='/ad/for/butcher' activestyle>
+            <NavLink to='/buyer/postad' activestyle>
               Butchers
             </NavLink>
             <NavLink to='/watchlist' activestyle>
