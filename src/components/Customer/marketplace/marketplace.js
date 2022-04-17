@@ -125,7 +125,7 @@ const Marketplace = ()=>{
                         Buffalo
                     </label>
                 
-                {/*<div class="sex-marketplace">
+                <div class="sex-marketplace">
                     <div class="text-marketplace subtitle-marketplace">Sex</div>
 
                     <div class="checkcontainer-marketplace">
@@ -146,7 +146,7 @@ const Marketplace = ()=>{
                     <input class="textboxes-marketplace" type="text" placeholder="KG" id="lowest-weight" value = "0" onChange={(event) => setLweight(event.target.value)}/>
                     - 
                     <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" value = "0" onChange={(event) => setUweight(event.target.value)}/>
-                </div>*/}
+                </div>
                 
                 </form>
             

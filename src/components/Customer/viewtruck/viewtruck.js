@@ -51,18 +51,12 @@ const ViewTruck = () => {
           </div>
 
           <div className="fsecond info" >
-<<<<<<< HEAD
-            <div>Price: Rs price here</div>
-            <button className="removebutton">Go To Advertisement</button> 
-            <button className="removebutton">Remove From Truck</button> 
-=======
             <div>Price: {animal.cart.price}</div>
             <Link to = {'/view/animalAdd'} state={{data:animal.cart}}>
             Go to Advertisement
             </Link>
             {/* <button className="gobutton">Go To Advertisement</button>  */}
             <button onClick={handleRemove} className="removebutton">Remove From Truck</button> 
->>>>>>> 02154294162cb4a628d781399d2ee553778a1ceb
           </div>
             
         </div>
