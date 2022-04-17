@@ -112,10 +112,8 @@ const ChangePass = () => {
           type="password" onChange={(event) => setChanged1(event.target.value)}
         /> 
       </div>
-      <div>
-        <button onClick={Move} className="loginbutton">Go Back</button>
-        <button onClick = {Submit} className="loginbutton">Change Password</button>  
-      </div>       
+      <button onClick={Move} className="chnagebutton">Go Back</button>
+      <button onClick = {Submit} className="chnagebutton">Change Password</button>       
       
     </div>
   );

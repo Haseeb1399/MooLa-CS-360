@@ -66,11 +66,11 @@ const LoginPage = () => {
         /> 
       </div>    
       <div>
-        <button onClick={submitForm} className="loginbutton">Login</button>
+        <button onClick={submitForm} className="logbutton">Login</button>
       </div> 
       <div>
-        <button onClick = {Back} className = "loginbutton">Go Back</button>
-        <button onClick = {Go} className = "loginbutton">Forgot Password?</button>
+        <button onClick = {Back} className = "logbutton">Go Back</button>
+        <button onClick = {Go} className = "logbutton">Forgot Password?</button>
       </div>
     </div>
   );

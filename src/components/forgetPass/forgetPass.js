@@ -76,7 +76,7 @@ const ForgetPass = () => {
           type="email" onChange={(event) => setEmail(event.target.value)}
         />
       </div>
-      <button onClick={getCode} className="loginbutton">Get Code</button>
+      <button onClick={getCode} className="forgetbutton">Get Code</button>
       <div className="pls">
         <label placeholder="Type Here" className="logintext">Email Code</label>
         <input 
@@ -90,8 +90,8 @@ const ForgetPass = () => {
         /> 
       </div>
       <div>
-        <button onClick = {changePass} className="loginbutton">Change Password</button>  
-        <button onClick={()=>navigate("/")} className="loginbutton">Go Back</button>
+        <button onClick={()=>navigate("/")} className="forgetbutton">Go Back</button>
+        <button onClick = {changePass} className="forgetbutton">Change Password</button>  
       </div>       
       
     </div>
