@@ -72,8 +72,6 @@ const Profile = () => {
         )
     }
 
-
-
   return (
     
     <div class="App">
