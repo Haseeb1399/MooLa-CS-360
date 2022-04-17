@@ -43,7 +43,7 @@ const ViewTruck = () => {
         console.log(res.data)
         
         
-        axios.post(process.env.REACT_APP_LOCAL_KEY+'/Cart/addToLog/'+localStorage.getItem("id"),{ad_id:animal.cart._id}).then((res)=>{
+        axios.post(process.env.REACT_APP_LOCAL_KEY+'/Cart/addToLog/'+localStorage.getItem("id"),{ad_id:res.data._id}).then((res)=>{
           console.log(res)
         })
         alert("Order Recieved!")

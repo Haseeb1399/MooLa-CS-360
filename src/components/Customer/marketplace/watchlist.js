@@ -132,8 +132,8 @@ const WatchList = () => {
                             </div>
 
                             <div class="post-buttons-marketplace">
-                            <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
-                            <button onClick={Remove1}>Remove</button>
+                                <Link to={"/view/animalAdd"}><button className="wlbutton">Open Ad</button></Link>
+                            <button className="wlbutton" onClick={Remove1}>Remove</button>
                             </div>
 
                     </div>
