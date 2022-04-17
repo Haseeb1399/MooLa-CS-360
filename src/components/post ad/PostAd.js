@@ -81,11 +81,10 @@ function PostAd() {
     const handlePictureChange=(event)=>{
       setAddImage(event.target.files[0])
     }
-
-    const handleAnimalChange = (event) => {
-      setBreed(event.target.value)
+    const handlebreedChange=(event)=>{
+      console.log(event.value)
+      setBreed(event.value)
     }
-
 
 
   const sexes = [
@@ -109,7 +108,7 @@ return (
         <label className="logintext">Animal Type</label>
       </div>
       <div>
-        <Select onChange ={(event) => setBreed(event.value)} options={types}/>
+        <Select onChange={handlebreedChange} options={types}/>
       </div>
 
       <div>

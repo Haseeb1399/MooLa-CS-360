@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./transactionlog.css";
 import pic from "../../../images/goatpic.jpeg"
 
 const TransactionLog = () => {
+    const [addArray,setAddArray]=useState()
+
+    useEffect(()=>{
+        
+    })
+
+
   return (
     <div class="App">
         <div class="title">
