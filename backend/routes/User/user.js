@@ -228,6 +228,9 @@ router.route('/login').post((req,res)=>{
         if(dbUser.verified == false){
             res.json({error:"User Not Verified! Please check your email and verify!"})
         }
+        if (dbUser.ban_bool){
+            res.json({error:"The User is Banned from the Platform"})
+        }
         bcrypt.compare(userLogginIn.password,dbUser.password).then(isCorrect =>{
             if(isCorrect){
                 const payload={

@@ -19,7 +19,7 @@ const Admin = () => {
         console.log(url, newObject);
 
         axios.post(url,newObject).then((res)=>{
-            alert("Here",res);
+            alert("User Banned");
         }
         ).catch((err)=>{
             console.log(err.message);
