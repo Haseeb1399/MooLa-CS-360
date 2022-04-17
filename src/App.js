@@ -23,7 +23,7 @@ import Password from './components/Customer/changepass/pass'
 import ForgetPass from './components/forgetPass/forgetPass';
 import ViewListing from './components/Seller/view_listings/viewlistings';
 import Request from './components/Butcher/requests/requests';
-import ButchAd from './components/post ad/ButcherAd'
+// import ButchAd from './components/post ad/ButcherAd'
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
 // import { useEffect, useState } from 'react';
@@ -71,7 +71,7 @@ function App() {
       <Route path='/forgetPass' element={<ForgetPass/>}/>
       <Route path='/seller/viewlistings' element={<ViewListing/>}/>   
       <Route path='/butcher/requests' element={<Request/>}/>   
-      <Route path='/buyer/postad' element={<ButchAd/>}/>  
+      {/* <Route path='/buyer/postad' element={<ButchAd/>}/>   */}
       
     </Routes>
     </div>
