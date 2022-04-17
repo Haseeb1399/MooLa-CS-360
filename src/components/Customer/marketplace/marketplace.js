@@ -173,45 +173,6 @@ const Marketplace = ()=>{
                 })
             }
             </div>
-            {/* <div>
-                {
-                    watchList.map((val) => {
-                        return (
-                            <div class="posts-marketplace">
-        
-                            <div class="header-marketplace">
-                            <img src={img} class="profilepic-marketplace"/>
-                            <div class="header-lines-marketplace">
-                                <div class="header-text-marketplace">{val.seller_id.username}</div>
-                                <div class="header-text-marketplace subtex-marketplacet"></div>
-                            </div>
-                            </div>
-
-                            <img id="myimg" src={val.photo} class="post-picture-marketplace" />
-                            {console.log(val.photo)}
-                            <div class="post-body-marketplace">
-                            <div class="body-lines-marketplace">
-                                <div class="body-text-marketplace">Sex: {val.animal_id.sex} </div>
-                                <div class="body-text-marketplace">No. of teeth: {val.animal_id.teeth}</div>
-                                <div class="body-text-marketplace">Weight: {val.animal_id.weight}</div>
-                                <div class="body-text-marketplace">Color: {val.animal_id.color} </div>
-                                <div class="body-text-marketplace">Breed: {val.animal_id.type}</div>
-                                <div class="body-text-marketplace">Age:{val.animal_id.age} </div>
-                                <div class="body-text-marketplace">Injuries: {val.animal_id.injury}</div>
-                                <div class="body-text-marketplace">Price: {val.animal_id.price}</div>
-                            </div>
-                            </div>
-
-                            <div class="post-buttons-marketplace">
-                            <a href="/cattle/bid" class="button-marketplace OpenAd-marketplace">Open</a>
-                            <button class="button-marketplace Watchlist-marketplace">Add to Watchlist</button>
-                            </div>
-
-                    </div>
-                        )
-                    })
-                }
-            </div> */}
           </div>
       )
 }
