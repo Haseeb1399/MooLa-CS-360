@@ -126,7 +126,9 @@ const BidSchema = new Schema({
 
 const WatchListSchema = new Schema({
   ad_id:{type: Schema.Types.ObjectId, ref: "Ad"},
-  buyer_id: {type: Schema.Types.ObjectId, ref:"User"}
+  buyer_id: {type: Schema.Types.ObjectId, ref:"User"},
+  seller_id: {type: Schema.Types.ObjectId, ref:"User"},
+  animal_id:{type: Schema.Types.ObjectId, ref:"Animal"}
 })
 
 const TokenSchema = new Schema({

@@ -23,6 +23,47 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
+router.route('/delete/watchlist').post((req,res) => {
+    user.watch.deleteOne({ad_id:req.body._id}, function(err,obj){
+        if(err)console.log(err)
+        else console.log(obj)
+    })
+})
+
+router.route('/watchlist').get((req,res) => {
+    user.watch.find({})
+    .populate(['ad_id','seller_id','animal_id'])
+    .exec((err,response) => {
+        if (err == null)
+        {
+            res.json({message:response});
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
+
+
+router.route('/post/watchlist').post((req,res) => {
+    console.log(req.body)
+    const a_id = req.body.a_id;
+    const b_id = req.body.b_id;
+    const animal_id = req.body.animal_id;
+    const seller_id = req.body.seller_id;
+    const new_list = user.watch({
+        ad_id :a_id,
+        buyer_id : b_id,
+        animal_id:animal_id,
+        seller_id:seller_id
+    });
+    new_list.save(function (err) {
+        if(err) res.json({error:err})
+        else res.json({message:"added to watchlist"})
+    })
+})
+
+
 router.route('/marketplace').get((req,res) => {
     user.Ad.find({})
     .populate(['animal_id',"seller_id"])

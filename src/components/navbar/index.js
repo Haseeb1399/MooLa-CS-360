@@ -63,7 +63,7 @@ import {
             <NavLink to='/temp4' activestyle>
               Requests
             </NavLink>
-            <NavLink to='/temp5' activestyle>
+            <NavLink to='/watchlist' activestyle>
               WatchList
             </NavLink>
             <NavLink to='/temp6' activestyle>
@@ -94,7 +94,7 @@ import {
             <NavLink to='/post/animal' activestyle>
               Butchers
             </NavLink>
-            <NavLink to='/temp6' activestyle>
+            <NavLink to='/watchlist' activestyle>
               WatchList
             </NavLink>
             <NavLink to='/transactionlog' activestyle>
