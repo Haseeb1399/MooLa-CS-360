@@ -44,6 +44,7 @@ function PostAd() {
           getDownloadURL(ref(storage,storageRef.fullPath)).then(
             (url)=>{
               console.log(url)
+              console.log(breed)
               const newObj={
                 "photo":url,
                 "sex":sex,

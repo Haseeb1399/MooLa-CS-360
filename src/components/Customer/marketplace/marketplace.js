@@ -203,7 +203,7 @@ const Marketplace = ()=>{
 
                                     <div class="post-buttons-marketplace">
                                     <a class="button-marketplace OpenAd-marketplace">
-                                        <Link to={"/view/animalAdd"} state={{data:val}}>Open</Link>
+                                        <Link to={"/view/animalAdd"} state={{data:val}}>Open Ad</Link>
                                     </a>
                                     <a onClick={Add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
                                     </div>
