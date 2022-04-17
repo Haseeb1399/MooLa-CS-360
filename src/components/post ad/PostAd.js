@@ -89,11 +89,24 @@ function PostAd() {
     { value: 3, label: "Other", color: "#498205" },
   ];
 
+  const types = [
+    { value: "cow", label: "Cow", color: "#498205" },
+    { value: "goat", label: "Goat", color: "#498205" },
+    { value: "camel", label: "Camel", color: "#498205" },
+    { value: "buffalo", label: "Buffalo", color: "#498205" },
+  ]
 
 return (
   <form onSubmit={submitForm} method='post' encType='multipart/form-data'>
   <div className='App'>
     <div className='First'>
+      <div>
+        <label className="logintext">Animal Type</label>
+      </div>
+      <div>
+        <Select onChange={handleSexChange} options={types}/>
+      </div>
+
       <div>
         <label className="logintext">Sex</label>
       </div>
@@ -115,15 +128,6 @@ return (
       <div>
         <input className='boxinput' placeholder="Required (KG)"
           type="number" onChange={(event) => setWeight(event.target.value)}
-        />
-      </div> 
-
-      <div>
-        <label className="logintext">Breed</label>
-      </div>
-      <div>
-        <input className='boxinput' placeholder="Required"
-          type="text" onChange={(event) => setBreed(event.target.value)}
         />
       </div> 
 
