@@ -97,6 +97,20 @@ const Marketplace = ()=>{
             })
           },[])
       }
+
+      function Animal() {
+          animal = ""
+      }
+      function Sex() {
+          sex = ""
+      }
+
+      function Weight() {
+          Lweight = 0;
+          Uweight = 0;
+      }
+
+
       return (
           <div class="App">
               <div class="filter-marketplace">
@@ -124,8 +138,9 @@ const Marketplace = ()=>{
                         <input type="checkbox" value = "buffalo" onChange={(event) => setAnimal(event.target.value)}/>
                         Buffalo
                     </label>
+                    <button className="rembutton" onClick = {Animal}>Remove Animal Filters</button>
                 
-                <div class="sex-marketplace">
+                <div>
                     <div class="text-marketplace subtitle-marketplace">Sex</div>
 
                     <div class="checkcontainer-marketplace">
@@ -138,16 +153,8 @@ const Marketplace = ()=>{
                         Female
                     </label>
                     </div>
-                </div>
-
-                <div class="weight-marketplace"> 
-                    <div class="text-marketplace subtitle-marketplace">Weight</div>
-
-                    <input class="textboxes-marketplace" type="text" placeholder="KG" id="lowest-weight" value = "0" onChange={(event) => setLweight(event.target.value)}/>
-                    - 
-                    <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" value = "0" onChange={(event) => setUweight(event.target.value)}/>
-                </div>
-                
+                    <button className="rembutton" onClick = {Sex}>Remove Sex Filters</button>
+                </div>  
                 </form>
             
             </div>
@@ -196,7 +203,7 @@ const Marketplace = ()=>{
 
                                     <div class="post-buttons-marketplace">
                                     <a class="button-marketplace OpenAd-marketplace">
-                                        <Link to={"/view/animalAdd"} state={{data:val}}>Open</Link>
+                                        <Link to={"/view/animalAdd"} state={{data:val}}>Open Ad</Link>
                                     </a>
                                     <a onClick={Add} class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
                                     </div>

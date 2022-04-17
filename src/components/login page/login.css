@@ -36,10 +36,8 @@ input:focus {
   border-radius: 6px;
 }
 
-.loginbutton {
-  width: 100px;
-  height: 30px;
-  margin-top: 15px;
+.logbutton {
+  margin: 1rem;
   align-items: center;
   color: #000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -53,7 +51,7 @@ input:focus {
   background-color: #de7002;
 }
 
-.loginbutton:hover {
+.logbutton:hover {
   cursor: pointer;
   border-color: #000;
   background-color: #000;
