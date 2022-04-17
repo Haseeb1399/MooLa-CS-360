@@ -35,45 +35,50 @@ const LoginPage = () => {
     }
 
 
-    // const obj = {
-    //   "email":email
-    // }
-    // axios.post(process.env.REACT_APP_LOCAL_KEY+'/User/getban',obj).then((data)=>{
-    //     setBan(data.data)
-    //     //setBan(data.data);
-    //     //console.log(data.data[0])
-    // }).catch((err)=>{
-    //     console.log(err)
-    // })
+    const obj = {
+      "email":email
+    }
+    axios.post(process.env.REACT_APP_LOCAL_KEY+'/User/getban',obj).then((data)=>{
+        setBan(data.data)
+        //setBan(data.data);
+        //console.log(data.data[0])
 
-    axios.post(process.env.REACT_APP_LOCAL_KEY+"/User/login",newObj).then((res)=>{
-      if(res.data.error){
-        alert(res.data.error)
-        window.location="/"
-        console.log(res.data.error)
-      }else{
-        //console.log(ban[0].ban_bool)
-        // if(ban[0].ban_bool == true) {
-        //   alert("You are banned")
-        //   window.location.reload()
-        // }
-        localStorage.setItem("accessToken",res.data.token)
-        localStorage.setItem("permission",res.data.permission)
-        localStorage.setItem("id",res.data.id)
-        localStorage.setItem("username",res.data.username)
-        console.log(res.data.permission)
-        if(res.data.permission == 1){
-          window.location="/about"
-        }else if(res.data.permission==2){
-          window.location="/about"
-        }else if(res.data.permission==3){
-          window.location="/about"
-        }
-        else if(res.data.permission==4){
-          window.location="/admin";
-        }
-      }
+        axios.post(process.env.REACT_APP_LOCAL_KEY+"/User/login",newObj).then((res)=>{
+          if(res.data.error){
+            alert(res.data.error)
+            window.location="/"
+            console.log(res.data.error)
+          }else{
+            let data = ban[0];
+            //console.log(data.ban_bool)
+            if(data.ban_bool == true) {
+              alert("You are banned")
+              window.location = '/'
+            }
+            localStorage.setItem("accessToken",res.data.token)
+            localStorage.setItem("permission",res.data.permission)
+            localStorage.setItem("id",res.data.id)
+            localStorage.setItem("username",res.data.username)
+            console.log(res.data.permission)
+            if(res.data.permission == 1){
+              window.location="/about"
+            }else if(res.data.permission==2){
+              window.location="/about"
+            }else if(res.data.permission==3){
+              window.location="/about"
+            }
+            else if(res.data.permission==4){
+              window.location="/admin";
+            }
+          }
+        })
+
+
+    }).catch((err)=>{
+        console.log(err)
     })
+
+    
   }
 
   

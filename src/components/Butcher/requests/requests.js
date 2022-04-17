@@ -9,9 +9,10 @@ import {useState, useEffect} from 'react';
 
 const Marketplace = ()=>{
     const feedDisplay = document.querySelector('#feed');
-    let weight = [];
+   // let weight = [];
     let breed = [];
     let sellers = [];
+    let watch = []
     const [ads, setAds] = useState([]);
     const [type,setType] = useState("");
     const [weight, setweight] = useState(0);
