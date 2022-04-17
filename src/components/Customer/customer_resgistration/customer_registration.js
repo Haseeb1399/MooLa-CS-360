@@ -67,10 +67,8 @@ const CustomerRegistration = () => {
   return (
     <div class="App">
       <h1 class="title">CUSTOMER REGISTRATION</h1>
-      <div class="layout">
-        <div class="column" id="left">
-          <h1 class="subtitle">Please fill in the following details</h1>
-          <form id="myform" action="#" method="post">
+      <h1 className="subtitle">Please fill in the following details</h1>
+      <form id="myform" action="#" method="post">
             <div>
               <label for="Username">Username</label>
               <input onChange={handleName} class="input username" placeholder="Type Here" type="text" name="Username" id="Username"/>  
@@ -98,13 +96,11 @@ const CustomerRegistration = () => {
               </select>
             </div>
           </form>
-        </div>
+        <Link to = '/signup'><button class = "button">Go Back</button></Link>
+        <input onClick={onSubmit} class="button" type="submit" form="myform" value="Register"/>
         
       </div>
-      <input onClick={onSubmit} class="button" type="submit" form="myform" value="Register"/>
-      <Link to = '/signup'><button class = "buttons">Go Back</button></Link>
       
-    </div>
   );
 };
 
