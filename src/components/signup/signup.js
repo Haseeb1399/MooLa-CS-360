@@ -27,9 +27,9 @@ const Signup = () => {
         <img src={butcher} className="pic right" />
         <Link to ='/signup/butcher'><button className="buttons">Butcher</button></Link>
       </div>  
-      <div className="signup">
+      {/*<div className="signup">
         <Link to ='/signup/admin'><button className="button-admin">Become an Admin</button></Link>
-      </div>  
+  </div>*/}  
       <Link to = '/'> <button className="backbutton">Go Back</button></Link>    
     </div>
   );
