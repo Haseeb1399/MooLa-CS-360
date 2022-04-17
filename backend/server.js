@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/User/user');
 const adRouter = require('./routes/Ad/ad');
+const cartRouter=require('./routes/Cart/cart')
 // const adminRouter = require('./routes/Admin/admin')
 require('dotenv').config();
 
@@ -24,6 +25,7 @@ connection.once('open', () => {
 
 app.use('/User',userRouter);
 app.use('/Ad',adRouter);
+app.use('/Cart',cartRouter)
 // app.use('/Admin',adminRouter);
 
 app.listen(port, () => {
