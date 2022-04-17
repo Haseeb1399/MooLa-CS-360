@@ -50,14 +50,14 @@ const LoginPage = () => {
     <div class="App">
       <h1 className="logintitle">LOGIN</h1>
       <div>
-        <label placeholder="Type Here" >Email</label>
-        <input onChange={(event)=>setEmail(event.target.value)}
+        <label >Email</label>
+        <input placeholder="Type Here" onChange={(event)=>setEmail(event.target.value)}
           type="text"
         />
       </div>
       <div>
-        <label placeholder="Type Here" >Password</label>
-        <input onChange={(event)=>setPassword(event.target.value)}
+        <label >Password</label>
+        <input placeholder="Type Here" onChange={(event)=>setPassword(event.target.value)}
           type="password"
         /> 
       </div>    

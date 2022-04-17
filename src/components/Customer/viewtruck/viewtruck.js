@@ -7,7 +7,18 @@ const ViewTruck = () => {
   return (
     <div class="App">
       <div className="first">
-        <div># Animal(s) Added</div>
+
+        <div className="ffirst">
+          <div># Animal(s) Added</div>
+        </div>
+        <div className="fsecond">
+          <div>Total: Rs price</div>
+        </div>
+        
+        <div className="container">
+          
+        </div>
+
         <div>
             {/*image of animal here*/}
             <div>Advertisement ID: #id here</div>

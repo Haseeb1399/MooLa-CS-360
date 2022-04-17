@@ -106,31 +106,26 @@ const Marketplace = ()=>{
                 <div class="text-marketplace">Filters</div> 
                 </div>
                 <form id="myform">
-
-                <div class="animal-marketplace">
                     <div class="text-marketplace subtitle-marketplace">Animal</div>
-
-                    <div class="checkcontainer-marketplace">
-                    <label for="cow">
-                        <input class="checkbox-marketplace" type="checkbox" id="cow" value = "cow" onChange={(event) => setAnimal(event.target.value)}/>
+                    
+                    <label>
+                        <input type="checkbox" value = "cow" onChange={(event) => setAnimal(event.target.value)}/>
                         Cow
                     </label>
-                    <label for="goat">
-                        <input class="checkbox-marketplace" type="checkbox" id="goat" value = "goat" onChange={(event) => setAnimal(event.target.value)}/>
+                    <label>
+                        <input type="checkbox" value = "goat" onChange={(event) => setAnimal(event.target.value)}/>
                         Goat
                     </label>
-                    <label for="camel">
-                        <input class="checkbox-marketplace" type="checkbox" id="camel" value = "camel" onChange={(event) => setAnimal(event.target.value)}/>
+                    <label>
+                        <input type="checkbox" value = "camel" onChange={(event) => setAnimal(event.target.value)}/>
                         Camel
                     </label>
-                    <label for="buffalo">
-                        <input class="checkbox-marketplace" type="checkbox" id="buffalo" value = "buffalo" onChange={(event) => setAnimal(event.target.value)}/>
+                    <label>
+                        <input type="checkbox" value = "buffalo" onChange={(event) => setAnimal(event.target.value)}/>
                         Buffalo
                     </label>
-                    </div>
-                </div>
                 
-                <div class="sex-marketplace">
+                {/*<div class="sex-marketplace">
                     <div class="text-marketplace subtitle-marketplace">Sex</div>
 
                     <div class="checkcontainer-marketplace">
@@ -151,10 +146,9 @@ const Marketplace = ()=>{
                     <input class="textboxes-marketplace" type="text" placeholder="KG" id="lowest-weight" value = "0" onChange={(event) => setLweight(event.target.value)}/>
                     - 
                     <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" value = "0" onChange={(event) => setUweight(event.target.value)}/>
-                </div>
+                </div>*/}
                 
                 </form>
-                <input class="button-marketplace" type="submit" form="myform" value="Filter" onClick={Filter}/>
             
             </div>
             <div class="posts-container-marketplace">
