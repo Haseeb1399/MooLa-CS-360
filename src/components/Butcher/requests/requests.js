@@ -16,57 +16,25 @@ const Marketplace = ()=>{
     let type = 0;
     
 
-    
-
-
-    const Submit = (event) => {
-        
-        const newObj = {
-            "a_id" : watch[watch.length - 1],
-            "b_id" : localStorage.getItem("id"),
-            "animal_id":animals[animals.length - 1],
-            "seller_id":sellers[sellers.length - 1]
-        }
-        console.log(newObj)
-
-        axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/watchlist",newObj).then((res)=>{
-            if(res.data.error){
-                console.log(res.data.error);
-                }else{
-                    alert("Added to watchlist");
-
-                }
-            }) .catch(err => {console.log(err)})
-     }
-
-     if(localStorage.getItem("permission") == 1) {
-        type = 3;
-    }
-    else {
-        type = 1;
-    }
-
     useEffect(()=>{
         
-        axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{ad_type:type}).then(function (res) {
-          // console.log(res.data.message);
-          // feedDisplay.insertAdjacentHTML("beforeend",<div><h3>`${res.data.message}</h3></div>)
-          // console.log(res) //Console me data arha he isse display karna he
-        //   setAds(res.data.message);
-        //   console.log(res.data.message);
-        //   console.log("here");
-        //   console.log(ads);
-            console.log("here");
+        axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/get/butch').then(function (res) {
+            //console.log("here");
             console.log(res);
             setAds(res.data);
             
           
-          //feedDisplay.insertAdjacentHTML("beforeend", res.data.data.message[0])
         })
         .catch(function(err) {
           console.log(err)
         })
       },[])
+
+
+    const Submit = (event) => {
+        event.preventDefault()
+        
+    }
 
       return (
           <div class="App">
@@ -157,14 +125,14 @@ const Marketplace = ()=>{
                             {console.log(val.photo)}
                             <div class="post-body-marketplace">
                             <div class="body-lines-marketplace">
-                                <div class="body-text-marketplace">Sex: {val.animal_id.sex} </div>
-                                <div class="body-text-marketplace">No. of teeth: {val.animal_id.teeth}</div>
-                                <div class="body-text-marketplace">Weight: {val.animal_id.weight}</div>
+                                <div class="body-text-marketplace">Weight: {val.weight} </div>
+                                <div class="body-text-marketplace">Breed: {val.breed}</div>
+                                {/* <div class="body-text-marketplace">Weight: {val.animal_id.weight}</div>
                                 <div class="body-text-marketplace">Color: {val.animal_id.color} </div>
                                 <div class="body-text-marketplace">Breed: {val.animal_id.type}</div>
                                 <div class="body-text-marketplace">Age:{val.animal_id.age} </div>
                                 <div class="body-text-marketplace">Injuries: {val.animal_id.injury}</div>
-                                <div class="body-text-marketplace">Price: {val.animal_id.price}</div>
+                                <div class="body-text-marketplace">Price: {val.animal_id.price}</div> */}
                             </div>
                             </div>
 
