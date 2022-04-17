@@ -28,9 +28,18 @@
     width: 33.3%;
 }
 
-.container {
+.contain{
     margin-top: 2rem;
-    height: 1.625rem;
-    width: 10%;
+    margin-left: 10%;
+    height: 14rem;
+    width: 80%;
     background-color: #F4C690;
+}
+
+.fillbox{
+    float: right;
+    margin-top: 2rem;
+    height: 10rem;
+    width: 10%;
+    background-color: #F7F1DE;
 }
