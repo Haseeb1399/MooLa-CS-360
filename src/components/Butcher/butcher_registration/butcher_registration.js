@@ -69,51 +69,46 @@ const ButcherRegistration = () => {
   return (
     <div class="App">
       <h1 class="title">BUTCHER REGISTRATION</h1>
-      <div class="layout">
-        <div class="column" id="left">
-          <h1 class="subtitle">Please fill in the following details</h1>
-          <form id="myform" action="#" method="post">
-            <div>
-              <label for="Username">Username</label>
-              <input onChange={handleName} class="input username" placeholder="Type Here" type="text" name="Username" id="Username"/>  
-              <p>Username will be displayed to other users on the app</p>
-            </div>
-            <div>
-              <label for="Pass">Password</label>
-              <input onChange={handlePass} class="input" placeholder="Type Here" type="password" name="Pass" id="Pass"/>
-            </div>
-            <div>
-              <label for="Email">Email</label>
-              <input onChange={handleEmail} class="input" placeholder="Type Here" type="email" name="Email" id="Email"/>
-            </div>
-            <div>
-              <label for="Phone">Cell No.</label>
-              <input onChange={handlePhone} class="input" placeholder="Type Here" type="text" name="phpne" id="phone"/>
-            </div>
-            <div>
-              <label for="Location">Location</label>
-              <select onChange={handleLocation} class="input select" name="Location" id="Location">
-                <option>Select Location</option>
-                <option value="Lahore">Lahore</option>
-                <option value="Karachi">Karachi</option>
-                <option value="Islamabad">Islamabad</option>
-              </select>
-            </div>
-            <div>
-              <label for="type">Type of Butcher</label>
-              <select onChange={handleType} class="input select" name="type" id="typeSelect">
-                <option>Select Type</option>
-                <option value={1} >Small Animal (Goat)</option>
-                <option value={2}>Large Animal (Cow, Camel)</option>
-                <option value={3}>Both</option>
-              </select>
-            </div>
-          </form>
-        </div>
-        
-      </div>
-      <input onClick={onSubmit} class="button" type="submit" form="myform" value="Register"/>
-      <Link to = '/signup'><button class = "buttons">Go Back</button></Link>
+      <h1 class="subtitle">Please fill in the following details</h1>
+        <form id="myform" action="#" method="post">
+          <div>
+            <label for="Username">Username</label>
+            <input onChange={handleName} class="input username" placeholder="Type Here" type="text" name="Username" id="Username"/>  
+            <p>Username will be displayed to other users on the app</p>
+          </div>
+          <div>
+            <label for="Pass">Password</label>
+            <input onChange={handlePass} class="input" placeholder="Type Here" type="password" name="Pass" id="Pass"/>
+          </div>
+          <div>
+            <label for="Email">Email</label>
+            <input onChange={handleEmail} class="input" placeholder="Type Here" type="email" name="Email" id="Email"/>
+          </div>
+          <div>
+            <label for="Phone">Cell No.</label>
+            <input onChange={handlePhone} class="input" placeholder="Type Here" type="text" name="phpne" id="phone"/>
+          </div>
+          <div>
+            <label for="Location">Location</label>
+            <select onChange={handleLocation} class="input select" name="Location" id="Location">
+              <option>Select Location</option>
+              <option value="Lahore">Lahore</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Islamabad">Islamabad</option>
+            </select>
+          </div>
+          <div>
+            <label for="type">Type of Butcher</label>
+            <select onChange={handleType} class="input select" name="type" id="typeSelect">
+              <option>Select Type</option>
+              <option value={1} >Small Animal (Goat)</option>
+              <option value={2}>Large Animal (Cow, Camel)</option>
+              <option value={3}>Both</option>
+            </select>
+          </div>
+        </form>
+      <Link to = '/signup'><button class = "button">Go Back</button></Link>
+      <input onClick={onSubmit} class="button" type="submit" form="myform" value="Register"/>  
     </div>
   );
 };
