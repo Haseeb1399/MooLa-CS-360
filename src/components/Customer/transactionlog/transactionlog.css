@@ -8,18 +8,15 @@
 
 .container {
     /* remove flex to unflip but then allignment issues when there are multiple posts */
-    display: flex;
     margin-top: 2rem;
-    margin-left: 3rem;
     height: 15.625rem;
-    width: 81.25rem;
+    width: 100%;
     background-color: #F4C690;
 }
 
 .container-text {
     width: 15rem;
-    float: left;
-    margin-left: 3rem;
+    float: right;
     margin-top: 1rem;
 }
 
@@ -39,8 +36,9 @@
     height: 13.75rem;
     width: 17.5rem;
     border-radius: 0%;
-    float: right;
-    margin-top: 1rem;
+    float: left;
+    margin-left: 2rem;
+    margin-top: 2.1rem;
     object-fit: fill;
 }
 

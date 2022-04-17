@@ -13,8 +13,6 @@
   height: 33.438rem;
   width: 20%;
   border: 0.125rem solid #DE7002;
-  
-  
 }
 
   .title-marketplace {
@@ -38,7 +36,7 @@
     }
 
   .animal-marketplace {
-    height: 20.875rem;
+    height: auto;
     border-bottom: 0.125rem solid #DE7002;
   }
 
@@ -48,24 +46,10 @@
       margin-bottom: 0rem;
     }
 
-    input[type="checkbox"] {
-      transform: scale(1.5);
-    }
-
     .checkcontainer-marketplace {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-    }
-
-    .checkcontainer-marketplace label {
-      margin-left: 1.25rem;
-      margin-bottom: 0.313rem;
-    }
-
-    .checkcontainer-marketplace input {
-      margin-right: 0.625rem;
-      margin-top: 0.625rem;
     }
 
   .sex-marketplace {
@@ -227,8 +211,4 @@
 
   .Watchlist-marketplace:hover {
     opacity: 1;
-  }
-
-  label {
-    padding-right: 0%;
   }

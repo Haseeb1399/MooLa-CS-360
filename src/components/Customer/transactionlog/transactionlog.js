@@ -15,6 +15,11 @@ const TransactionLog = () => {
                 <input class="button-tl" type="submit" value="Lodge Complaint"/>
             </div>  
             
+            <div class="picture">
+                {/* add image here */}
+                <img src={pic}/>
+            </div>
+
             <div class="container-text">
                 {/* add order details here */}
                 <p>Order ID: #3212</p>
@@ -25,10 +30,7 @@ const TransactionLog = () => {
                 <p>Status: Delivered</p>
             </div> 
 
-            <div class="picture">
-                {/* add image here */}
-                <img src={pic}/>
-            </div>
+            
         </div>
 
 
