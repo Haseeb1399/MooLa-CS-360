@@ -41,7 +41,6 @@ const ViewListing = ()=>{
                 <a class="button-marketplace OpenAd-marketplace"> Open
                     {/* <Link to={"/view/animalAdd"} state={{data:val}}>Open</Link> */}
                 </a>
-                <a class="button-marketplace Watchlist-marketplace">Add to Watchlist</a>
                 </div>
             </div>
 
