@@ -19,7 +19,8 @@ const UserSchema = new Schema( {
     permissions: {type: Number, required : true},
     ban_bool: {type: Boolean, required : true},
     verified:{type:Boolean,default:false},
-    photo:{type:String,default:"null"}
+    photo:{type:String,default:"null"},
+    salt:{type:String,default:""}
 })
 
 //Permissions:

@@ -36,6 +36,7 @@ const ChangePass = () => {
   const Submit =(event) => {
     event.preventDefault();
     if (changed != changed1) {
+      alert("Your new passwords don't match!")
       window.location.reload()
     }
     axios.post(process.env.REACT_APP_LOCAL_KEY+'/User/getpass',{id:localStorage.getItem("id")}).then(function (res) {
@@ -53,7 +54,7 @@ const ChangePass = () => {
       x = hashIt(current,salted);
     }
     catch(err) {
-      x = hashIt(current,salted);
+      console.log(err)
     }
     
       if(fromDB != x) {
@@ -87,51 +88,7 @@ const ChangePass = () => {
         
   
       }
-    //console.log(hash_curr)
-    
-    
-
-    // bcrypt.genSalt(10, function (saltError, salt) {
-    //   if (saltError) {
-    //     console.log(saltError)
-    //   } else {
-    //     bcrypt.hash(current, salt, function(hashError, hash) {
-    //       if (hashError) {
-    //         console.log(hashError)
-    //       }
-    //       else{
-    //         if(fromDB == hash) {
-    //           check = true;
-    //         }
-    //       }
-    //     })
-    //   }
-    // })
-
-    //if(check) {
-
-      // bcrypt.genSalt(10, function (saltError, salt) {
-      //   if (saltError) {
-      //     console.log(saltError)
-      //   } else {
-      //     bcrypt.hash(changed, salt, function(hashError, hash) {
-      //       if (hashError) {
-      //         console.log(hashError)
-      //       }
-      //       else{
-      //         changed = hash;
-      //       }
-      //     })
-      //   }
-      // })
-
-      
-
-    // }
-    // else {
-    //   navigate('/password')
-    // }
-      
+  
   }
 
   return (
