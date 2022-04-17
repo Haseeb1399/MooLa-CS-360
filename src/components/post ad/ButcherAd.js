@@ -38,13 +38,6 @@ function PostAd() {
         setTimeout(window.location.reload(),2000)
         
         }
-    
-
-    
-
-    
-
-
 return (
   <form onSubmit={submitForm} method='post' encType='multipart/form-data'>
   <div className='App'>
