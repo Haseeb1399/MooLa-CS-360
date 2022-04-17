@@ -78,8 +78,9 @@ router.route('/post/watchlist').post((req,res) => {
 })
 
 
-router.route('/marketplace').get((req,res) => {
-    user.Ad.find({})
+router.route('/marketplace').post((req,res) => {
+    
+    user.Ad.find({ad_type:req.body.ad_type})
     .populate(['animal_id',"seller_id"])
     .exec((err,response)=>{
         if (err == null)

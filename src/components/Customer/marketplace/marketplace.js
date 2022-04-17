@@ -13,6 +13,7 @@ const Marketplace = ()=>{
     let animals = [];
     let sellers = [];
     const [ads, setAds] = useState([]);
+    let type = 0;
     
 
     
@@ -38,10 +39,16 @@ const Marketplace = ()=>{
             }) .catch(err => {console.log(err)})
      }
 
-    
+     if(localStorage.getItem("permission") == 1) {
+        type = 3;
+    }
+    else {
+        type = 1;
+    }
 
     useEffect(()=>{
-        axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{}).then(function (res) {
+        
+        axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{ad_type:type}).then(function (res) {
           // console.log(res.data.message);
           // feedDisplay.insertAdjacentHTML("beforeend",<div><h3>`${res.data.message}</h3></div>)
           // console.log(res) //Console me data arha he isse display karna he
