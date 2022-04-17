@@ -157,6 +157,13 @@ const TokenSchema = new Schema({
   createdAt:{type:Date,default:Date.now(),expires:3600}
 })
 
+const OrderSchema= new Schema({
+  buyer_id:{type: Schema.Types.ObjectId, ref:"Buyer"},
+  ad_id:{type: Schema.Types.ObjectId,ref:"Ad"},
+  delivery:{type:String},
+  status:{type:String}
+})
+
 
 const User = mongoose.model('User', UserSchema);
 const Buyer = mongoose.model('Buyer',BuyerSchema);
@@ -170,7 +177,8 @@ const watch = mongoose.model('Watch', WatchListSchema);
 const Token = mongoose.model('Token',TokenSchema)
 const ButchAd = mongoose.model('ButcherAd',ButcherAdSchema);
 const Admin = mongoose.model('Admin', AdminSchema);
+const Order = mongoose.model("Order",OrderSchema)
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {
-    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token, ButchAd, Admin}
+    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token, ButchAd, Admin,Order}

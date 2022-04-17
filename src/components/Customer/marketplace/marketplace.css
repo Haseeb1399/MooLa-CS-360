@@ -213,11 +213,7 @@
     opacity: 1;
   }
 
-  label {
-    padding-right: 0%;
-  }
-
-  input {
-    height: auto;
+   .checkcontainer-marketplace input {
     width: auto;
+    height: auto;
   }
