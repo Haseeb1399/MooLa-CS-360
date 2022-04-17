@@ -4,6 +4,7 @@ const multer = require('multer');
 
 let user = require('../../models/user');
 const path = require('path');
+const { Navigate, useNavigate } = require('react-router');
 var mongoose = require("mongoose")
 mongoose.Promise = require('bluebird');
 
@@ -118,6 +119,20 @@ router.route('/marketplace').post((req,res) => {
     //console.log(result)
 })
 
+
+
+router.route('/get/butch').get((req,res) => {
+    user.ButchAd.find({})
+    .populate('seller_id')
+    .exec((err,response) => {
+        if (err == null)
+            {
+                res.json(response);
+            }else{
+                res.json({error:err})
+            }
+    })
+})
 router.route('/sellerAds/:id').get((req,res)=>{
     const id=req.params.id
 
@@ -132,7 +147,9 @@ router.route('/sellerAds/:id').get((req,res)=>{
 
 
 router.route('/add/butchAd').post((req,res) => {
+    //const navigate = useNavigate();
     const new_ad = new user.ButchAd({
+        seller_id:req.body.seller_id,
         weight:req.body.weight,
         breed:req.body.breed
     })

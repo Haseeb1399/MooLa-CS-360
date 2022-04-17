@@ -18,27 +18,26 @@ function PostAd() {
     const [weight, setWeight] = useState("");
     const [breed, setBreed] = useState("");
 
+    function refresh() {
+      window.location.reload()
+    }
+
     const submitForm=(event)=>{
         event.preventDefault()
         const newObj = {
+          seller_id:localStorage.getItem("id"),
           weight:weight,
           breed:breed
         }
         axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/add/butchAd',newObj).then((data)=>{
           console.log(data)
-          navigate('/about')
+          //refresh()
         }).catch((err)=>{
             console.log(err)
         })
+        setTimeout(window.location.reload(),4000)
         
         }
-    
-
-    
-
-    
-
-
 return (
   <form onSubmit={submitForm} method='post' encType='multipart/form-data'>
   <div className='App'>

@@ -34,12 +34,16 @@ const LoginPage = () => {
         localStorage.setItem("permission",res.data.permission)
         localStorage.setItem("id",res.data.id)
         localStorage.setItem("username",res.data.username)
+        console.log(res.data.permission)
         if(res.data.permission == 1){
           window.location="/about"
         }else if(res.data.permission==2){
           window.location="/about"
         }else if(res.data.permission==3){
           window.location="/about"
+        }
+        else if(res.data.permission==3){
+          window.location="/admin";
         }
       }
     })
@@ -50,14 +54,14 @@ const LoginPage = () => {
     <div class="App">
       <h1 className="logintitle">LOGIN</h1>
       <div>
-        <label placeholder="Type Here" >Email</label>
-        <input onChange={(event)=>setEmail(event.target.value)}
+        <label >Email</label>
+        <input placeholder="Type Here" onChange={(event)=>setEmail(event.target.value)}
           type="text"
         />
       </div>
       <div>
-        <label placeholder="Type Here" >Password</label>
-        <input onChange={(event)=>setPassword(event.target.value)}
+        <label >Password</label>
+        <input placeholder="Type Here" onChange={(event)=>setPassword(event.target.value)}
           type="password"
         /> 
       </div>    
