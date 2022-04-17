@@ -8,18 +8,11 @@ import axios from 'axios';
 import {useState, useEffect} from 'react';
 
 const Marketplace = ()=>{
-    const feedDisplay = document.querySelector('#feed');
-<<<<<<< HEAD
+    //const feedDisplay = document.querySelector('#feed');
    // let weight = [];
     let breed = [];
     let sellers = [];
     let watch = []
-=======
-    // let weight = [];
-    let breed = [];
-    let sellers = [];
-    let watch = [];
->>>>>>> 4d90732757ef3aa11c92c3490bd20b3020777e0c
     const [ads, setAds] = useState([]);
     const [type,setType] = useState("");
     const [weight, setweight] = useState(0);
