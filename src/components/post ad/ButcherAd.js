@@ -93,6 +93,15 @@ function PostAd() {
 return (
   <form onSubmit={submitForm} method='post' encType='multipart/form-data'>
   <div className='App'>
+  <div>
+      <label className="logintext">Animal Type</label>
+      </div>
+      <div>
+        <input className='boxinput' placeholder="Required"
+          type="text" onChange={(event) => setBreed(event.target.value)}
+        />
+      </div>
+
       <div>
         <label className="logintext">Weight</label>
       </div>
@@ -102,16 +111,7 @@ return (
         />
       </div>
 
-      <div>
-        <label className="logintext">Breed</label>
-      </div>
-      <div>
-        <input className='boxinput' placeholder="Required"
-          type="text" onChange={(event) => setBreed(event.target.value)}
-        />
-      </div>
-
-      <div className='buttonpos'><button type="submit" className="loginbutton">Post Ad</button></div>
+      <div><button type="submit" className="loginbutton">Post Ad</button></div>
     
   </div>
 </form>
