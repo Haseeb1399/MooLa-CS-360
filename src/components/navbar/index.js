@@ -17,6 +17,7 @@ import {
       window.location('/')
       //history.push('/')
     }
+    console.log("here");
     if (localStorage.getItem("permission") == 3) {
 
       //let user = localStorage.getItem("id")
@@ -113,7 +114,7 @@ import {
         </Nav>
       );
     }
-    else if(!localStorage.getItem('permission')) {
+    else if(!localStorage.getItem('permission') | localStorage.getItem('permission') == 4) {
       return(
         <Nav>
           <NavLink to='/'>
