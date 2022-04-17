@@ -97,6 +97,20 @@ const Marketplace = ()=>{
             })
           },[])
       }
+
+      function Animal() {
+          animal = ""
+      }
+      function Sex() {
+          sex = ""
+      }
+
+      function Weight() {
+          Lweight = 0;
+          Uweight = 0;
+      }
+
+
       return (
           <div class="App">
               <div class="filter-marketplace">
@@ -126,9 +140,15 @@ const Marketplace = ()=>{
                         <input type="checkbox" value = "buffalo" onChange={(event) => setAnimal(event.target.value)}/>
                         Buffalo
                     </label>
+<<<<<<< HEAD
                     </div>
                 </div>
                 <div class="sex-marketplace">
+=======
+                    <button className="rembutton" onClick = {Animal}>Remove Animal Filters</button>
+                
+                <div>
+>>>>>>> cc28811884dbefe2317e50964ae3292970a7353f
                     <div class="text-marketplace subtitle-marketplace">Sex</div>
 
                     <div class="checkcontainer-marketplace">
@@ -141,6 +161,7 @@ const Marketplace = ()=>{
                         Female
                     </label>
                     </div>
+<<<<<<< HEAD
                 </div>
 
                 <div class="weight-marketplace"> 
@@ -151,6 +172,10 @@ const Marketplace = ()=>{
                     <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" value = "0" onChange={(event) => setUweight(event.target.value)}/>
                 </div>
                 
+=======
+                    <button className="rembutton" onClick = {Sex}>Remove Sex Filters</button>
+                </div>  
+>>>>>>> cc28811884dbefe2317e50964ae3292970a7353f
                 </form>
             
             </div>

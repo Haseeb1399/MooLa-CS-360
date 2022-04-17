@@ -27,7 +27,7 @@ import ButchAd from './components/post ad/ButcherAd'
 import AdminRegistration from './components/Admin/admin_reg';
 import SellerBidPage from './components/Seller/viewOwnAd/Sellerbid'
 import Butch from './components/post ad/ButcherAd'
- 
+import WatchListButcher from './components/Butcher/requests/watch'
 // import ButchAd from './components/post ad/ButcherAd'
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -79,6 +79,7 @@ function App() {
       <Route path='/butcher/requests' element={<Request/>}/>   
       <Route path='/seller/Advert' element={<SellerBidPage/>} />
       <Route path='/buyer/postad' element={<Butch/>} />
+      <Route path='/butcher/watchlist' element={<WatchListButcher/>}/>
       {/* <Route path='/buyer/postad' element={<ButchAd/>}/>   */}
       
     </Routes>

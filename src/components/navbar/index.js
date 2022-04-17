@@ -64,7 +64,7 @@ import {
             <NavLink to='/butcher/requests' activestyle>
               Requests
             </NavLink>
-            <NavLink to='/watchlist' activestyle>
+            <NavLink to='/butcher/watchlist' activestyle>
               WatchList
             </NavLink>
             <NavLink to='/temp6' activestyle>

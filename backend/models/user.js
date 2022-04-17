@@ -27,6 +27,12 @@ const ButcherAdSchema = new Schema({
   seller_id :{type: Schema.Types.ObjectId, ref:"User"}
 })
 
+const ButcherWatch = new Schema({
+  weight:{type:Number, required:true},
+  breed: {type:String, required:true},
+  seller_id :{type: Schema.Types.ObjectId, ref:"User"}
+})
+
 //Permissions:
 //Buyer:1
 //Butcher:2
@@ -177,8 +183,9 @@ const watch = mongoose.model('Watch', WatchListSchema);
 const Token = mongoose.model('Token',TokenSchema)
 const ButchAd = mongoose.model('ButcherAd',ButcherAdSchema);
 const Admin = mongoose.model('Admin', AdminSchema);
+const ButchWatch = mongoose.model('Bwatch', ButcherWatch);
 const Order = mongoose.model("Order",OrderSchema)
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {
-    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token, ButchAd, Admin,Order}
+    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token, ButchAd, Admin,ButchWatch,Order}
