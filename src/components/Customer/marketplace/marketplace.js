@@ -140,7 +140,7 @@ const Marketplace = ()=>{
                     </label>
                     <button className="rembutton" onClick = {Animal}>Remove Animal Filters</button>
                 
-                <div class="sex-marketplace">
+                <div>
                     <div class="text-marketplace subtitle-marketplace">Sex</div>
 
                     <div class="checkcontainer-marketplace">
@@ -154,18 +154,7 @@ const Marketplace = ()=>{
                     </label>
                     </div>
                     <button className="rembutton" onClick = {Sex}>Remove Sex Filters</button>
-                </div>
-
-                <div class="weight-marketplace"> 
-                    <div class="text-marketplace subtitle-marketplace">Weight</div>
-
-                    <input class="textboxes-marketplace" type="text" placeholder="KG" id="lowest-weight" value = "0" onChange={(event) => setLweight(event.target.value)}/>
-                    - 
-                    <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" value = "0" onChange={(event) => setUweight(event.target.value)}/>
-                    <br></br>
-                    <button className="rembutton" onClick = {Weight}>Remove Weight Filters</button>
-                </div>
-                
+                </div>  
                 </form>
             
             </div>
