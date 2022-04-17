@@ -19,10 +19,10 @@ const ChangePass = () => {
       navigate('/profile');
   }
 
-  async function hashIt(pass,salt) {
-    // const salt = await bcrypt.genSalt(10);
+    function hashIt(pass,salt) {
+    //const salty = await bcrypt.genSalt(10);
     // console.log(salt)
-    const hashed = await bcrypt.hash(pass,salt); //STORE SALT ON DB 
+    const hashed =  bcrypt.hashSync(pass,salt); //STORE SALT ON DB 
     return hashed
   }
 
@@ -42,17 +42,25 @@ const ChangePass = () => {
       //console.log(res.data[0].password)
       setDB(res.data[0].password);
       setSalted(res.data[0].salt)
+      //console.log(res.data[0].salt)
     }).catch(function(err) {
       console.log(err)
     })
-
+    
+    let x = ""
     //let hash_curr = ""
-    hashIt(current,salted).then(val => {
-      if(fromDB != val) {
-        console.log("not same")
-        console.log(fromDB)
-        console.log(val)
-        console.log(current)
+    try{
+      x = hashIt(current,salted);
+    }
+    catch(err) {
+      x = hashIt(current,salted);
+    }
+    
+      if(fromDB != x) {
+        window.location.reload()
+        // console.log(fromDB)
+        // console.log(val)
+        // console.log(current)
         //window.location.reload()
        }else{
         console.log("same")
@@ -79,7 +87,6 @@ const ChangePass = () => {
         
   
       }
-    }).catch(err => {console.log(err)})
     //console.log(hash_curr)
     
     
