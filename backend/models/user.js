@@ -21,6 +21,10 @@ const UserSchema = new Schema( {
     verified:{type:Boolean,default:false},
     photo:{type:String,default:"null"},
 })
+const ButcherAdSchema = new Schema({
+  weight:{type:Number, required:true},
+  breed: {type:String, required:true}
+})
 
 //Permissions:
 //Buyer:1
@@ -44,6 +48,14 @@ const ButcherSchema = new Schema( {
   address:{type:String,required:true},
   type:{type:Number,required:true}, //1 for small, 2 for big, 3 for both
   rating:{type:Number,required:true}
+})
+
+const AdminSchema = new Schema( {
+  reference: { type: Schema.Types.ObjectId, ref: 'User' },
+  name: {type: String, required :true},
+  address: {type: String, required : true},
+  phone: {type: String, required : true},
+  email: {type: String, required : true},
 })
 
 const SellerSchema = new Schema( {
@@ -155,8 +167,9 @@ const animal = mongoose.model('Animal',AnimalSchema);
 const bid = mongoose.model('Bid', BidSchema);
 const watch = mongoose.model('Watch', WatchListSchema);
 const Token = mongoose.model('Token',TokenSchema)
+const ButchAd = mongoose.model('ButcherAd',ButcherAdSchema);
+const Admin = mongoose.model('Admin', AdminSchema);
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {
-    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token
-}
+    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token, ButchAd, Admin}
