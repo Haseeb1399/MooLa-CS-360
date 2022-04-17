@@ -156,7 +156,23 @@ router.route('/add').post((req,res) => {
                         res.json("Seller Added")
                     }
                 })
+            }else if(permissions==4){
+                const address = req.body.address;
+                const phone = req.body.phone;
+                const email = req.body.email;
+                const numSold=req.body.numSold
+                const rating=req.body.rating
+                const new_admin = new user.Seller({reference:new_user._id,name:name,phone:phone,address:address,email:email,numberOfAnimalsSold:numSold,rating:rating})
+                new_admin.save((err)=>{
+                    if(err){
+                        console.log(err)
+                        res.send(err)
+                    }else{
+                        res.json("Admin Added");
+                    }
+                })
             }
+
         }
 
         const token = new user.Token({
