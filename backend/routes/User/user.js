@@ -27,6 +27,33 @@ function verifyJWT(req,res,next){
     }
 }
 
+router.route('/updatepass').post((req,res) => {
+    const type = req.body.type
+    const pass = req.body.new
+    const id = req.body.id
+    user.User.updateOne({_id:id},{$set:{password:pass}})
+    .exec((err,response) => {
+        if (err == null)
+        {
+            res.json(response);
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
+router.route('/getpass').post((req,res) => {
+    user.User.find({_id:req.body.id})
+    .exec((err,response)=>{
+        if (err == null)
+        {
+            res.json(response);
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
 router.route('/find').get((req,res) => {
     user.User.find()
     .then(users => res.json(users))
