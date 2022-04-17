@@ -44,6 +44,14 @@ const ButcherSchema = new Schema( {
   rating:{type:Number,required:true}
 })
 
+const AdminSchema = new Schema( {
+  reference: { type: Schema.Types.ObjectId, ref: 'User' },
+  name: {type: String, required :true},
+  address: {type: String, required : true},
+  phone: {type: String, required : true},
+  email: {type: String, required : true},
+})
+
 const SellerSchema = new Schema( {
   reference: { type: Schema.Types.ObjectId, ref: 'User' },
   name: {type: String, required :true},
@@ -150,9 +158,10 @@ const Ad1 = mongoose.model('Ad1',AdSchema1)
 const animal = mongoose.model('Animal',AnimalSchema);
 const bid = mongoose.model('Bid', BidSchema);
 const watch = mongoose.model('Watch', WatchListSchema);
-const Token = mongoose.model('Token',TokenSchema)
+const Token = mongoose.model('Token',TokenSchema);
+const Admin = mongoose.model('Admin', AdminSchema);
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {
-    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token
+    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token, Admin
 }
