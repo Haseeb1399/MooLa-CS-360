@@ -115,6 +115,18 @@ router.route('/marketplace').post((req,res) => {
     //console.log(result)
 })
 
+router.route('/add/butchAd').post((req,res) => {
+    const new_ad = new user.ButchAd({
+        weight:req.body.weight,
+        breed:req.body.breed
+    })
+
+    new_ad.save(function(err) {
+        if(err) console.log(err)
+        else console.log("Ad posted")
+    })
+})
+
 router.route('/post/animal').post((req,res) => {
     console.log(req.body)
     const type = req.body.breed;

@@ -14,6 +14,11 @@ const AnimalSchema = new Schema({
     price: {type: Number, required:true}
 })
 
+const ButcherAdSchema = new Schema({
+    weight:{type:Number, required:true},
+    breed: {type:String, required:true}
+})
+
 const AdSchema = new Schema({
     
     description: {type: String, required: true},

@@ -13,81 +13,26 @@ import {ref,getDownloadURL,uploadBytesResumable, uploadBytes} from 'firebase/sto
 
 
 function PostAd() {
-    const [sex, setSex]=useState("")
-    const [teeth, setTeeth]=useState("")
-    const [weight, setWeight]=useState("")
-    const [Age, setAge]=useState("")
-    const [breed, setBreed]=useState("")
-    const [injury, setInjury]=useState("None")
-    const [color, setColor]=useState("")
-    const [addImage,setAddImage]=useState()
-    const [price,setPrice]=useState("")
-    const [desc,setDesc]=useState("")
-    const [progress,setProgress]=useState(0)
-    const [picUrl,setPicUrl]=useState(uploadimage)
+    const [weight, setWeight] = useState("");
+    const [breed, setBreed] = useState("");
 
     const submitForm=(event)=>{
         event.preventDefault()
-        console.log(addImage)
-        const storageRef = ref(storage,`/files/${addImage.name}`)
-        const uploadTask = uploadBytesResumable(storageRef,addImage);
-        uploadTask.on("state_changed",
-        (snapshot) => {
-          const prog = 
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          setProgress(prog);
-        },
-        (err=>{
-          console.log(err)
-        }),
-        ()=>{
-          getDownloadURL(ref(storage,storageRef.fullPath)).then(
-            (url)=>{
-              console.log(url)
-              const newObj={
-                "photo":url,
-                "sex":sex,
-                "teeth":teeth,
-                "weight":weight,
-                "Age":Age,
-                "breed":breed,
-                "injury":injury,
-                "color":color,
-                "price":price,
-                "desc":desc,
-                "addType":localStorage.getItem("permission"),
-                "sellerId":localStorage.getItem("id")
-              }
-              axios.post(process.env.REACT_APP_LOCAL_KEY+"/Ad/post/animal",newObj).then((res)=>{
-                  if(res.data.error){
-                    console.log(res.data.error)
-                  }else{
-                    console.log(res)
-                    alert("Add Posted!")
-                    //res.send("AD Posted");
-                  }
-                })
-                setPicUrl(url)
-            }
-          )
+        const newObj = {
+          weight:weight,
+          breed:breed
+        }
+        axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/add/butchAd',newObj).then((data)=>{
+          console.log(data)
+        }).catch((err)=>{
+            console.log(err)
         })
+        }
+    
 
-    }
+    
 
-    const handleSexChange=(event)=>{
-      setSex(event.value)
-    }
-    const handlePictureChange=(event)=>{
-      setAddImage(event.target.files[0])
-    }
-
-
-
-  const sexes = [
-    { value: 1, label: "Male", color: "#498205" },
-    { value: 2, label: "Female", color: "#498205" },
-    { value: 3, label: "Other", color: "#498205" },
-  ];
+    
 
 
 return (
