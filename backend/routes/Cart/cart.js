@@ -30,4 +30,47 @@ router.route("/removeItem/:id").get((req,res)=>{
     })
 })
 
+router.route("/placeOrder").post((req,res)=>{
+    const buyer_id=req.body.buyer_id
+    const ad_id=req.body.ad_id
+    const delivery=req.body.delivery
+    const status=req.body.status
+
+    const newOrder = new user.Order({
+        buyer_id:buyer_id,
+        ad_id:ad_id,
+        delivery:delivery,
+        status:status
+    })
+    newOrder.save(function(err){
+        if(err){
+            console.log(err)
+            res.json({error:err})
+        }else{
+            res.json("Order Created!")
+        }
+    })
+})
+router.route("/addToLog/:id").post((req,res)=>{
+    
+    user.Buyer.findOneAndUpdate(
+        { reference: req.params.id },{cart:null}, 
+        { $push: { log: req.body.ad_id  } },
+       function (error, success) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 console.log(success);
+             }
+         });
+})
+
+
+router.route("/getTransaction").get((req,res)=>{
+    user.Buyer.find({reference:req.params.id}).populate(["ad_id"]).exec((err,result)=>{
+        console.log(result)
+    })
+})
+
+
 module.exports = router;
