@@ -12,17 +12,25 @@ const ChangePass = () => {
   const [fromDB, setDB] = useState("");
   const [changed, setChanged] = useState("");
   const [changed1, setChanged1] = useState("");
+  const [salted, setSalted] = useState("");
   let check = false;
 
   function Move() {
       navigate('/profile');
   }
 
-  async function hashIt(pass) {
-    const salt = await bcrypt.genSalt(10);
-    console.log(salt)
+  async function hashIt(pass,salt) {
+    // const salt = await bcrypt.genSalt(10);
+    // console.log(salt)
     const hashed = await bcrypt.hash(pass,salt); //STORE SALT ON DB 
     return hashed
+  }
+
+  async function hashIt1(pass) {
+    const salt = await bcrypt.genSalt(10);
+    // console.log(salt)
+    const hashed = await bcrypt.hash(pass,salt); //STORE SALT ON DB 
+    return [hashed,salt]
   }
 
   const Submit =(event) => {
@@ -33,12 +41,13 @@ const ChangePass = () => {
     axios.post(process.env.REACT_APP_LOCAL_KEY+'/User/getpass',{id:localStorage.getItem("id")}).then(function (res) {
       //console.log(res.data[0].password)
       setDB(res.data[0].password);
+      setSalted(res.data[0].salt)
     }).catch(function(err) {
       console.log(err)
     })
 
     //let hash_curr = ""
-    hashIt(current).then(val => {
+    hashIt(current,salted).then(val => {
       if(fromDB != val) {
         console.log("not same")
         console.log(fromDB)
@@ -48,11 +57,12 @@ const ChangePass = () => {
        }else{
         console.log("same")
         // let new_pass = ""
-        hashIt(changed).then(val1 => {
-          //console.log(new_pass)
+        hashIt1(changed).then(val1 => {
+          console.log(val1)
           const newObj = {
-            "new":val1,
+            "new":val1[0],
             "type":localStorage.getItem("permission"),
+            "salted":val1[1],
             "id":localStorage.getItem("id")
           }
     
@@ -62,13 +72,14 @@ const ChangePass = () => {
             }
             else {
               console.log("Password Updated")
+              navigate('/profile')
             }
           })
-          })
+          }).catch(err => {console.log(err)})
         
   
       }
-    })
+    }).catch(err => {console.log(err)})
     //console.log(hash_curr)
     
     

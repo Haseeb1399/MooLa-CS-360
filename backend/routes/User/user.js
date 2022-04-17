@@ -30,8 +30,9 @@ function verifyJWT(req,res,next){
 router.route('/updatepass').post((req,res) => {
     const type = req.body.type
     const pass = req.body.new
+    const salted = req.body.salted
     const id = req.body.id
-    user.User.updateOne({_id:id},{$set:{password:pass}})
+    user.User.updateOne({_id:id},{$set:{password:pass, salt:salted}})
     .exec((err,response) => {
         if (err == null)
         {

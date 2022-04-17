@@ -12,6 +12,7 @@ const UserSchema = new Schema( {
     //_id: Schema.Types.ObjectId,
     
     username: {type: String, required :true},
+    salt: {type:String},
     password: {type: String, required : true},
     email:{type:String,required:true},
     prev_pass: {type: String, required : true},
@@ -68,6 +69,7 @@ UserSchema.pre("save", function (next) {
             }
             user.password = hash
             user.prev_pass = hash
+            user.salt = salt
             next()
           })
         }
