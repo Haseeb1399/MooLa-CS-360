@@ -177,13 +177,12 @@ router.route('/:id/verify/:token').get(async(req,res)=>{
     try{
         const findUser = await user.User.findOne({_id:req.params.id});
         if(!findUser) return res.status(400).send({message:"Invalid Link"})
-
         const token = await user.Token.findOne({
             userId:findUser._id,
             token:req.params.token
         })
         if(!token) return res.status(400).send({message:"Token does not exist"})
-        await user.User.updateOne({_id:user._id,verified:true});
+        await user.User.updateOne({_id:findUser._id},{$set:{verified:true}});
         await token.remove()
         res.status(200).send({message:"Email Verified Success"})
     }catch(err){
