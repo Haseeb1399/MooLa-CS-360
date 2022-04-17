@@ -24,6 +24,7 @@ import ForgetPass from './components/forgetPass/forgetPass';
 import ViewListing from './components/Seller/view_listings/viewlistings';
 import Request from './components/Butcher/requests/requests';
 import SellerBidPage from './components/Seller/viewOwnAd/Sellerbid'
+import Butch from './components/post ad/ButcherAd'
  
 // import ButchAd from './components/post ad/ButcherAd'
 // import {authContext} from './Helpers/authContext'
@@ -74,6 +75,7 @@ function App() {
       <Route path='/seller/viewlistings' element={<ViewListing/>}/>   
       <Route path='/butcher/requests' element={<Request/>}/>   
       <Route path='/seller/Advert' element={<SellerBidPage/>} />
+      <Route path='/buyer/postad' element={<Butch/>} />
       {/* <Route path='/buyer/postad' element={<ButchAd/>}/>   */}
       
     </Routes>
