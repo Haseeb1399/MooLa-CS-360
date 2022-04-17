@@ -82,7 +82,7 @@ const Profile = () => {
                 <label for="username">Username</label>
                 <input type="text" class="details-input" id="username" value={userName}/>
                 <label for="email">Email</label>
-                <input type="text" class="details-input" id="email" value="hi"/>
+                <input type="text" class="details-input" id="email" value={userEmail}/>
                 <label for="location">Location</label>
                 <select type="select" class="details-input select-profile" id="location">
                    {/* add location options here */}

@@ -20,7 +20,6 @@ const UserSchema = new Schema( {
     ban_bool: {type: Boolean, required : true},
     verified:{type:Boolean,default:false},
     photo:{type:String,default:"null"},
-    salt:{type:String,default:""}
 })
 
 //Permissions:

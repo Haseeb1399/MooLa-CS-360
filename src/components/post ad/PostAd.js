@@ -24,6 +24,7 @@ function PostAd() {
     const [price,setPrice]=useState("")
     const [desc,setDesc]=useState("")
     const [progress,setProgress]=useState(0)
+    const [picUrl,setPicUrl]=useState(uploadimage)
 
     const submitForm=(event)=>{
         event.preventDefault()
@@ -66,7 +67,7 @@ function PostAd() {
                     //res.send("AD Posted");
                   }
                 })
-
+                setPicUrl(url)
             }
           )
         })
@@ -217,7 +218,7 @@ return (
     </div>
 
     <div className='Third'>
-      <div><img className='upload' src={uploadimage}/></div>
+      <div><img className='upload' src={picUrl}  alt="Not uploaded"/></div>
       <div><input className='custom-file-input' type="file" onChange={handlePictureChange}/></div>
     </div>
 
