@@ -43,3 +43,67 @@
     width: 10%;
     background-color: #F7F1DE;
 }
+
+.pic{
+    height: 13rem;
+    width: 15.5rem;
+    border-radius: 0%;
+    float: left;
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+    object-fit: fill;
+}
+
+.gobutton {
+    margin-top: 1rem;
+    align-items: center;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #f7f1de;
+    font-size: 15px;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    border-radius: 0.625rem;
+    border-color: #de7002;
+    background-color: #de7002;
+}
+
+.gobutton:hover{  
+    cursor: pointer;
+    border-color: #000;
+    background-color: #000;
+    color: #de7002;
+}
+
+.removebutton {
+    margin-top: 1rem;
+    align-items: center;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #f7f1de;
+    font-size: 15px;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    border-radius: 0.625rem;
+    border-color: #de7002;
+    background-color: #de7002;
+  }
+  
+.removebutton:hover {
+cursor: pointer;
+border-color: #000;
+background-color: #000;
+color: #de7002;
+}
+
+.info{
+    margin-top: 4rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+
+.info2{
+
+}
