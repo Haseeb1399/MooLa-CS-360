@@ -21,6 +21,7 @@ import Admin from './components/Admin/admin'
 import WatchList from './components/Customer/marketplace/watchlist'
 import Password from './components/Customer/changepass/pass'
 import ForgetPass from './components/forgetPass/forgetPass';
+import ViewListing from './components/Seller/view_listings/viewlistings';
  
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -67,6 +68,7 @@ function App() {
       <Route path='/profile'element={<Profile/>}/>
       <Route path='/password'element={<Password/>}/>
       <Route path='/forgetPass' element={<ForgetPass/>}/>
+      <Route path='/seller/viewlistings' element={<ViewListing/>}/>      
       
     </Routes>
     </div>
