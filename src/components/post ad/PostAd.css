@@ -190,3 +190,24 @@ input[type="checkbox"] {
 .addImageUpload{
   display: none;
 }
+
+.checkcontainer-postad {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.checkcontainer-postad label {
+  margin-left: 1.25rem;
+  margin-bottom: 0rem;
+}
+
+.checkcontainer-postad input {
+  margin-right: 0.625rem;
+  margin-top: 0.625rem;
+}
+
+.checkcontainer-postad input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}

@@ -161,56 +161,60 @@ return (
       <div>
         <label className='logintext'>Color</label>
       </div>
-      <div>
-        <label >
-          <input
-            onChange={(event) => setColor(event.target.value)}
-            type="checkbox"
-            value="black"
-          />
-          Black
-        </label>
-      </div>
-      <div>
-        <label >
-          <input
-            onChange={(event) => setColor(event.target.value)}
-            type="checkbox"
-            value="white"
-          />
-          White
-        </label>
-      </div>
-      <div>
-        <label >
-          <input
-            type="checkbox"
-            onChange={(event) => setColor(event.target.value)}
-            value="brown"
-          />
-          Brown
-        </label>
-      </div>
-      <div>
-        <label >
-          <input
-            type="checkbox"
-            onChange={(event) => setColor(event.target.value)}
-            value="red"
-          />
-          Red
-        </label>
-      </div>
-      <div>
-        <label >
-          <input
-            type="checkbox"
-            onChange={(event) => setColor(event.target.value)}
-            value="other"
-          />
-          Other
-        </label>
-      </div>
+
+        <div className="checkcontainer-postad"> 
+          <div>
+            <label >
+              <input
+                onChange={(event) => setColor(event.target.value)}
+                type="checkbox"
+                value="black"
+              />
+              Black
+            </label>
+          </div>
+          <div>
+            <label >
+              <input
+                onChange={(event) => setColor(event.target.value)}
+                type="checkbox"
+                value="white"
+              />
+              White
+            </label>
+          </div>
+          <div>
+            <label >
+              <input
+                type="checkbox"
+                onChange={(event) => setColor(event.target.value)}
+                value="brown"
+              />
+              Brown
+            </label>
+          </div>
+          <div>
+            <label >
+              <input
+                type="checkbox"
+                onChange={(event) => setColor(event.target.value)}
+                value="red"
+              />
+              Red
+            </label>
+          </div>
+          <div>
+            <label >
+              <input
+                type="checkbox"
+                onChange={(event) => setColor(event.target.value)}
+                value="other"
+              />
+              Other
+            </label>
+          </div>
+        </div>
+
       <div>
       <label>Description</label>
       <textarea onChange={(event)=>setDesc(event.target.value)} ></textarea>
