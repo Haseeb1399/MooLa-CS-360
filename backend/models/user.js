@@ -38,6 +38,8 @@ const BuyerSchema = new Schema( {
     address: {type: String, required : true},
     phone: {type: String, required : true},
     email: {type: String, required : true},
+    cart:{type:Schema.Types.ObjectId,ref:'Ad'},
+    log:[Schema.Types.ObjectId]
 })
 const ButcherSchema = new Schema( {
   reference: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -112,7 +114,9 @@ const AdSchema = new Schema({
     sold: {type: Boolean, required: true},
     seller_id: {type: Schema.Types.ObjectId, ref: 'User'},
     animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
-    ad_type: {type: Number, required: true}
+    ad_type: {type: Number, required: true},
+    buyer_id:{type:Schema.Types.ObjectId, ref:"Buyer"},
+    price:{type:Number,default:0}
 })
 
 const AdSchema1 = new Schema({

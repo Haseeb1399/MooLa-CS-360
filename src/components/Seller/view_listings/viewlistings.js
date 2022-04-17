@@ -17,9 +17,11 @@ const ViewListing = ()=>{
     else {
         type = 1;
     }
+    
     useEffect(()=>{
-        
-        axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/marketplace',{ad_type:type}).then(function (res) {
+        let userId = localStorage.getItem("id")    
+        console.log(userId)
+        axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/sellerAds/'+userId).then(function (res) {
             console.log("here");
             console.log(res);
             setAds(res.data);
@@ -34,35 +36,9 @@ const ViewListing = ()=>{
     return (
         <div class="App">
 
-
-            {/* <div class="posts-marketplace">
-
-                <div class="header-marketplace">
-                <img src={img} class="profilepic-marketplace"/>
-                <div class="header-lines-marketplace">
-                    <div class="header-text-marketplace">Mafzii</div>
-                    <div class="header-text-marketplace subtex-marketplacet"></div>
-                </div>
-                </div>
-
-                <img id="myimg" src={goatpic} class="post-picture-marketplace" />
-                <div class="post-body-marketplace">
-                <div class="body-lines-marketplace">
-                    <div class="body-text-marketplace">Sex: </div>
-                    <div class="body-text-marketplace">No. of teeth: </div>
-                    <div class="body-text-marketplace">Weight: </div>
-                    <div class="body-text-marketplace">Color: </div>
-                    <div class="body-text-marketplace">Breed: </div>
-                    <div class="body-text-marketplace">Age: </div>
-                    <div class="body-text-marketplace">Injuries: </div>
-                    <div class="body-text-marketplace">Price: </div>
-                </div>
-                </div> */}
-
-                <div class="posts-container-marketplace">
+        <div class="posts-container-marketplace">
             {
                 ads.map((val)=>{
-                    console.log(val) 
                     return(
                         <div class="posts-marketplace">
         
@@ -75,7 +51,6 @@ const ViewListing = ()=>{
                             </div>
 
                             <img id="myimg" src={val.photo} class="post-picture-marketplace" />
-                            {console.log(val.photo)}
                             <div class="post-body-marketplace">
                             <div class="body-lines-marketplace">
                                 <div class="body-text-marketplace">Sex: {val.animal_id.sex} </div>
@@ -88,8 +63,10 @@ const ViewListing = ()=>{
                                 <div class="body-text-marketplace">Price: {val.animal_id.price}</div>
                             </div>
                             </div>
-
                             <div class="post-buttons-marketplace">
+                                <a class="button-marketplace OpenAd-marketplace">
+                                    <Link to={'/seller/Advert'} state={{data:val}}>Open</Link>
+                                </a>
                             </div>
 
                     </div>

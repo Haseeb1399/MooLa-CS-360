@@ -38,7 +38,7 @@
     }
 
   .animal-marketplace {
-    height: 20.875rem;
+    height: auto;
     border-bottom: 0.125rem solid #DE7002;
   }
 
@@ -231,4 +231,9 @@
 
   label {
     padding-right: 0%;
+  }
+
+  input {
+    height: auto;
+    width: auto;
   }

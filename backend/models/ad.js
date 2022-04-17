@@ -26,7 +26,8 @@ const AdSchema = new Schema({
     sold: {type: Boolean, required: true},
     seller_id: {type: Schema.Types.ObjectId, ref: user.Seller},
     animal_id: {type: Schema.Types.ObjectId, required: true, ref: 'Animal'},
-    ad_type: {type: Number, required: true}
+    ad_type: {type: Number, required: true},
+
 })
 
 const AdSchema1 = new Schema({
