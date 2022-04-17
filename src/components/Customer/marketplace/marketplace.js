@@ -99,37 +99,14 @@ const Marketplace = ()=>{
       }
       return (
           <div class="App">
-                <div class="filter-marketplace">
+              <div class="filter-marketplace">
                 
                 <div class="title-marketplace"> 
-                    <FaFilter class="icon-marketplace"/>
-                    <div class="text-marketplace">Filters</div> 
+                <FaFilter class="icon-marketplace"/>
+                <div class="text-marketplace">Filters</div> 
                 </div>
-
                 <form id="myform">
-                    <div>
-                        <div class="text-marketplace subtitle-marketplace">Animal</div>
 
-<<<<<<< HEAD
-                        <div>
-                            <label for="cow">
-                                <input type="checkbox" id="cow"/>
-                                Cow
-                            </label>
-                            <label for="goat">
-                                <input type="checkbox" id="goat"/>
-                                Goat
-                            </label>
-                            <label for="camel">
-                                <input type="checkbox" id="camel"/>
-                                Camel
-                            </label>
-                            <label for="buffalo">
-                                <input type="checkbox" id="buffalo"/>
-                                Buffalo
-                            </label>
-                        </div>
-=======
                 <div class="animal-marketplace">
                     <div class="text-marketplace subtitle-marketplace">Animal</div>
 
@@ -150,24 +127,12 @@ const Marketplace = ()=>{
                         <input class="checkbox-marketplace" type="checkbox" id="buffalo" value = "buffalo" onChange={(event) => setAnimal(event.target.value)}/>
                         Buffalo
                     </label>
->>>>>>> e700c2f3318f464eb1a3f353a8f668b45e6895f6
                     </div>
-                    
-                    {/*<div class="sex-marketplace">
-                        <div class="text-marketplace subtitle-marketplace">Sex</div>
+                </div>
+                
+                <div class="sex-marketplace">
+                    <div class="text-marketplace subtitle-marketplace">Sex</div>
 
-<<<<<<< HEAD
-                        <div class="checkcontainer-marketplace">
-                            <label for="male">
-                                <input class="checkbox-marketplace" type="checkbox" id="male"/>
-                                Male
-                            </label>
-                            <label for="female">
-                                <input class="checkbox-marketplace" type="checkbox" id="female"/>
-                                Female
-                            </label>
-                        </div>
-=======
                     <div class="checkcontainer-marketplace">
                     <label for="male">
                         <input class="checkbox-marketplace" type="checkbox" id="male" value = "Male" onChange={(event) => setSex(event.target.value)}/>
@@ -177,20 +142,12 @@ const Marketplace = ()=>{
                         <input class="checkbox-marketplace" type="checkbox" id="female" value = "Female" onChange={(event) => setSex(event.target.value)}/>
                         Female
                     </label>
->>>>>>> e700c2f3318f464eb1a3f353a8f668b45e6895f6
                     </div>
+                </div>
 
-                    <div class="weight-marketplace"> 
-                        <div class="text-marketplace subtitle-marketplace">Weight</div>
+                <div class="weight-marketplace"> 
+                    <div class="text-marketplace subtitle-marketplace">Weight</div>
 
-<<<<<<< HEAD
-                        <input class="textboxes-marketplace" type="text" placeholder="KG" id="lowest-weight" />
-                        - 
-                        <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" />
-                    </div>*/}
-                    
-                </form>
-=======
                     <input class="textboxes-marketplace" type="text" placeholder="KG" id="lowest-weight" value = "0" onChange={(event) => setLweight(event.target.value)}/>
                     - 
                     <input class="textboxes-marketplace" type="text" placeholder="KG" id="highest-weight" value = "0" onChange={(event) => setUweight(event.target.value)}/>
@@ -199,7 +156,6 @@ const Marketplace = ()=>{
                 </form>
                 <input class="button-marketplace" type="submit" form="myform" value="Filter" onClick={Filter}/>
             
->>>>>>> e700c2f3318f464eb1a3f353a8f668b45e6895f6
             </div>
             <div class="posts-container-marketplace">
             {
