@@ -222,11 +222,11 @@ return (
     </div>
 
     <div className='Third'>
+      <div><img className='upload' src={picUrl}  alt="Not uploaded"/></div>
       <label class="uploadButtonAd">
       <input class ='addImageUpload' onChange={handlePictureChange}  type="file" />
       Upload Photo
       </label>
-      <div><img className='upload' src={picUrl}  alt="Not uploaded"/></div>
     </div>
     <div className='buttonpos'><button type="submit" className="loginbutton">Post Ad</button></div>
   </div>
