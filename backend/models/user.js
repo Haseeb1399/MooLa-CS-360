@@ -23,7 +23,8 @@ const UserSchema = new Schema( {
 })
 const ButcherAdSchema = new Schema({
   weight:{type:Number, required:true},
-  breed: {type:String, required:true}
+  breed: {type:String, required:true},
+  seller_id :{type: Schema.Types.ObjectId, ref:"User"}
 })
 
 //Permissions:
