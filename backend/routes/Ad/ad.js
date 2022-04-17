@@ -80,8 +80,8 @@ router.route('/post/watchlist').post((req,res) => {
 
 router.route('/marketplace').post((req,res) => {
     
-    user.Ad.find({ad_type:req.body.ad_type})
-    .populate(['animal_id',"seller_id"])
+    user.Ad.find({ad_type:req.body.ad_type, sold:false})
+    .populate(['animal_id',"seller_id"]) //Make sure sold is false
     .exec((err,response)=>{
         if (err == null)
         {
