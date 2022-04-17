@@ -2,7 +2,7 @@ import React from "react";
 import "./login.css";
 import { useState } from "react";
 import axios from "axios";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useEffect} from 'react-router-dom';
 
 const LoginPage = () => {
   const navigator = useNavigate();
@@ -16,13 +16,35 @@ const LoginPage = () => {
   function Go() {
     navigator('/forgetPass')
   }
+  const [ban, setBan] = useState("");
+
+  
+  
+  
   
   const submitForm=(event)=>{
     event.preventDefault()
+
+
+    
+
+
     const newObj={
       email:email,
       password:password
     }
+
+
+    // const obj = {
+    //   "email":email
+    // }
+    // axios.post(process.env.REACT_APP_LOCAL_KEY+'/User/getban',obj).then((data)=>{
+    //     setBan(data.data)
+    //     //setBan(data.data);
+    //     //console.log(data.data[0])
+    // }).catch((err)=>{
+    //     console.log(err)
+    // })
 
     axios.post(process.env.REACT_APP_LOCAL_KEY+"/User/login",newObj).then((res)=>{
       if(res.data.error){
@@ -30,6 +52,11 @@ const LoginPage = () => {
         window.location="/"
         console.log(res.data.error)
       }else{
+        //console.log(ban[0].ban_bool)
+        // if(ban[0].ban_bool == true) {
+        //   alert("You are banned")
+        //   window.location.reload()
+        // }
         localStorage.setItem("accessToken",res.data.token)
         localStorage.setItem("permission",res.data.permission)
         localStorage.setItem("id",res.data.id)
