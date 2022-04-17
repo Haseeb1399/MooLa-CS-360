@@ -79,17 +79,31 @@ router.route('/post/watchlist').post((req,res) => {
 
 
 router.route('/marketplace').post((req,res) => {
-    
-    user.Ad.find({ad_type:req.body.ad_type, sold:false})
-    .populate(['animal_id',"seller_id"]) //Make sure sold is false
-    .exec((err,response)=>{
-        if (err == null)
-        {
-            res.json(response);
-        }else{
-            res.json({error:err})
-        }
-    })
+    sex = req.body.sex;
+   if(sex == "Male" || sex == "Female") {
+        user.Ad.find({ad_type:req.body.ad_type, sold:false,sex:sex})
+        .populate(['animal_id',"seller_id"]) //Make sure sold is false
+        .exec((err,response)=>{
+            if (err == null)
+            {
+                res.json(response);
+            }else{
+                res.json({error:err})
+            }
+        })
+    }
+    else {
+        user.Ad.find({ad_type:req.body.ad_type, sold:false})
+        .populate(['animal_id',"seller_id"]) //Make sure sold is false
+        .exec((err,response)=>{
+            if (err == null)
+            {
+                res.json(response);
+            }else{
+                res.json({error:err})
+            }
+        })
+    }
     //console.log(result)
 })
 
