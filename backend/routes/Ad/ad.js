@@ -165,9 +165,11 @@ router.route('/butch/render').get((req,res) => {
     user.ButchWatch.find({})
     .populate('seller_id')
     .exec((err,response)=>{
-        console.log(response)
+        
+
         if(err==null){
             res.json(response)
+            console.log(response)
         }else{
             res.json({error:err})
         }
@@ -175,6 +177,7 @@ router.route('/butch/render').get((req,res) => {
 })
 
 router.route('/butch/watch').post((req,res) => {
+    console.log(req.body);
     const to_save = new user.ButchWatch({
         seller_id : req.body.seller_id,
         weight:req.body.weight,
@@ -182,7 +185,7 @@ router.route('/butch/watch').post((req,res) => {
     })
     to_save.save(function(err) {
         if(err) console.log(err)
-        else console.log("Posted to watchlist")
+        else console.log(to_save)
     })
 })
 
