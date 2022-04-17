@@ -128,6 +128,7 @@ router.route('/sellerAds/:id').get((req,res)=>{
             res.json({error:err})
         }
     })
+})
 
 
 router.route('/add/butchAd').post((req,res) => {
