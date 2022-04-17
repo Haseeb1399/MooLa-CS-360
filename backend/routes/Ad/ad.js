@@ -4,6 +4,9 @@ const multer = require('multer');
 
 let user = require('../../models/user');
 const path = require('path');
+var mongoose = require("mongoose")
+mongoose.Promise = require('bluebird');
+
 
 const storage =multer.diskStorage({
     destination:'uploads',
@@ -101,6 +104,20 @@ router.route('/marketplace').post((req,res) => {
     //console.log(result)
 })
 
+router.route('/sellerAds/:id').get((req,res)=>{
+    const id=req.params.id
+
+    user.Ad.find({seller_id:id,sold:false}).populate(['animal_id',"seller_id"]).exec((err,response)=>{
+        if(err==null){
+            res.json(response)
+        }else{
+            res.json({error:err})
+        }
+    })
+
+
+})
+
 router.route('/post/animal').post((req,res) => {
     console.log(req.body)
     const type = req.body.breed;
@@ -173,13 +190,14 @@ router.route('/post/animal').post((req,res) => {
                     })
                 }
             })
+
         }
     })
 })
 
 router.route('/getLatestBid/:id').get((req,res)=>{
     const adId = req.params.id;
-    user.bid.find({},(err,data)=>{
+    user.bid.find({ad_id:adId},(err,data)=>{
         if(err){
             res.json({error:err})
         }else{
@@ -207,4 +225,34 @@ router.route('/postbid').post((req,res)=>{
     })
 })
 
+
+router.route("/markSold/:id").post((req,res)=>{
+    const buyerID = req.body.buyer_id
+    const sellPrice = req.body.sellPrice
+
+    user.Ad.findByIdAndUpdate(req.params.id,{
+        buyer_id:buyerID,
+        price:sellPrice,
+        sold:true
+    },function(err,docs){
+        if(err){
+            console.log(err)
+        }else{
+            res.json("Sold!")
+        }
+    })
+})
+
+router.route("/addToBuyer/:id").post((req,res)=>{
+    const ad_id=req.body.ad_id
+    user.Buyer.findOneAndUpdate({reference:req.params.id},{
+        cart:ad_id
+    },function(err,docs){
+        if(err){
+            console.log(err)
+        }else{
+            res.json("Added to Buyers cart!")
+        }
+    })
+})
 module.exports = router;
