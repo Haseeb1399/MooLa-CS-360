@@ -38,10 +38,18 @@ router.route('/active').get((req,res) => {
 })
 
 router.route('/delete/watchlist').post((req,res) => {
-    user.watch.deleteOne({ad_id:req.body._id}, function(err,obj){
-        if(err)console.log(err)
-        else console.log(obj)
+    console.log(req.body)
+    user.watch.findByIdAndDelete({_id:req.body.id},function(err,obj){
+        if(err){
+            console.log(err)
+        }else{
+            console.log(obj)
+        }
     })
+    // user.watch.deleteOne({ad_id:req.body._id}, function(err,obj){
+    //     if(err)console.log(err)
+    //     else console.log(obj)
+    // })
 })
 
 router.route('/watchlist').get((req,res) => {
