@@ -20,6 +20,8 @@ const LoginPage = () => {
 
     axios.post(process.env.REACT_APP_LOCAL_KEY+"/User/login",newObj).then((res)=>{
       if(res.data.error){
+        alert(res.data.error)
+        window.location="/"
         console.log(res.data.error)
       }else{
         localStorage.setItem("accessToken",res.data.token)

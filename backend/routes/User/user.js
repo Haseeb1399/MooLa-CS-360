@@ -140,6 +140,9 @@ router.route('/login').post((req,res)=>{
                 error:"Invalid Email or Password"
             })
         }
+        if(dbUser.verified == false){
+            res.json({error:"User Not Verified! Please check your email and verify!"})
+        }
         bcrypt.compare(userLogginIn.password,dbUser.password).then(isCorrect =>{
             if(isCorrect){
                 const payload={
@@ -179,6 +182,33 @@ router.route('/ban').post(async (req,res)=>{
     })
     
     
+})
+
+
+router.route('/getDetails/:id').get((req,res)=>{
+    user.User.findById(req.params.id).then((data)=>{
+        res.json({data:data})
+    }).catch((err)=>{
+        res.json({error:err})
+    })
+})
+
+router.route('/removePicture/:id').get((req,res)=>{
+    user.User.findByIdAndUpdate(req.params.id,{photo:"null"}).then(data=>{
+        res.json({message:"Photo removed"})
+    }).catch((err)=>{
+        res.json({error:"Internal Error"})
+    })
+})
+
+router.route('/updatePicture/:id').post((req,res)=>{
+    console.log(req.body)
+    const url = req.body.url
+    user.User.findByIdAndUpdate(req.params.id,{photo:url}).then((data)=>{
+        res.json({message:"Photo updated"})
+    }).catch((err)=>{
+        res.json({error:"Internal Error"})
+    })
 })
 
 module.exports = router;

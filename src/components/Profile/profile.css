@@ -95,6 +95,10 @@
     background-color: #f7f1de;
 }
 
+input[type="file"] {
+    display: none;
+}
+
 .select-profile {
     width: 87%;
   }

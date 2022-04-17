@@ -17,7 +17,8 @@ const UserSchema = new Schema( {
     prev_pass: {type: String, required : true},
     permissions: {type: Number, required : true},
     ban_bool: {type: Boolean, required : true},
-    verified:{type:Boolean,default:false}
+    verified:{type:Boolean,default:false},
+    photo:{type:String,default:"null"}
 })
 
 //Permissions:
