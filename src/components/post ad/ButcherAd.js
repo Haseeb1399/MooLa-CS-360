@@ -7,12 +7,14 @@ import axios from "axios"
 import {useState} from "react";
 import storage from '../firebase/firebase'
 import {ref,getDownloadURL,uploadBytesResumable, uploadBytes} from 'firebase/storage'
+import {useNavigate} from 'react-router-dom'
 
 //Sex--> 1=Male, 2=Female
     
 
 
 function PostAd() {
+    const navigate = useNavigate();
     const [weight, setWeight] = useState("");
     const [breed, setBreed] = useState("");
 
@@ -24,9 +26,11 @@ function PostAd() {
         }
         axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/add/butchAd',newObj).then((data)=>{
           console.log(data)
+          navigate('/about')
         }).catch((err)=>{
             console.log(err)
         })
+        
         }
     
 
