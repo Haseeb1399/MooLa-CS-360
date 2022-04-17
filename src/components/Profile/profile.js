@@ -4,11 +4,14 @@ import "./profile.css";
 import {Link} from "react-router-dom";
 import pic from "../../images/profilepic.png"
 import storage from '../firebase/firebase'
+import { useNavigate } from "react-router-dom";
 import {ref,getDownloadURL,uploadBytesResumable, uploadBytes} from 'firebase/storage'
 
-
-
 const Profile = () => {
+    const navigate = useNavigate();
+    function Go() {
+        navigate('/password');   
+    }
     const [userType,setUserType]=useState("")
     const [userName,setUserName]=useState("")
     const [userEmail,setUserEmail]=useState("")
@@ -70,7 +73,9 @@ const Profile = () => {
     }
 
 
+
   return (
+    
     <div class="App">
         <div class="details-container-profile">
             <form class="form-container" id="change-details-form">
@@ -79,8 +84,16 @@ const Profile = () => {
                 <label for="username">Username</label>
                 <input type="text" class="details-input" id="username" value={userName}/>
                 <label for="email">Email</label>
-                <input type="text" class="details-input" id="email" value={userEmail}/>
-                <input type="submit" class="button-profile submit-profile" value="Change Password"/>
+                <input type="text" class="details-input" id="email" value="hi"/>
+                <label for="location">Location</label>
+                <select type="select" class="details-input select-profile" id="location">
+                   {/* add location options here */}
+                    <option value="Lahore">Lahore</option>
+                    <option value="Karachi">Karachi</option>
+                    <option value="Islamabad">Islamabad</option>
+
+                </select>
+                <button onClick={Go} className="changebutton">Change Password</button>
             </form>
         </div>
         <div class="picture-container-profile">

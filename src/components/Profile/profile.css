@@ -28,6 +28,7 @@
 }
 
 .button-profile {
+    text-decoration: none;
     width: 6.25rem;
     height: 1.875rem;
     margin-top: 0.938rem;
@@ -45,6 +46,7 @@
   }
   
   .button-profile:hover {
+    text-decoration: none;
     cursor: pointer;
     border-color: #000;
     background-color: #000;
@@ -109,3 +111,29 @@ input[type="file"] {
       margin-left: 70%;
       margin-right: 10%;
   }
+
+  .changebutton {
+    margin-top: 1rem;
+    margin-left: 70%;
+    margin-top: 0.938rem;
+    height: 1.875rem;
+    align-items: center;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #f7f1de;
+    font-size: 0.938rem;
+    font-weight: bold;
+    transition-duration: 0.4s;
+    border-radius: 0.625rem;
+    border-color: #de7002;
+    background-color: #de7002;
+  }
+  
+  .changebutton:hover {
+    cursor: pointer;
+    border-color: #000;
+    background-color: #000;
+    color: #de7002;
+  }
+  

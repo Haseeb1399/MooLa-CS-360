@@ -2,13 +2,19 @@ import React from "react";
 import "./login.css";
 import { useState } from "react";
 import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
 const LoginPage = () => {
+  const navigator = useNavigate();
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
 
   function Back() {
     window.location = '/'
+  }
+
+  function Go() {
+    navigator('/password')
   }
   
   const submitForm=(event)=>{
@@ -57,6 +63,7 @@ const LoginPage = () => {
       </div>     
       <button onClick={submitForm} className="loginbutton">Login</button>
       <button onClick = {Back} className = "loginButton">Go Back</button>
+      <button onClick = {Go} className = "loginButton">Forgot Password?</button>
     </div>
   );
 };

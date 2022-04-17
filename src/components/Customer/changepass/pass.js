@@ -2,8 +2,15 @@ import React from "react";
 import "./pass.css";
 import { useState } from "react";
 import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
 const ChangePass = () => {
+  const navigate = useNavigate();
+
+  function Move() {
+      navigate('/profile');
+  }
+
   return (
     <div class="App">
       <h1 className="logintitle">CHANGE PASSWORD</h1>
@@ -26,8 +33,8 @@ const ChangePass = () => {
         /> 
       </div>
       <div>
-        <button onClick={submitForm} className="loginbutton">Go Back</button>
-        <button onClick={submitForm} className="loginbutton">Change Password</button>  
+        <button onClick={Move} className="loginbutton">Go Back</button>
+        <button  className="loginbutton">Change Password</button>  
       </div>       
       
     </div>
