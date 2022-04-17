@@ -97,7 +97,7 @@
     background-color: #f7f1de;
 }
 
-input[type="file"] {
+.profile-input {
     display: none;
 }
 

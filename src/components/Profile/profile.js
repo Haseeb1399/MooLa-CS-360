@@ -16,7 +16,7 @@ const Profile = () => {
     const [userName,setUserName]=useState("")
     const [userEmail,setUserEmail]=useState("")
     const [newProfile,setnewProfile]=useState()
-    const [newUrl,setNewUrl]=useState()
+    const [newUrl,setNewUrl]=useState(pic)
     useEffect(()=>{
         axios.get(process.env.REACT_APP_LOCAL_KEY+"/User/getDetails/"+localStorage.getItem("id")).then((data)=>{
             const userData=data.data.data
@@ -29,7 +29,11 @@ const Profile = () => {
             }
             setUserEmail(userData.email)
             setUserName(userData.username)
-            setNewUrl(userData.photo)
+            if(userData.photo == "null"){
+                setNewUrl(pic)
+            }else{
+                setNewUrl(userData.photo)
+            }
         }).catch((err)=>{
             console.log(err)
         })
@@ -38,6 +42,7 @@ const Profile = () => {
     const handleRemovePicture=()=>{
         axios.get(process.env.REACT_APP_LOCAL_KEY+"/User/removePicture/"+localStorage.getItem("id")).then(data=>{
             alert("Photo Removed")
+            window.location="/profile"
         }).catch((err)=>{
             alert("Error Occured!")
         })
@@ -102,10 +107,9 @@ const Profile = () => {
 
                 <a onClick={handleRemovePicture} className="button-profile remove-photo">Remove Photo</a>
                 <label id="file_upload" class="button-profile change-photo">
-                    <input onChange={handlePictureChange}  type="file" />
+                    <input class="profile-input" onChange={handlePictureChange}  type="file" />
                     Change Photo
                 </label>
-                
             </div> 
 
         </div>

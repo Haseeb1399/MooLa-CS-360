@@ -218,14 +218,16 @@ return (
     </div>
 
     <div className='Third'>
+      <label class="uploadButtonAd">
+      <input class ='addImageUpload' onChange={handlePictureChange}  type="file" />
+      Upload Photo
+      </label>
       <div><img className='upload' src={picUrl}  alt="Not uploaded"/></div>
-      <div><input className='custom-file-input' type="file" onChange={handlePictureChange}/></div>
     </div>
-
+    <div className='buttonpos'><button type="submit" className="loginbutton">Post Ad</button></div>
   </div>
-  <br></br>
-  <hr></hr>
-  <div className='buttonpos'><button type="submit" className="loginbutton">Post Ad</button></div>
+  
+  {/* <div className='buttonpos'><button type="submit" className="loginbutton">Post Ad</button></div> */}
 </form>
   
 
