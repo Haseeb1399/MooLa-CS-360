@@ -14,7 +14,7 @@ const LoginPage = () => {
   }
 
   function Go() {
-    navigator('/password')
+    navigator('/forgetPass')
   }
   
   const submitForm=(event)=>{

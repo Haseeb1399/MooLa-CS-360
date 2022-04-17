@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs')
 let user = require('../../models/user');
 const { json } = require('express');
 const sendEmail = require("../../utils/sendEmail")
-const crypto = require("crypto")
+const crypto = require("crypto");
 
 
 function verifyJWT(req,res,next){
@@ -41,6 +41,39 @@ router.route('/updatepass').post((req,res) => {
             res.json({error:err})
         }
     })
+})
+
+router.route('/updatePassForgetPass').post((req,res)=>{
+    const pass=req.body.new
+    const salted=req.body.salted
+    const email=req.body.email
+    user.User.updateOne({email:email},{$set:{password:pass,salt:salted}})
+    .exec((err,response)=>{
+        if(err){
+            res.json({error:err})
+        }else{
+            res.json({data:response})
+        }
+    })
+})
+
+router.route("/checkEmail").get(async (req,res)=>{
+    const email = req.body.email
+    const data = await user.User.findOne({email:email})
+    if(data==null){
+        res.json({error:"Not found"})
+    }else{
+        res.json({data:data})
+    }
+})
+
+router.route('/forgotPass').post((req,res)=>{
+    const email = req.body.email
+    let token = crypto.randomInt(0,9000).toString()
+    const msg = "Your verification code is: "+token
+    sendEmail(email,"Forgot Password",msg)
+    res.json({data:token})
+
 })
 
 router.route('/getpass').post((req,res) => {
