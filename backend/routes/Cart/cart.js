@@ -54,8 +54,8 @@ router.route("/placeOrder").post((req,res)=>{
 router.route("/addToLog/:id").post((req,res)=>{
     
     user.Buyer.findOneAndUpdate(
-        { reference: req.params.id },{cart:null}, 
-        { $push: { log: req.body.ad_id  } },
+        { reference: req.params.id }, 
+        {cart:null, $push: { log: req.body.ad_id  } },
        function (error, success) {
              if (error) {
                  console.log(error);
@@ -66,9 +66,10 @@ router.route("/addToLog/:id").post((req,res)=>{
 })
 
 
-router.route("/getTransaction").get((req,res)=>{
-    user.Buyer.find({reference:req.params.id}).populate(["ad_id"]).exec((err,result)=>{
+router.route("/getTransaction/:id").get((req,res)=>{
+    user.Buyer.find({reference:req.params.id}).populate('log').exec((err,result)=>{
         console.log(result)
+        res.json({res:result})
     })
 })
 
