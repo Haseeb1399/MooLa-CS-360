@@ -9,8 +9,8 @@ import {useState, useEffect} from 'react';
 
 const Marketplace = ()=>{
     const feedDisplay = document.querySelector('#feed');
-    let watch = [];
-    let animals = [];
+    let weight = [];
+    let breed = [];
     let sellers = [];
     const [ads, setAds] = useState([]);
     let type = 0;
@@ -31,9 +31,16 @@ const Marketplace = ()=>{
       },[])
 
 
-    const Submit = (event) => {
-        event.preventDefault()
-        
+    function Submit() {
+        const newObj = {
+            seller_id:sellers[sellers.length - 1],
+            weight: weight[weight.length - 1],
+            breed:breed[breed.length - 1]
+        }
+        axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/butch/watch',newObj).then(function(res) {
+            if(res.data.error) console.log(res.data.error)
+            else console.log("Added to watchlist Butcher")
+        })
     }
 
       return (
@@ -104,10 +111,10 @@ const Marketplace = ()=>{
                         // const [ad_id, setAd] = useState("");
                         
                         
-                        watch.push(val._id);
-                        animals.push(val.animal_id._id);
+                        weight.push(val.weight);
+                        breed.push(val.breed);
                         sellers.push(val.seller_id._id);
-                        console.log(watch)
+                        //console.log(watch)
                         Submit()
                     }
                     return(

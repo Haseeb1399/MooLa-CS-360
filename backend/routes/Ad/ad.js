@@ -56,6 +56,21 @@ router.route('/delete/watchlist').post((req,res) => {
     // })
 })
 
+router.route('/delete/butchlist').post((req,res) => {
+    console.log(req.body)
+    user.ButchWatch.findByIdAndDelete({_id:req.body.id},function(err,obj){
+        if(err){
+            console.log(err)
+        }else{
+            console.log(obj)
+        }
+    })
+    // user.watch.deleteOne({ad_id:req.body._id}, function(err,obj){
+    //     if(err)console.log(err)
+    //     else console.log(obj)
+    // })
+})
+
 router.route('/watchlist').get((req,res) => {
     user.watch.find({})
     .populate(['ad_id','seller_id','animal_id'])
@@ -142,6 +157,32 @@ router.route('/sellerAds/:id').get((req,res)=>{
         }else{
             res.json({error:err})
         }
+    })
+})
+
+router.route('/butch/render').get((req,res) => {
+
+    user.ButchWatch.find({})
+    .populate('seller_id')
+    .exec((err,response)=>{
+        console.log(response)
+        if(err==null){
+            res.json(response)
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
+router.route('/butch/watch').post((req,res) => {
+    const to_save = new user.ButchWatch({
+        seller_id : req.body.seller_id,
+        weight:req.body.weight,
+        breed:req.body.breed
+    })
+    to_save.save(function(err) {
+        if(err) console.log(err)
+        else console.log("Posted to watchlist")
     })
 })
 
