@@ -49,8 +49,8 @@ const Admin = () => {
                 <Popup trigger={<button class="button">Ban a User</button>} position="left center">
                     <form id = "myForm" action = "#" method="post">
                         <div>
-                            <label for = "Username">Username</label>
-                            <input onChange={handleEmail} class="input User Id" placeholder="Enter User Id" type="email" name="Id" id="Id"/>
+                            <label for = "Email">Email</label>
+                            <input onChange={handleEmail} class="input User Id" placeholder="Enter User Email" type="email" name="Id" id="Id"/>
                         </div>
                     </form>
                     <input onClick ={onSubmitId} class ="button" type="submit" form="myform"value="Ban User"/>
@@ -62,7 +62,7 @@ const Admin = () => {
                     <form id = "myForm" action = "#" method="post">
                         <div>
                             <label for = "minimum Price">Minimum Price</label>
-                            <input onChange={handleMinPrice} class="input User Id" placeholder="Enter User Id" type="number" name="Id" id="Id"/>
+                            <input onChange={handleMinPrice} class="input User Id" placeholder="Enter Minimum Price" type="number" name="Id" id="Id"/>
                         </div>
                     </form>
                     <input onClick ={onSubmitPrice} class ="button" type="submit" form="myform"value="Set Price"/>

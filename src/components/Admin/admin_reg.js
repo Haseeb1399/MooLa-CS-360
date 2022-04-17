@@ -14,8 +14,13 @@ const AdminRegistration = () => {
 
   const onSubmit=(event)=>{
     event.preventDefault()
+<<<<<<< HEAD
     if(userName == "" || password == "" || email == "" || email == ""|| phoneNumb == ""){
       navigate('/signup/admin')
+=======
+    if(userName == "" || password == "" || email == "" || email == "" ||  phoneNumb == ""){
+      window.location.reload();
+>>>>>>> 2eb5e4a907ead4b613a56eb6621692cfd728110f
     }
     else {
 

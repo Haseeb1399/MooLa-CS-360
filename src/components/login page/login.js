@@ -42,7 +42,7 @@ const LoginPage = () => {
         }else if(res.data.permission==3){
           window.location="/about"
         }
-        else if(res.data.permission==3){
+        else if(res.data.permission==4){
           window.location="/admin";
         }
       }
