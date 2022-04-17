@@ -212,3 +212,12 @@
   .Watchlist-marketplace:hover {
     opacity: 1;
   }
+
+  label {
+    padding-right: 0%;
+  }
+
+  input {
+    height: auto;
+    width: auto;
+  }

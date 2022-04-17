@@ -14,23 +14,19 @@ const ViewTruck = () => {
         <div className="fsecond">
           <div>Total: Rs price</div>
         </div>
-        
-        <div className="container">
-          
-        </div>
+        <div className="contain">
+          <div className="ffirst">
+            <img className="pic" src={image}></img>           
+          </div>
 
-        <div>
-            {/*image of animal here*/}
-            <div>Advertisement ID: #id here</div>
-            <div>Sex: sex here</div>
-            <div>No. of Teeth: teeth here</div>
-            <div>Weight: weight here</div>
-            <div>Color: colors here</div>
-            <div>Breed: breed here</div>
-            <div>Age: age here</div>
-            <div>injuries: injury here</div>
+          <div className="fsecond info" >
             <div>Price: Rs price here</div>
-            <button>Remove From Truck</button>
+            <button className="gobutton">Go To Advertisement</button> 
+            <button className="removebutton">Remove From Truck</button> 
+          </div>
+            
+        </div>
+        <div className="fillbox">
         </div>
       </div>
 
