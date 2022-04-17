@@ -94,7 +94,7 @@ const Marketplace = ()=>{
                 <input class="button-marketplace" type="submit" form="myform" value="Filter"/>
             
             </div>
-            <div>
+            <div className="posts-container-marketplace">
             {
                 ads.map((val)=>{
                     function add() {
