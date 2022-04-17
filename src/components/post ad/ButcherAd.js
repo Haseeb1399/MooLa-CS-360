@@ -35,7 +35,7 @@ function PostAd() {
         }).catch((err)=>{
             console.log(err)
         })
-        setTimeout(window.location.reload(),2000)
+        setTimeout(window.location.reload(),4000)
         
         }
 return (

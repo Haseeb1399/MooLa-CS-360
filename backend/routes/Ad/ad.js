@@ -120,6 +120,7 @@ router.route('/marketplace').post((req,res) => {
 })
 
 
+
 router.route('/get/butch').get((req,res) => {
     user.ButchAd.find({})
     .populate('seller_id')
@@ -142,6 +143,7 @@ router.route('/sellerAds/:id').get((req,res)=>{
             res.json({error:err})
         }
     })
+})
 
 
 router.route('/add/butchAd').post((req,res) => {
@@ -294,6 +296,5 @@ router.route("/addToBuyer/:id").post((req,res)=>{
             res.json("Added to Buyers cart!")
         }
     })
-})
 })
 module.exports = router;
