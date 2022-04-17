@@ -23,7 +23,7 @@ import Password from './components/Customer/changepass/pass'
 import ForgetPass from './components/forgetPass/forgetPass';
 import ViewListing from './components/Seller/view_listings/viewlistings';
 import Request from './components/Butcher/requests/requests';
-import ButchAd from './components/post ad/PostAd'
+import ButchAd from './components/post ad/ButcherAd'
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
 // import { useEffect, useState } from 'react';
