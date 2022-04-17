@@ -27,7 +27,12 @@ import ButchAd from './components/post ad/ButcherAd'
 import AdminRegistration from './components/Admin/admin_reg';
 import SellerBidPage from './components/Seller/viewOwnAd/Sellerbid'
 import Butch from './components/post ad/ButcherAd'
+<<<<<<< HEAD
+import ButhcherBid from './components/Butcher/requests/bid';
+ 
+=======
 import WatchListButcher from './components/Butcher/requests/watch'
+>>>>>>> 1f7b9f98dc27d01055f1c44d88ab6fbb7d8fdd29
 // import ButchAd from './components/post ad/ButcherAd'
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
@@ -69,6 +74,7 @@ function App() {
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
       <Route path='/view/truck'element={<ViewTruck/>}/>
+      <Route path='/view/ButcherAdd' element={<ButhcherBid/>}/>
       <Route path='/transactionlog'element={<TransactionLog/>}/>
       <Route path='/admin'element={<Admin/>}/>
       <Route path='/view/animalAdd' element={<Bid/>}/>

@@ -10,7 +10,7 @@
   .filter-marketplace {
     float: left;
     margin-top: 6.25rem;
-    height: 33.438rem;
+    height: 23.313rem;
     width: 20%;
     border: 0.125rem solid #DE7002;
     
@@ -190,8 +190,8 @@
     }
   
     .body-text-marketplace {
-      width: 100%;
-      font-size: 0.75rem;
+      width: 17.5rem;
+      font-size: 1rem;
       text-align: left;
       margin-left: 1.25rem;
       margin-top: 0.125rem;

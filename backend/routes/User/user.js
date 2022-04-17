@@ -27,6 +27,17 @@ function verifyJWT(req,res,next){
     }
 }
 
+router.route('/getban').post((req,res) => {
+    user.User.find({email:req.body.email}).exec((err,response)=>{
+        if (err == null)
+        {
+            res.json(response);
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
 router.route('/updatepass').post((req,res) => {
     const type = req.body.type
     const pass = req.body.new
