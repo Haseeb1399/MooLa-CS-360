@@ -160,9 +160,7 @@ router.route('/add').post((req,res) => {
                 const address = req.body.address;
                 const phone = req.body.phone;
                 const email = req.body.email;
-                const numSold=req.body.numSold
-                const rating=req.body.rating
-                const new_admin = new user.Seller({reference:new_user._id,name:name,phone:phone,address:address,email:email,numberOfAnimalsSold:numSold,rating:rating})
+                const new_admin = new user.Admin({reference:new_user._id,name:name,phone:phone,email:email})
                 new_admin.save((err)=>{
                     if(err){
                         console.log(err)

@@ -24,6 +24,7 @@ import ForgetPass from './components/forgetPass/forgetPass';
 import ViewListing from './components/Seller/view_listings/viewlistings';
 import Request from './components/Butcher/requests/requests';
 import ButchAd from './components/post ad/ButcherAd'
+import AdminRegistration from './components/Admin/admin_reg';
 // import {authContext} from './Helpers/authContext'
 // import {setPermissionContext} from './Helpers/setPermissions'
 // import { useEffect, useState } from 'react';
@@ -53,6 +54,7 @@ function App() {
       <Route path='/signup/butcher' element={<ButcherRegistration/>}/>
       <Route path='/signup/seller' element={<SellerRegistration/>}/>
       <Route path='/signup/customer' element={<CustomerRegistration/>}/>
+      <Route path='/signup/admin' element={<AdminRegistration/>}/>
       <Route path='/buyer/main' element={<CustomerLanding/>}/>
       <Route path='/butcher/main' element={<ButcherLanding/>}/>
       <Route path='/seller/main' element={<SellerLanding/>}/>

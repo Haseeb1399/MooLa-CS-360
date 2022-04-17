@@ -26,6 +26,7 @@ const UserSchema = new Schema( {
 //Buyer:1
 //Butcher:2
 //Seller:3
+//Admin: 4
 
 const BuyerSchema = new Schema( {
     reference: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -47,7 +48,6 @@ const ButcherSchema = new Schema( {
 const AdminSchema = new Schema( {
   reference: { type: Schema.Types.ObjectId, ref: 'User' },
   name: {type: String, required :true},
-  address: {type: String, required : true},
   phone: {type: String, required : true},
   email: {type: String, required : true},
 })
