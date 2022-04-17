@@ -49,21 +49,25 @@ const LoginPage = () => {
   return (
     <div class="App">
       <h1 className="logintitle">LOGIN</h1>
-      <div className="pls">
-        <label placeholder="Type Here" className="logintext">Email</label>
+      <div>
+        <label placeholder="Type Here" >Email</label>
         <input onChange={(event)=>setEmail(event.target.value)}
           type="text"
         />
       </div>
-      <div className="pls">
-        <label placeholder="Type Here" className="logintext">Password</label>
+      <div>
+        <label placeholder="Type Here" >Password</label>
         <input onChange={(event)=>setPassword(event.target.value)}
           type="password"
         /> 
-      </div>     
-      <button onClick={submitForm} className="loginbutton">Login</button>
-      <button onClick = {Back} className = "loginButton">Go Back</button>
-      <button onClick = {Go} className = "loginButton">Forgot Password?</button>
+      </div>    
+      <div>
+        <button onClick={submitForm} className="loginbutton">Login</button>
+      </div> 
+      <div>
+        <button onClick = {Back} className = "loginbutton">Go Back</button>
+        <button onClick = {Go} className = "loginbutton">Forgot Password?</button>
+      </div>
     </div>
   );
 };
