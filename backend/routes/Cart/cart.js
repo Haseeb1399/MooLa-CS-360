@@ -65,7 +65,12 @@ router.route("/addToLog/:id").post((req,res)=>{
          });
 })
 
-router.route("/getTransaction")
+
+router.route("/getTransaction").get((req,res)=>{
+    user.Buyer.find({reference:req.params.id}).populate(["ad_id"]).exec((err,result)=>{
+        console.log(result)
+    })
+})
 
 
 module.exports = router;

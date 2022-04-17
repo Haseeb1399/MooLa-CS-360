@@ -46,7 +46,7 @@ const BuyerSchema = new Schema( {
     phone: {type: String, required : true},
     email: {type: String, required : true},
     cart:{type:Schema.Types.ObjectId,ref:'Ad'},
-    log:[Schema.Types.ObjectId]
+    log:[{type:Schema.Types.ObjectId,ref:"Ad"}]
 })
 const ButcherSchema = new Schema( {
   reference: { type: Schema.Types.ObjectId, ref: 'User' },

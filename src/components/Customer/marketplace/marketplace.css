@@ -213,9 +213,13 @@
     opacity: 1;
   }
 
-   .checkcontainer-marketplace input {
-    width: auto;
+  label {
+    padding-right: 0%;
+  }
+
+  input {
     height: auto;
+    width: auto;
   }
 
   .rembutton {
