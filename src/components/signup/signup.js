@@ -23,10 +23,12 @@ const Signup = () => {
         <img src={seller} className="pic middle" />
         <Link to ='/signup/seller'><button className="buttons">Seller</button></Link>
       </div>    
-
       <div className="signup">
         <img src={butcher} className="pic right" />
         <Link to ='/signup/butcher'><button className="buttons">Butcher</button></Link>
+      </div>  
+      <div className="signup">
+        <Link to ='/signup/admin'><button className="button-admin">Become an Admin</button></Link>
       </div>  
       <Link to = '/'> <button className="backbutton">Go Back</button></Link>    
     </div>

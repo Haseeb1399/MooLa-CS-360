@@ -34,12 +34,16 @@ const LoginPage = () => {
         localStorage.setItem("permission",res.data.permission)
         localStorage.setItem("id",res.data.id)
         localStorage.setItem("username",res.data.username)
+        console.log(res.data.permission)
         if(res.data.permission == 1){
           window.location="/about"
         }else if(res.data.permission==2){
           window.location="/about"
         }else if(res.data.permission==3){
           window.location="/about"
+        }
+        else if(res.data.permission==3){
+          window.location="/admin";
         }
       }
     })
