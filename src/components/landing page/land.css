@@ -4,7 +4,7 @@
 
 .landingtitle {
   position: relative;
-  bottom: 3.125rem;
+  bottom: 5.125rem;
   display: flex;
   color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -15,24 +15,24 @@
 
 .landinglogo {
   position: relative;
-  bottom: 3.125rem;
+  bottom: 12.125rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 360px;
-  width: 640px;
+  height: 22.5rem;
+  width: 40rem;
 }
 
 .loginleft {
   position: relative;
-  bottom: 100px;
+  bottom: 12.25rem;
   width: 50%;
   float: left;
 }
 
 .loginright {
   position: relative;
-  bottom: 100px;
+  bottom: 12.25rem;
   width: 50%;
   float: right;
 }
@@ -50,10 +50,10 @@
 
 .loginbuttons {
   position: relative;
-  bottom: 20px;
-  width: 100px;
-  height: 30px;
-  margin-top: 15px;
+  bottom: 1.25rem;
+  width: 6.25rem;
+  height: 1.875rem;
+  margin-top: 0.938rem;
   align-items: center;
   color: #000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
