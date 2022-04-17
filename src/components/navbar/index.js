@@ -26,9 +26,7 @@ import {
 
       return (
         <Nav>
-          <NavLink to='/'>
             <img src={logo} style={{height: "60px"}} />
-          </NavLink>
           <Bars />
           <NavMenu>
             <NavLink to='/about' activestyle>
@@ -40,9 +38,9 @@ import {
             <NavLink to='/contact-us' activestyle>
               Active Listings
             </NavLink>
-            <NavLink to='/temp' activestyle>
+            {/* <NavLink to='/temp' activestyle>
               Past Listings
-            </NavLink>
+            </NavLink> */}
             <NavLink to='/profile' activestyle>
               Profile
             </NavLink>
@@ -56,9 +54,7 @@ import {
     else if (localStorage.getItem("permission") == 2){
       return (
         <Nav>
-          <NavLink to='/'>
-            <img src={logo} style={{height: "60px"}} />
-          </NavLink>
+          <img src={logo} style={{height: "60px"}} />
           <Bars />
           <NavMenu>
             <NavLink to='/about' activestyle>
@@ -67,7 +63,7 @@ import {
             <NavLink to='/temp4' activestyle>
               Requests
             </NavLink>
-            <NavLink to='/temp5' activestyle>
+            <NavLink to='/watchlist' activestyle>
               WatchList
             </NavLink>
             <NavLink to='/temp6' activestyle>
@@ -86,9 +82,7 @@ import {
     else if (localStorage.getItem("permission") == 1) {
       return (
         <Nav>
-          <NavLink to='/'>
-            <img src={logo} style={{height: "60px"}} />
-          </NavLink>
+          <img src={logo} style={{height: "60px"}} />
           <Bars />
           <NavMenu>
             <NavLink to='/about' activestyle>
@@ -100,7 +94,7 @@ import {
             <NavLink to='/post/animal' activestyle>
               Butchers
             </NavLink>
-            <NavLink to='/temp6' activestyle>
+            <NavLink to='/watchlist' activestyle>
               WatchList
             </NavLink>
             <NavLink to='/transactionlog' activestyle>

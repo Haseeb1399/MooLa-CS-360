@@ -23,6 +23,61 @@ const fileFilter = (req, file, cb) => {
 }
 let upload = multer({ storage, fileFilter });
 
+
+router.route('/active').get((req,res) => {
+    user.Ad.find({sold:req.body.sold})
+    .populate(['animal_id','seller_id'])
+    .exec((err,response) => {
+        if (err == null)
+        {
+            res.json({message:response});
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
+router.route('/delete/watchlist').post((req,res) => {
+    user.watch.deleteOne({ad_id:req.body._id}, function(err,obj){
+        if(err)console.log(err)
+        else console.log(obj)
+    })
+})
+
+router.route('/watchlist').get((req,res) => {
+    user.watch.find({})
+    .populate(['ad_id','seller_id','animal_id'])
+    .exec((err,response) => {
+        if (err == null)
+        {
+            res.json({message:response});
+        }else{
+            res.json({error:err})
+        }
+    })
+})
+
+
+
+router.route('/post/watchlist').post((req,res) => {
+    console.log(req.body)
+    const a_id = req.body.a_id;
+    const b_id = req.body.b_id;
+    const animal_id = req.body.animal_id;
+    const seller_id = req.body.seller_id;
+    const new_list = user.watch({
+        ad_id :a_id,
+        buyer_id : b_id,
+        animal_id:animal_id,
+        seller_id:seller_id
+    });
+    new_list.save(function (err) {
+        if(err) res.json({error:err})
+        else res.json({message:"added to watchlist"})
+    })
+})
+
+
 router.route('/marketplace').get((req,res) => {
     user.Ad.find({})
     .populate(['animal_id',"seller_id"])
@@ -90,7 +145,7 @@ router.route('/post/animal').post((req,res) => {
                     res.json({error:err})
                 }
                 else {
-                    const val = req.body.val;
+                    const val = req.body.price;
                     const butcher = 0;
                     const bid_type = false;
                     if (req.body.addType == 1) bid_type = true; //customer has a true bid_type and seller has false bid_type
@@ -100,7 +155,8 @@ router.route('/post/animal').post((req,res) => {
                         seller_id:seller,
                         buyer_id:null,
                         butcher_id:butcher,
-                        bid_type:bid_type
+                        bid_type:bid_type,
+                        bid_value_original:val,
                     })
                     new_bid.save(function(err) {
                         if(err) res.json({error:err})
@@ -112,8 +168,34 @@ router.route('/post/animal').post((req,res) => {
     })
 })
 
+router.route('/getLatestBid/:id').get((req,res)=>{
+    const adId = req.params.id;
+    user.bid.find({},(err,data)=>{
+        if(err){
+            res.json({error:err})
+        }else{
+            res.json(data)
+        }
+    })
+})
 
 
-
+router.route('/postbid').post((req,res)=>{
+    console.log(req.body)
+    const bidValue = req.body.newBid;
+    const bidID=req.body.id;
+    const buyerId=req.body.buyer_id
+    user.bid.findByIdAndUpdate({_id:bidID},{
+        bid_value:bidValue,
+        buyer_id:buyerId
+    },(err,doc)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(doc);
+            res.json({msg:"Bid Updated",value:bidValue})
+        }
+    })
+})
 
 module.exports = router;

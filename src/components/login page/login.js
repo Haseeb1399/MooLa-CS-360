@@ -6,6 +6,10 @@ import axios from "axios";
 const LoginPage = () => {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+
+  function Back() {
+    window.location = '/'
+  }
   
   const submitForm=(event)=>{
     event.preventDefault()
@@ -50,6 +54,7 @@ const LoginPage = () => {
         /> 
       </div>     
       <button onClick={submitForm} className="loginbutton">Login</button>
+      <button onClick = {Back} className = "loginButton">Go Back</button>
     </div>
   );
 };

@@ -26,6 +26,7 @@ const Signup = () => {
         <img src={butcher} className="pic right" />
         <Link to ='/signup/butcher'><button className="buttons">Butcher</button></Link>
       </div>      
+      <Link to = '/'> <button className="buttons">Go Back</button></Link>
     </div>
   );
 };
