@@ -51,18 +51,12 @@ const ViewTruck = () => {
           </div>
 
           <div className="fsecond info" >
-<<<<<<< HEAD
-            <div>Price: Rs price here</div>
-            <button className="removebutton">Go To Advertisement</button> 
-            <button className="removebutton">Remove From Truck</button> 
-=======
             <div>Price: {animal.cart.price}</div>
             <Link to = {'/view/animalAdd'} state={{data:animal.cart}}>
             Go to Advertisement
             </Link>
             {/* <button className="gobutton">Go To Advertisement</button>  */}
             <button onClick={handleRemove} className="removebutton">Remove From Truck</button> 
->>>>>>> 02154294162cb4a628d781399d2ee553778a1ceb
           </div>
             
         </div>
@@ -72,7 +66,6 @@ const ViewTruck = () => {
 
       <div className="second">
         <div className="info2">Please select one of the following</div>
-        <div className="sfirst info2"> 
           <label className="label1 info2">
             <input className="info2" type="radio"></input>
             Home Delivery
@@ -84,13 +77,10 @@ const ViewTruck = () => {
           <div className="info2">Subtotal</div>
           <div className="info2">Delivery Fees</div>
           <div className="info2">Total</div>
-        </div>
 
-        <div className="ssecond">
           <div className="info3">Rs sub</div><br></br>
           <div className="info3">Rs df</div><br></br>
           <div className="info3">Rs total</div>
-        </div>
         <div><button className="placebutton">Place Order</button></div>
       </div>
     </div>
