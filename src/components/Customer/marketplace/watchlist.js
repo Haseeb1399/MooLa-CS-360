@@ -10,6 +10,7 @@ import {useState, useEffect} from 'react';
 const WatchList = () => {
     const navigate = useNavigate();
     const [watchList, setWatch] = useState([]);
+    const [NullState,setNullState]=useState("")
     let to_remove;
     useEffect(()=>{
         axios.get(process.env.REACT_APP_LOCAL_KEY+'/Ad/watchlist',{}).then(function (res) {
@@ -23,17 +24,18 @@ const WatchList = () => {
         })
       },[])
 
-      function Remove() {
-          const newObj = {"_id":to_remove}
-          axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/delete/watchlist',newObj).then(function(res) {
-              if(res.data.err){
-                  console.log(res.data.err);
-                  
-              }
-              else console.log(res.data)
-          })
-          window.location.reload()
-      }
+      async function Remove(to_remove) {
+          console.log(to_remove)
+          const newObj = {"id":to_remove}
+          axios.post(process.env.REACT_APP_LOCAL_KEY+'/Ad/delete/watchlist',newObj).then((data)=>{
+              console.log(data)
+            }).catch((err)=>{
+                console.log(err)
+            })
+            alert("Watchlisted Ad Removed!")
+            window.location.reload()
+          
+      } 
 
       return (
         <div class="App">
@@ -100,9 +102,9 @@ const WatchList = () => {
                   watchList.map((val)=>{
                     //console.log(val)
                     function Remove1() {
-                        to_remove = val.ad_id._id
-                        console.log(to_remove)
-                        Remove()
+                        to_remove = val._id
+                        console.log(val._id)
+                        Remove(to_remove)
                     }
                     return(
                         <div class="posts-marketplace">
@@ -116,7 +118,6 @@ const WatchList = () => {
                             </div>
 
                             <img id="myimg" src={val.ad_id.photo} class="post-picture-marketplace" />
-                            {console.log(val.photo)}
                             <div class="post-body-marketplace">
                             <div class="body-lines-marketplace">
                                 <div class="body-text-marketplace">Sex: {val.animal_id.sex} </div>
