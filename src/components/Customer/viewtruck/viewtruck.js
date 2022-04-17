@@ -66,7 +66,6 @@ const ViewTruck = () => {
 
       <div className="second">
         <div className="info2">Please select one of the following</div>
-        <div className="sfirst info2"> 
           <label className="label1 info2">
             <input className="info2" type="radio"></input>
             Home Delivery
@@ -78,13 +77,10 @@ const ViewTruck = () => {
           <div className="info2">Subtotal</div>
           <div className="info2">Delivery Fees</div>
           <div className="info2">Total</div>
-        </div>
 
-        <div className="ssecond">
           <div className="info3">Rs sub</div><br></br>
           <div className="info3">Rs df</div><br></br>
           <div className="info3">Rs total</div>
-        </div>
         <div><button className="placebutton">Place Order</button></div>
       </div>
     </div>
