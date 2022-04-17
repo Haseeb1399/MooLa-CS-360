@@ -44,6 +44,7 @@ function PostAd() {
           getDownloadURL(ref(storage,storageRef.fullPath)).then(
             (url)=>{
               console.log(url)
+              console.log(breed)
               const newObj={
                 "photo":url,
                 "sex":sex,
@@ -81,6 +82,10 @@ function PostAd() {
       setAddImage(event.target.files[0])
     }
 
+    const handleAnimalChange = (event) => {
+      setBreed(event.target.value)
+    }
+
 
 
   const sexes = [
@@ -104,7 +109,7 @@ return (
         <label className="logintext">Animal Type</label>
       </div>
       <div>
-        <Select onChange={handleSexChange} options={types}/>
+        <Select onChange ={(event) => setBreed(event.value)} options={types}/>
       </div>
 
       <div>
