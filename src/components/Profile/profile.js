@@ -2,11 +2,15 @@ import React from "react";
 import "./profile.css";
 import {Link} from "react-router-dom";
 import pic from "../../images/profilepic.png"
-
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-
+    const navigate = useNavigate();
+    function Go() {
+        navigate('/password');   
+    }
   return (
+    
     <div class="App">
         <div class="details-container-profile">
             <form class="form-container" id="change-details-form">
@@ -26,7 +30,7 @@ const Profile = () => {
                     <option value="Islamabad">Islamabad</option>
 
                 </select>
-                <a href = '/password' type="submit" class="button-profile submit-profile" >Change Password</a>
+                <button onClick={Go} className="changebutton">Change Password</button>
             </form>
         </div>
         <div class="picture-container-profile">
