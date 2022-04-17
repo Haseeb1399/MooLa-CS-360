@@ -27,8 +27,8 @@ import ButchAd from './components/post ad/ButcherAd'
 import AdminRegistration from './components/Admin/admin_reg';
 import SellerBidPage from './components/Seller/viewOwnAd/Sellerbid'
 import Butch from './components/post ad/ButcherAd'
-// import ButhcherBid from './components/Butcher/requests/bid';
-// import WatchListButcher from './components/Butcher/requests/watch';
+import ButhcherBid from './components/Butcher/requests/bid';
+import WatchListButcher from './components/Butcher/requests/watch';
 // import WatchList from './comp/onents/Customer/marketplace/watchlist';
  
 // import ButchAd from './components/post ad/ButcherAd'
