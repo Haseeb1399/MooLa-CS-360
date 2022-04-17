@@ -4,27 +4,10 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require('bcryptjs')
 let user = require('../../models/user');
 const { json } = require('express');
+const sendEmail = require("../../utils/sendEmail")
+const crypto = require("crypto")
 
-// let multer = require('multer');
 
-// const Storage = multer.diskStorage({
-//     destination:'./FileStorage',
-//     filename:(req,file,cb)=>{
-//         const fileName = file.originalname.toLocaleLowerCase().split(" ").join('-')
-//         cb(null,Date.now()+fileName)
-//     }
-// })
-// const upload =multer({
-//     storage:Storage,
-//     fileFilter:(req,file,cb)=>{
-//         if(file.mimetype=="image/png" || file.mimetype=="image/jpeg" || file.mimetype=="image/jpg"){
-//             cb(null,true)
-//         }else{
-//             cb(null,false)
-//             return cb(new Error("Invalid Image File Format"))
-//         }
-//     }
-// })
 function verifyJWT(req,res,next){
     const token=req.headers["accesstoken"]
     if(token){
@@ -114,11 +97,40 @@ router.route('/add').post((req,res) => {
                 })
             }
         }
-        
+
+        const token = new user.Token({
+          userId:new_user._id,
+          token:crypto.randomBytes(32).toString("hex")
+        }).save().then(res=>{
+        console.log(res)
+        const url = `${process.env.BASE_URL}/User/${new_user._id}/verify/${res.token}`;
+        sendEmail(new_user.email,"Verify Email",url);
+        })
     })
 
     
 })
+
+router.route('/:id/verify/:token').get(async(req,res)=>{
+
+    try{
+        const findUser = await user.User.findOne({_id:req.params.id});
+        if(!findUser) return res.status(400).send({message:"Invalid Link"})
+
+        const token = await user.Token.findOne({
+            userId:findUser._id,
+            token:req.params.token
+        })
+        if(!token) return res.status(400).send({message:"Token does not exist"})
+        await user.User.updateOne({_id:user._id,verified:true});
+        await token.remove()
+        res.status(200).send({message:"Email Verified Success"})
+    }catch(err){
+        console.log(err)
+        res.status(500).send({message:"Internal Server Error"})
+    }
+})
+
 
 router.route('/login').post((req,res)=>{
     const userLogginIn = req.body

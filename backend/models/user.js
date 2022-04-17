@@ -17,6 +17,7 @@ const UserSchema = new Schema( {
     prev_pass: {type: String, required : true},
     permissions: {type: Number, required : true},
     ban_bool: {type: Boolean, required : true},
+    verified:{type:Boolean,default:false}
 })
 
 //Permissions:
@@ -130,6 +131,12 @@ const WatchListSchema = new Schema({
   animal_id:{type: Schema.Types.ObjectId, ref:"Animal"}
 })
 
+const TokenSchema = new Schema({
+  userId:{type:Schema.Types.ObjectId,required:true,ref: "User"},
+  token:{type:String,required:true},
+  createdAt:{type:Date,default:Date.now(),expires:3600}
+})
+
 
 const User = mongoose.model('User', UserSchema);
 const Buyer = mongoose.model('Buyer',BuyerSchema);
@@ -140,8 +147,9 @@ const Ad1 = mongoose.model('Ad1',AdSchema1)
 const animal = mongoose.model('Animal',AnimalSchema);
 const bid = mongoose.model('Bid', BidSchema);
 const watch = mongoose.model('Watch', WatchListSchema);
+const Token = mongoose.model('Token',TokenSchema)
 // module.exports = mongoose.model('Buyer', BuyerSchema);
 // module.exports = User;
 module.exports = {
-    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch
+    User, Buyer,Butcher,Seller,Ad,animal,bid,Ad1, watch,Token
 }
