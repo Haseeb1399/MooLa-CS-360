@@ -1,0 +1,6 @@
+.posts-container-viewlistings {
+    display: flex;
+    gap: 3.125rem;
+    flex-wrap: wrap;
+    float: left;
+}
